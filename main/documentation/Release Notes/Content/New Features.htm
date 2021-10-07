@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="4" MadCap:lastHeight="1116" MadCap:lastWidth="1191">
+    <head>
+        <link href="Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF">New features and fixed issues</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">New features and fixed issues</h2>
+        <p class="Body">SQL admin toolset 1.7 provides the following new features and fixed issues.</p>
+        <h2 class="Heading2">1.7 New Features</h2>
+        <p class="Body">There are no new features in this release. </p>
+        <h2 class="Heading2">1.7 Fixed Issues</h2>
+        <p class="DefinitionListTerm">Backup Status tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16820</MadCap:conditionalText>This release corrects an issue causing the Backup Status tool to unnecessarily increase memory consumption.</li>
+        </ul>
+        <p class="DefinitionListTerm">SQL&#160;Search tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16529</MadCap:conditionalText> This release corrects an issue causing the SQL&#160;Search tool to include excerpts that did not contain the search string..</li>
+        </ul>
+        <p class="DefinitionListTerm">SQL&#160;Discovery tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5182</MadCap:conditionalText> The SQL&#160;Discovery tool now displays only a single error message when a user scans a list of computers and one or more of the servers is unreachable.</li>
+        </ul>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16466</MadCap:conditionalText> The SQL&#160;discovery tool no longer crashes when opened in a Windows 7 or Windows 2008 R2 environment.</li>
+        </ul>
+        <p class="DefinitionListTerm">Connection Check tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16925</MadCap:conditionalText> The Server Health Check function of the Connection Check tool now properly connects with SQL Server authentication credentials.</li>
+        </ul>
+        <p class="DefinitionListTerm">Multi Query tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16610</MadCap:conditionalText> This release fixes a possible handle leak in the Multi Query tool.</li>
+        </ul>
+        <p class="DefinitionListTerm">Database Mover tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16478</MadCap:conditionalText> This release corrects an issue causing the Database Mover tool to lock when copying a large database.</li>
+        </ul>
+        <p class="DefinitionListTerm">User Clone tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16468</MadCap:conditionalText> The User Clone tool now properly clones explicit permissions for a database.</li>
+        </ul>
+        <p class="DefinitionListTerm">Job Mover tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19116</MadCap:conditionalText> This release corrects an issue preventing the Job Mover tool from copying the job output file settings.</li>
+        </ul>
+        <p class="DefinitionListTerm">Quick Reindex tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5201</MadCap:conditionalText> Users who run an edition of SQL&#160;Server that supports online index rebuilding now can use that feature in the Quick Reindex tool.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19159</MadCap:conditionalText> The Quick Reindex tool now includes the <span class="GUI_Item">Fill Factor</span> column in the SQL&#160;Server 2000 version.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5148 and US5151</MadCap:conditionalText> If you want to rebuild multiple indexes with varying fill factor settings, the Quick Reindex tool allows you to retain the current setting of each index by selecting the <span class="GUI_Item">Current Fill Factor</span> option in the <span class="GUI_Item">Index Settings</span> area. Note that the index list also includes the <span class="GUI_Item">Fill Factor</span> column for you to quickly view the fill factor settings of each index.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5724</MadCap:conditionalText> This release corrects an issue causing the Quick Reindex tool to use the old <b>Fill Factor</b> entry when the entry is manually changed on the back end without first loading the index statistics.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16542</MadCap:conditionalText> This release corrects an issue causing the Quick Reindex tool to display an incorrect fragmentation percentage.</li>
+        </ul>
+        <p class="DefinitionListTerm">Partition Generator tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5163</MadCap:conditionalText> The Partition Generator tool no longer displays an error message when a user attempts to use the tool on servers running SQL&#160;Server 2008 R2 Data Center Edition.</li>
+        </ul>
+        <p class="DefinitionListTerm">Inventory Reporter tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16465</MadCap:conditionalText> This release corrects an issue causing the Inventory Reporter tool to show an exception error when you have the <span class="GUI_Item">Show Servers as Rows</span> option turned on, and then click <span class="GUI_Item">Copy</span>.</li>
+        </ul>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16518</MadCap:conditionalText> This release corrects an issue causing the Inventory Reporter tool to switch the results of the <span class="GUI_Item">Minimum SQL&#160;Server Memory</span> and <span class="GUI_Item">Maximum SQL&#160;Server Memory</span> columns.</li>
+        </ul>
+        <p class="DefinitionListTerm">Index Analyzer tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16455</MadCap:conditionalText> The Index Analyzer tool now properly displays the <span class="GUI_Item">Fill Factor</span> column to display statistics for analyzed indexes.</li>
+        </ul>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16629 and 19157</MadCap:conditionalText> This release corrects an issue causing the Index Analyzer tool to show an exception error when you type an alphabetic character into the <span class="GUI_Item">Hide Indexes under <cite>X</cite>&#160;rows</span> field.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19155</MadCap:conditionalText> Corrected an issue preventing the proper function of the <span class="GUI_Item">Hide Non-Clustered Indexes</span> check box.</li>
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE19156 and DE19426</MadCap:conditionalText> The Index Analyzer tool now displays an accurate <b>Selectivity</b> percentage and the correct total number of records displayed.</li>
+        </ul>
+        <p class="DefinitionListTerm">Space Analyzer tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">US5202 and US5154</MadCap:conditionalText> The new <span class="GUI_Item">Auto Unit</span> field in the Space Analyzer tool allows you to select the unit of measurement that best displays your results.</li>
+        </ul>
+        <p class="DefinitionListTerm">Server Statistics tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE17838</MadCap:conditionalText> The Server Statistics tool now returns all the correct data when connected to a SQL&#160;server 2012 database.</li>
+        </ul>
+        <p class="DefinitionListTerm">Server Ping tool</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">
+                <MadCap:conditionalText MadCap:conditions="Default.Internal Use Only">DE16625</MadCap:conditionalText> This release corrects an issue causing the Server Ping tool to show an exception to SQL&#160;Server 2000 Enterprise Manager users with a local server.</li>
+        </ul>
+        <p class="Body">&#160;</p>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="ToolSet" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Administration Tools">
+    <!-- saved from url=(0014)about:internet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Query multiple SQL Server instances and databases using Idera SQL admin toolset</title>
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a><a name="kanchor22"></a>Multi Query</h1>
+        <p class="Body">The Multi Query tool helps you easily query multiple SQL&#160;Server instances and databases across your enterprise. With this tool, you can run T-SQL&#160;scripts to perform any command supported by SQL&#160;Server. For example, you can compare data points across instances or deploy a schema change across databases.</p>
+        <p class="Body">The Multi Query tool helps you:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">Run ad-hoc queries to make quick changes on multiple instances and databases.</li>
+            <li class="Bullet" value="2">Run existing queries to perform routine tasks or schema maintenance.</li>
+            <li class="Bullet" value="3">Use queries to compare data points from multiple instances and databases.</li>
+            <li class="Bullet" value="4">Create and reuse target lists of the instances and databases on which a query should act.</li>
+            <li class="BulletLast" value="5">Save the returned result sets to track statistics or object properties over time.</li>
+        </ul>
+        <h2 class="Heading2">How the Multi Query tool works</h2>
+        <p class="Body">Run the Multi Query tool on your instances and select a database. If you do not specify a database, the Multi Query tool connects to and runs the query on the default database configured in SQL&#160;Server.</p>
+        <p class="Body">Use the Query Options to narrow the scope of the returned result set and improve performance when running queries that return more results than you expected, are run against many different targets, or contain complex functions.</p>
+        <p class="Body">By default, Multi Query     <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then runs the specified query against those instances.</p>
+        <h2 class="Heading2">Use the Multi Query tool</h2>
+        <p class="StepIntro">To create a query target list using the Multi Query tool:</p>
+        <ol>
+            <li class="NumberedList" value="1">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Multi Query</span>.</li>
+            <li class="NumberedList" value="2">On the Query Targets task bar, click <span class="GUI_Item">Add</span>.</li>
+            <li class="NumberedList" value="3">Search for and then select the SQL Server instance or server group that you want to query. To specify multiple SQL Servers or server groups, separate each name with a semicolon.</li>
+            <li class="NumberedList" value="4">Select the authentication type you want the Multi Query tool to use to connect to these instances.</li>
+            <li class="NumberedList" value="5"><em>Optional</em>. Click <span class="GUI_Item">Test Connection</span> to verify that you can connect using the entered authentication specifics.</li>
+            <li class="NumberedList" value="6">Indicate whether you want the Multi Query tool to act on the default database (as defined in SQL&#160;Server) or a specific database.</li>
+            <li class="NumberedList" value="7">Click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList" value="8">On the Query Targets task bar, click  <span class="GUI_Item">Save</span>. Consider specifying a name that correlates with the queries you intend to run against this list of targets.</li>
+        </ol>
+        <p class="StepIntro">To run a query using the Multi Query tool:</p>
+        <ol>
+            <li class="NumberedList" value="1"> In the Query Targets pane, specify which instances and databases that you want the query to target. You can specify new targets by clicking <span class="GUI_Item">Add</span>, or use an existing target by clicking <span class="GUI_Item">Open</span>, and then searching for and selecting the appropriate target.</li>
+            <li class="NumberedList" value="2">In the Query pane, enter the query you want to run. You can type an ad-hoc query in the provided text pane, or run an existing script by clicking <span class="GUI_Item">Open</span>, and then searching for and selecting the appropriate script.</li>
+            <li class="NumberedList" value="3"><span class="If_Then_Statement">If you want to run your query against all the listed targets</span>, click <span class="GUI_Item">Execute Query</span>. <span class="If_Then_Statement">If you want to run your query against specific targets</span>, click <span class="GUI_Item">Execute Against Selected Query Targets</span>.</li>
+            <li class="NumberedList" value="4">View the query status and results sets. You can:<ul style="list-style-type: circle;"><li class="Bullet" value="1">View the query status using the <span class="GUI_Item">Summary </span>tab.</li><li class="Bullet" value="2">Combine result sets that contain the same columns using the <span class="GUI_Item">Combined Results</span> tab.</li><li class="Bullet" value="3">View individual result sets for a specific target.</li><li class="BulletLast" value="4">Maximize the  pane by clicking<span class="GUI_Item"> Full Screen</span>.</li></ul></li>
+            <li class="NumberedList" value="5"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or export the list as an XML&#160;or CSV file.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/support/faq" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL admin toolset delivers 25 essential administration tools. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://partners.idera.com/" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2013 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+    </body>
+</html>

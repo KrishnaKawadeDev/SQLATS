@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="582" MadCap:lastWidth="1247">
+    <head>
+        <link href="../Resources/TableStyles/Tip Style.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Identify your SQL Server instance disk space usage using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Space Analyzer;identify disk space usage" />Space Analyzer</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Space Analyzer</h2>
+        <p class="Body">The Space Analyzer tool helps you identify the disk space usage for SQL Server instances across your enterprise. With this tool, you can easily and proactively anticipate when you need to being new instances online, plan for new databases, and authorize hardware upgrades.</p>
+        <table class="TableStyle_Tip_Style" style="mc-table-style: url('../Resources/TableStyles/Tip Style.css');" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Style_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Style_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">The Space Analyzer tool does not support mirrored databases. You can view disk space usage for your principal database, but not for any mirrored database.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">How the Space Analyzer tool works</h2>
+        <p class="Body">Space Analyzer allows you to view SQL&#160;Server user database storage statistics or view disk space usage statistics, such as the amount of available space on hard drives across computers that are hosting SQL&#160;Server instances. You can also discover which computers or SQL&#160;Server instances need immediate attention by quickly viewing the summary status.</p>
+        <p class="Body">The Space Analyzer tool displays the following percentages:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">% Used shows how much of a file is being used</li>
+            <li class="Bullet">% Disk Used shows how much of the whole drive is being used</li>
+            <li class="BulletLast">% Used by Database Files shows how much of that drive is being used by that file</li>
+        </ul>
+        <p class="Body">By default, Space Analyzer  <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then collects size and usage information about each database.</p>
+        <h2 class="Heading2">Use the Space Analyzer tool</h2>
+        <p class="StepIntro">To use Space Analyzer:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Space Analyzer</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance or server group whose disk space usage you want to view. To specify multiple SQL&#160;Servers, separate each instance name with a semicolon.</li>
+            <li class="NumberedList">Click<span class="GUI_Item"> Load Space Statistics</span>.</li>
+            <li class="NumberedList">View the results for each disk drive and SQL&#160;Server instance hosted by the corresponding computer. For more details, select the disk drive, instance, or user database in the tree, and view the statistics grid in the right pane.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, click <span class="GUI_Item">Copy Results To Clipboard</span>, or save the results as an XML&#160;or CSV file.</li>
+        </ol>
+    </body>
+</html>

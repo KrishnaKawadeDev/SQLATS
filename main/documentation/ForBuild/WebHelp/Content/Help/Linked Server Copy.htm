@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Administration Tools">
+    <!-- saved from url=(0014)about:internet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Copy your Linked Servers using Idera SQL admin toolset</title>
+        <link href="../Resources/TableStyles/Tip Style.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>Linked Server Copy</h1>
+        <p class="Body"><a name="kanchor33"></a>The Linked Server Copy tool allows you to copy your linked servers from one SQL&#160;Server instance to another along with the associated settings and permissions, saving you the time it would take to move linked servers manually. With this tool you can:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">View all the linked servers that exist on the source server and not on the destination SQL&#160;Server instance.</li>
+            <li class="BulletLast" value="2">Copy all or specific linked servers from your source SQL&#160;Server instance to a destination SQL&#160;Server instance.</li>
+        </ul>
+        <h2 class="Heading2">How the Linked Server Copy tool works</h2>
+        <p class="Body">You can copy all linked SQL&#160;Server instances. If the remote authentication on a SQL&#160;Server instance is SQL&#160;Server authentication, must provide the password. You can copy all other linked servers without any additional steps.</p>
+        <table class="TableStyle_Tip_Style" style="margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/Tip Style.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Style_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Style_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">If the type of provider is not compatible with the host, the copied linked server does not work correctly. For example, a jet provider (32-bit only) copied to a 64-bit system does not work.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Use the Linked Server Copy tool</h2>
+        <p class="StepIntro">To copy over a list of linked servers:</p>
+        <ol>
+            <li class="NumberedList" value="1">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Linked Server Copy</span>.</li>
+            <li class="NumberedList" value="2">Select the source and destination SQL&#160;Server instances.</li>
+            <li class="NumberedList" value="3">Click <span class="GUI_Item">Preview Missing Linked Servers</span>.</li>
+            <li class="NumberedList" value="4">Either select the individual linked servers you want to copy or check the box at the top of the list to select all linked servers. All the linked servers that include a green Y in the <span class="GUI_Item">All Passwords Moveable</span> column are copied without any additional steps. Linked servers that include a red N require you to supply a password to copy.</li>
+            <li class="NumberedList" value="5">Click <span class="GUI_Item">Copy Linked Servers</span>.</li>
+        </ol>
+        <p class="StepIntro">To use the Specify Passwords window:</p>
+        <ol>
+            <li class="NumberedList" value="1">Select a SQL Server instance from the <span class="GUI_Item">Linked Servers</span> column.</li>
+            <li class="NumberedList" value="2">Select the logins you want to copy from the list and enter the associated passwords.</li>
+            <li class="NumberedList" value="3">Repeat this for every SQL&#160;Server instance in the <span class="GUI_Item">Linked Servers</span> column.</li>
+            <li class="NumberedList" value="4">Click <span class="GUI_Item">OK</span> to copy the linked servers.</li>
+        </ol>
+        <table class="TableStyle_Tip_Style" style="margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/Tip Style.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Style_Body_0_0_RowEnd_ColSep">
+                        <p>TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Style_Body_0_1_RowEnd_ColEnd">
+                        <p class="TableText">Logins that exist for the Linked Server on the source SQL&#160;Server instance are copied to the destination SQL&#160;Server instance.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/support/faq" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL admin toolset delivers 25 essential administration tools. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://partners.idera.com/" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2013 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+    </body>
+</html>

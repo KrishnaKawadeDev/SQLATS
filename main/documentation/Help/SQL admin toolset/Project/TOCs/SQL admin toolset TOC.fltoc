@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Access the Release Notes"
+    Link="/Content/Help/Access RN.htm" />
+  <TocEntry
+    Title="Get Started"
+    Link="/Content/Help/Get Started.htm">
+    <TocEntry
+      Title="Welcome to the SQL admin toolset"
+      Link="/Content/Help/Start Help.htm">
+      <TocEntry
+        Title="What is SQL admin toolset?"
+        Link="/Content/Help/What Is Admin Toolset.htm" />
+      <TocEntry
+        Title="How to use the launch pad"
+        Link="/Content/Help/Launch Pad.htm" />
+      <TocEntry
+        Title="Find answers"
+        Link="/Content/Help/Find Answers Using this Documentation.htm">
+        <TocEntry
+          Title="Contact Idera"
+          Link="/Content/Help/Contacting Idera.htm" />
+        <TocEntry
+          Title="How to use Help"
+          Link="/Content/Help/Document Conventions.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="About Idera"
+        Link="/Content/Help/About Idera.htm">
+        <TocEntry
+          Title="Idera products"
+          Link="/Content/Help/Idera Products.htm" />
+        <TocEntry
+          Title="Legal notice"
+          Link="/Content/Help/Legal Notice.htm" />
+      </TocEntry>
+    </TocEntry>
+    <TocEntry
+      Title="Product requirements"
+      Link="/Content/Help/Product Requirements.htm" />
+    <TocEntry
+      Title="How to install the SQL admin toolset"
+      Link="/Content/Help/Install.htm" />
+    <TocEntry
+      Title="Upgrade to this release"
+      Link="/Content/Help/Upgrade.htm" />
+    <TocEntry
+      Title="Configure your deployment"
+      Link="/Content/Help/Configure Deployment.htm">
+      <TocEntry
+        Title="Configure authentication"
+        Link="/Content/Help/Configure Authentication.htm" />
+      <TocEntry
+        Title="Manage license"
+        Link="/Content/Help/Update License.htm" />
+      <TocEntry
+        Title="Manage server groups"
+        Link="/Content/Help/Manage Server Groups.htm" />
+      <TocEntry
+        Title="Set options"
+        Link="/Content/Help/Set Options.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Diagnostic Tools"
+    Link="/Content/Help/Diagnostic Tools.htm">
+    <TocEntry
+      Title="Backup Status"
+      Link="/Content/Help/Backup Status.htm" />
+    <TocEntry
+      Title="SQL Search"
+      Link="/Content/Help/SQL Search.htm" />
+    <TocEntry
+      Title="Object Search"
+      Link="/Content/Help/Object Search.htm" />
+    <TocEntry
+      Title="SQL Discovery"
+      Link="/Content/Help/SQL Discovery.htm" />
+    <TocEntry
+      Title="Password Checker"
+      Link="/Content/Help/Password Checker.htm" />
+    <TocEntry
+      Title="Connection Check"
+      Link="/Content/Help/Connection Check.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Administration Tools"
+    Link="/Content/Help/Administration Tools.htm">
+    <TocEntry
+      Title="Multi Query"
+      Link="/Content/Help/Multi-Query.htm" />
+    <TocEntry
+      Title="Quick Reindex"
+      Link="/Content/Help/Quick Re-index.htm" />
+    <TocEntry
+      Title="Database Mover"
+      Link="/Content/Help/Database Mover.htm" />
+    <TocEntry
+      Title="Server Configuration"
+      Link="/Content/Help/Server Configuration.htm" />
+    <TocEntry
+      Title="Login Copy"
+      Link="/Content/Help/Login Copy.htm" />
+    <TocEntry
+      Title="Database Configuration"
+      Link="/Content/Help/Database Configuration.htm" />
+    <TocEntry
+      Title="User Clone"
+      Link="/Content/Help/User Clone.htm" />
+    <TocEntry
+      Title="Partition Generator"
+      Link="/Content/Help/Partition Generator.htm" />
+    <TocEntry
+      Title="Job Mover"
+      Link="/Content/Help/Job Mover.htm" />
+    <TocEntry
+      Title="Connection String Generator"
+      Link="/Content/Help/Connection String Generator.htm" />
+    <TocEntry
+      Title="Job Editor"
+      Link="/Content/Help/Job Editor.htm" />
+    <TocEntry
+      Title="Linked Server Copy"
+      Link="/Content/Help/Linked Server Copy.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Analytic Tools"
+    Link="/Content/Help/Analytic Tools.htm">
+    <TocEntry
+      Title="Inventory Reporter"
+      Link="/Content/Help/Inventory Reporter.htm" />
+    <TocEntry
+      Title="Patch Analyzer"
+      Link="/Content/Help/Patch Analyzer.htm" />
+    <TocEntry
+      Title="Index Analyzer"
+      Link="/Content/Help/Index Analyzer.htm" />
+    <TocEntry
+      Title="Space Analyzer"
+      Link="/Content/Help/Space Analyzer.htm" />
+    <TocEntry
+      Title="Server Statistics"
+      Link="/Content/Help/Server Statistics.htm" />
+    <TocEntry
+      Title="Server Ping"
+      Link="/Content/Help/Server Ping.htm"></TocEntry>
+  </TocEntry>
+</CatapultToc>

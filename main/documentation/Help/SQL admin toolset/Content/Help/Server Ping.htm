@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="8" MadCap:lastHeight="780" MadCap:lastWidth="972">
+    <head><title>Monitor the status of your SQL Server instances using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Server Ping" />Server Ping</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Server Ping</h2>
+        <p class="Body">The Server Ping tool helps you monitor the status of SQL Server instances across your enterprise by routinely pinging specified instances.  You can run Server Ping as centralized interface or as system tray service  alerts you when instance goes offline or becomes unhealthy.</p>
+        <h2 class="Heading2">How the Server Ping tool works</h2>
+        <p class="Body">By default, Server Ping  <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account.</p>
+        <p class="Body">Server Ping then uses either a WMI or SQL query to collect information, such as whether the SQL&#160;Server services are running, and when an instance comes online or goes offline.</p>
+        <p class="Body">Server Ping allows you to:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Monitor a SQL&#160;Server instance or a server group</li>
+            <li class="Bullet">Run the tool in the system tray to:<ul style="list-style-type: square;"><li class="Bullet">Use status icons to quickly ascertain whether a server is online</li><li class="Bullet">Use pop-up alerts to monitor when instances come online or go offline</li><li class="BulletLast">     Launch tool when the Windows operating system starts</li></ul></li>
+            <li class="Bullet">Refresh data automatically at specified intervals</li>
+            <li class="Bullet">Avoid unnecessary alerts by selecting which instances should be ignored during maintenance periods</li>
+            <li class="BulletLast">Choose WMI or a SQL query to collect health information</li>
+        </ul>
+        <h2 class="Heading2">Use the Server Ping tool</h2>
+        <p class="StepIntro">To use Server Ping:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Server Ping</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance or server group that contains the logins whose passwords you want to check.To specify more than one instance, complete the following steps:<ol style="list-style-type: lower-alpha;"><li class="NumberedList">Click <span class="GUI_Item">Add</span>.</li><li class="NumberedList">On the Add Server window, type the name of each instance, separating multiple instances with semicolons.</li><li class="NumberedList">Specify the type of authentication you want Server Ping to use to connect to the specified instances. By default, the credentials of your current Windows account are used.</li><li class="NumberedList">To verify that the connection settings are valid for the specified instances, click <span class="GUI_Item">Test Connection</span>.</li><li class="NumberedList">Indicate whether you want to receive overall status information or alerts and notifications about the specified instance.</li><li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li></ol></li>
+            <li class="NumberedList">Select the appropriate system tray options.</li>
+            <li class="NumberedList">Choose whether you to run a WMI&#160;or SQL query to retrieve the status of the specified instances. You can specify which SQL&#160;command you want to run in the query. </li>
+            <li class="NumberedList">Click <span class="GUI_Item">Check Servers Now</span>.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="896" MadCap:lastWidth="993">
+    <head><title>Search your SQL Server schema objects for specific text using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="SQL Search;find SQL text;SQL text search" />SQL Search</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">SQL&#160;Search</h2>
+        <p class="Body">The SQL&#160;Search tool helps you find specific words or text phrases in SQL&#160;Server schema objects including table columns, T-SQL scripts, or other SQL&#160;code in use on an instance. With this global search, you can quickly and easily complete tasks such as updating copyright notices or changing all usages of a stored procedure call.</p>
+        <p class="Body">The SQL&#160;Search tool helps you: </p>
+        <ul>
+            <li class="Bullet">Perform case-sensitive searches.</li>
+            <li class="Bullet">Search across all SQL&#160;on a SQL&#160;Server instance.</li>
+            <li class="Bullet">Search SQL&#160;used on specific databases or by specific objects.</li>
+            <li class="Bullet">Search SQL&#160;on system databases.</li>
+            <li class="Bullet">Search for an exact word or text phrase, or use SQL wild cards to broaden your results.</li>
+            <li class="Bullet">See how many times the specified word or phrase appears, which objects contain this string, and the full SQL&#160;source.</li>
+            <li class="BulletLast">Save your search results.</li>
+        </ul>
+        <h2 class="Heading2">How the SQL&#160;Search tool works</h2>
+        <p class="Body">By default, SQL&#160;Search      <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account. SQL Search then looks at all the SQL&#160;code used by stored procedures, functions, triggers, and views to determine when a specific word or phrase is being used on a SQL&#160;Server instance. The SQL&#160;Search tool offers the following options when searching for specific text:</p>
+        <p class="DefinitionListTerm">Limit to first x matches</p>
+        <p class="DefinitionListBody">Before using SQL&#160;Search, be sure to decide how broad a search you actually need. Consider limiting your search to only the necessary databases and objects. Keep in mind that large searches impact performance. By default, the SQL&#160;Search tool returns a maximum of 500 matches. </p>
+        <p class="DefinitionListTerm">Perform a case-sensitive search</p>
+        <p class="DefinitionListBody">Limit your results to only text matching the case of the search text.</p>
+        <p class="DefinitionListTerm">Use SQL&#160;wildcards</p>
+        <p class="DefinitionListBody">Allow SQL&#160;wildcard characters to retrieve more results. To search for text variations using SQL&#160;wildcards, append or prefix the word with an underscore character. For example, "_lab" or "lab_".</p>
+        <p class="DefinitionListTerm">Include system databases</p>
+        <p class="DefinitionListBodyLast">Include system databases in your search. Leave this box unchecked to exclude system databases from your search.</p>
+        <h2 class="Heading2">Use the SQL&#160;Search tool</h2>
+        <p class="StepIntro">To search for specific text using the SQL&#160;Search tool:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">SQL Search</span>.</li>
+            <li class="NumberedList">Search for and then select the SQL Server instance whose schema you want to search.</li>
+            <li class="NumberedList">Search for and then select the database on this instance you want to search. To specify multiple databases, separate each database name with a semicolon.&#160;Leave this field empty if you want to search all user databases.</li>
+            <li class="NumberedList">Type the word or phrase you want to find. To search for text variations using SQL&#160;wildcards, append or prefix the word with an underscore character. For example, "_lab" or "lab_".</li>
+            <li class="NumberedList"><em>Optional</em>. Check the options you want to use in this SQL&#160;text search.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Perform Search</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to see the SQL&#160;source</span>, select the SQL&#160;excerpt, and then click <span class="GUI_Item">View Source</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, click <span class="GUI_Item">Copy Results To Clipboard</span>, or right-click to save the results as an XML&#160;or CSV file.</li>
+        </ol>
+    </body>
+</html>

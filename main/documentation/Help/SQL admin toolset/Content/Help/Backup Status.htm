@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="850" MadCap:lastWidth="993">
+    <head><title>Monitor your backup status using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Backup Status;monitor SQL Server backup status;SQL Server backup status" />Backup Status</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Backup Status</h2>
+        <p class="Body">The Backup Status tool monitors your SQL Server backup status, helping to make sure that you back up your SQL Servers on a regular basis. By default, Backup Status       <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account, and then collects information about backups performed on the hosted databases.</p>
+        <p class="Body">The Backup Status tool helps you: </p>
+        <ul>
+            <li class="Bullet">Identify any non-backed up databases.</li>
+            <li class="Bullet">Determine databases not backed up within the last <cite>x</cite> days.</li>
+            <li class="Bullet">View the last backup time stamp for each database.</li>
+            <li class="Bullet">Drill into the complete backup history for a specific database.</li>
+            <li class="Bullet">View backup history across multiple SQL&#160;Server instances or a server group.</li>
+        </ul>
+        <ul>
+            <li class="BulletLast">Save the backup history.</li>
+        </ul>
+        <h2 class="Heading2">Importance of backups and the Backup Status tool</h2>
+        <p class="Body">Performing regular back ups of all databases on your SQL&#160;Server instances allows you to keep sensitive and mission-critical data safe. It is important that you determine your normal backup schedule. For example, if you want to back up all databases every week, you might want to skip databases backed up within the past seven days, allowing you to focus on databases with backup sets older than eight days. The Backup Status tool offers the following options when checking the backup status of an instance:</p>
+        <p class="DefinitionListTerm">Skip databases with a backup in the last <em>x</em> days</p>
+        <p class="DefinitionListBody">Check this box for the Backup Status tool to exclude databases that include a backup performed in the past <em>x</em> number of days.</p>
+        <p class="DefinitionListTerm">Skip system databases</p>
+        <p class="DefinitionListBody">Check this box for the Backup Status tool to exclude system database backups.</p>
+        <p class="DefinitionListTerm">Only include full database backups</p>
+        <p class="DefinitionListBody">Check this box for the Backup Status tool to include only those databases that include a full database backup.</p>
+        <h2 class="Heading2">Use the Backup Status tool</h2>
+        <p class="StepIntro">To check the backup status of one or more servers using the Backup Status tool:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Backup Status</span>.</li>
+            <li class="NumberedList">Specify whether you want to back up a SQL&#160;Server instance or a server group.</li>
+            <li class="NumberedList">Search for and then select the SQL Server instance or server group whose backup status you want to check. To specify multiple SQL Servers, separate each instance name with a semicolon.</li>
+            <li class="NumberedList"><em>Optional</em>. Check the options you want to use in this status check.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Get Backup Status</span>. The Backup Status tool checks the backup status of the appropriate instance or group.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to view the backup history for a specific database</span>, select the database from the status list, and then click <span class="GUI_Item">Show Backup History for Database</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If the tool returns unexpected results</span>, check the groom settings on the SQL&#160;Server instance. For example, if the backup operation status is recently groomed, the tool may return a partial history, such as a transaction log backup record with no corresponding full backup record.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, click <span class="GUI_Item">Copy Results To Clipboard</span>, or right-click to save the results in a data table, or as an XML&#160;or CSV file.</li>
+        </ol>
+    </body>
+</html>

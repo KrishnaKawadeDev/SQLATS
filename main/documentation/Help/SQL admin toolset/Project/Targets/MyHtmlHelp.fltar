@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL admin toolset Help"
+  Type="HtmlHelp"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  MasterToc="/Project/TOCs/SQL admin toolset TOC.fltoc"
+  OutputFile="SQL admin toolset Help.chm"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLAdminToolset\main\documentation\Help\SQL admin toolset\Output\Output"
+  DefaultUrl="/Content/Help/Start Help.htm"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  Skin="/Project/Skins/Default.flskn"
+  ConditionTagExpression="include[Default.ScreenOnly] exclude[Default.Google or Default.PrintOnly or Default.SEO] "
+  BrowseSequence="/Project/Advanced/SQL admin toolset.flbrs"></CatapultTarget>

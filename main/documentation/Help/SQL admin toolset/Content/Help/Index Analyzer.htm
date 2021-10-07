@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="9" MadCap:lastHeight="2084" MadCap:lastWidth="959">
+    <head><title>Evaluate your SQL Server indexing using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Index Analyzer;evaluate SQL Server indexing" />Index Analyzer</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Index Analyzer</h2>
+        <p class="Body">The Index Analyzer tool helps you evaluate SQL&#160;Server indexing. With this tool, you can view indexes contained in a specific table, or view index properties and performance statistics across a SQL&#160;Server instance. </p>
+        <p class="Body">By default, Index Analyzer <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then collects information and performance statistics about each index.</p>
+        <h2 class="Heading2">Understand selectivity</h2>
+        <p class="Body">Selectivity  is a critical statistic for analyzing index performance. However, retrieving selectivity from SQL Server is a time-intensive operation. To analyze selectivity across all indexes on the specified instances, click <span class="If_Then_Statement">Load Selectivity while loading Statistics</span> before you begin. To view selectivity values on a few indexes, load the other index statistics first, then select the indexes you want to analyze and click<span class="GUI_Item"> Load Selectivity</span>.</p>
+        <h2 class="Heading2">How the Index Analyzer tool works</h2>
+        <p class="Body">The following index statistics are available for viewing in the Index Analyzer tool results:</p>
+        <p class="DefinitionListTerm">% Rows Modified</p>
+        <p class="DefinitionListBody">Provides the percentage of rows modified since statistics were last updated.</p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement"> If this percentage is high</span>, then SQL Server is using outdated information to make optimization decisions. A high percentage can negatively impact system performance.</p>
+        <p class="DefinitionListBody">You can reset this value by updating the index statistics.</p>
+        <p class="DefinitionListTerm">% Updates to Total Access</p>
+        <p class="DefinitionListBody">Percent of Updates to Total Accesses. If an index is updated often, then the usefulness as an index is offset by the overhead of keeping the index updated.</p>
+        <p class="DefinitionListTerm">Columns</p>
+        <p class="DefinitionListBody"> Indicates which columns were affected by the statistic.</p>
+        <p class="DefinitionListTerm">Clustered</p>
+        <p class="DefinitionListBody">Indicates whether the index is clustered.</p>
+        <p class="DefinitionListTerm">Database</p>
+        <p class="DefinitionListBody">Provides the name of the database containing the index.</p>
+        <p class="DefinitionListTerm">Disabled</p>
+        <p class="DefinitionListBody">Indicates whether the index is disabled.</p>
+        <p class="DefinitionListTerm">Fill Factor</p>
+        <p class="DefinitionListBody">Provides the Fill Factor used to create the index.</p>
+        <p class="DefinitionListTerm">Index</p>
+        <p class="DefinitionListBody">Provides the name of the index.</p>
+        <p class="DefinitionListTerm">Index Usefulness</p>
+        <p class="DefinitionListBody">Provides an estimate of how likely it is that SQL Server uses the index based on the following criteria:  Selectivity,  % Rows Modified, and  % Updates to Total Accesses.              </p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet-Def-Body">Low usefulness indicates that the index is disabled, or one or more of the criteria are at critical levels</li>
+            <li class="Bullet-Def-Body">Medium usefulness indicates that one or more of the criteria are at warning levels</li>
+            <li class="Bullet-Def-Body-Last">High usefulness indicates that all criteria are at acceptable values</li>
+        </ul>
+        <p class="DefinitionListTerm">Last Statistics Update</p>
+        <p class="DefinitionListBody">Indicates when SQL Server last updated statistics for the index.</p>
+        <p class="DefinitionListTerm">Lookups</p>
+        <p class="DefinitionListBody">Provides the number of lookups performed on the index.</p>
+        <p class="DefinitionListTerm">Pages</p>
+        <p class="DefinitionListBody">Provides the number of 8K pages used by the index.</p>
+        <p class="DefinitionListTerm">Rows</p>
+        <p class="DefinitionListBody">Provides the number of rows in the index.</p>
+        <p class="DefinitionListTerm">Rows Modified Since Last Update</p>
+        <p class="DefinitionListBody">Provides the number of rows modified since SQL Server last updated these statistics.</p>
+        <p class="DefinitionListTerm">Scans</p>
+        <p class="DefinitionListBody">Provides the number of scans performed on the index.</p>
+        <p class="DefinitionListTerm">Seeks</p>
+        <p class="DefinitionListBody">Provides the number of seeks performed  on the index.</p>
+        <p class="DefinitionListTerm">Selectivity</p>
+        <p class="DefinitionListBody">Indicates the statistical uniqueness of each row of the index. Selectivity is calculated from the index density stored by SQL Server (Selectivity = 1 - Density). Low Selectivity may negatively impact system performance.</p>
+        <p class="DefinitionListBody"><span class="If_Then_Statement">If no statistics are stored in SQL Server</span>, the value for this column is "No Statistics Available".</p>
+        <p class="DefinitionListTerm">Size</p>
+        <p class="DefinitionListBody">Provides the physical size of the index in bytes.</p>
+        <p class="DefinitionListTerm">Table</p>
+        <p class="DefinitionListBody">Provides the name of the table containing the index.</p>
+        <p class="DefinitionListTerm">Total Accesses</p>
+        <p class="DefinitionListBody">Sums the total number of times the index is accessed (Seeks + Scans + Lookups + Updates).</p>
+        <p class="DefinitionListTerm">Updates</p>
+        <p class="DefinitionListBodyLast">Provides the number of updates to the index.</p>
+        <p class="Body">The following column statistics are available:</p>
+        <p class="DefinitionListTerm">Columns</p>
+        <p class="DefinitionListBody">Indicates which columns were affected by the statistic.</p>
+        <p class="DefinitionListTerm">Database </p>
+        <p class="DefinitionListBody">Provides the name of the database from which the statistic was generated.</p>
+        <p class="DefinitionListTerm">Modified Rows</p>
+        <p class="DefinitionListBody">Provides the number of rows that were updated, inserted, or deleted.</p>
+        <p class="DefinitionListTerm">Selectivity</p>
+        <p class="DefinitionListBody">Indicates the statistical uniqueness of each row of the statistic.  Low Selectivity may negatively impact system performance.</p>
+        <p class="DefinitionListTerm">Statistic</p>
+        <p class="DefinitionListBody">Provides the name of the SQL&#160;Server statistic calculated for this column.</p>
+        <p class="DefinitionListTerm">Table</p>
+        <p class="DefinitionListBodyLast">Provides the name of the table from which the statistic was generated.</p>
+        <h2 class="Heading2">Use the Index Analyzer tool</h2>
+        <p class="StepIntro">To use Index Analyzer:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Index Analyzer</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance whose indexes you want to check.</li>
+            <li class="NumberedList">Check <span class="GUI_Item">Load Selectivity while loading Statistics</span> to load selectivity statistics now.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Load Statistics</span>.</li>
+            <li class="NumberedList">View the index data displayed on the <span class="GUI_Item">Index Statistics</span> tab. To sort the indexes, use the  <span class="GUI_Item">View Options</span> in the right pane.</li>
+            <li class="NumberedList">To view details about the index columns, click the <span class="GUI_Item">Column Statistics</span> tab.</li>
+            <li class="NumberedList">To view index data for a specific table, expand the instance node in the tree pane, and then click the appropriate table.</li>
+            <li class="NumberedList">To recalculate the statistics using a sample percentage of rows, click <span class="GUI_Item">Update Statistics (using Sampling)</span>. To recalculate statistics using  all rows, click <span class="GUI_Item">Update Statistics (using Full Scan)</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or save the results as an XML&#160;or CSV file.</li>
+        </ol>
+    </body>
+</html>

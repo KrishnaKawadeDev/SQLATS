@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Get Started|Configure your deployment">
+    <!-- saved from url=(0014)about:internet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Manage your Idera SQL admin toolset server groups</title>
+        <link href="../Resources/TableStyles/Tip Style.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>Manage server groups</h1>
+        <p class="Body"><a name="kanchor12"></a>The Manage Server Groups window helps you organize access to your SQL Server instances so you can fully leverage the scope and power of the SQL&#160;admin toolset tools. </p>
+        <p class="Body">A server group can contain multiple instances, whether these instances are hosted on the same computer or on different computers. When you create a server group, you specify a single set of credentials that the SQL&#160;admin toolset uses to connect to each instance in the group.</p>
+        <p class="Body">When you use one of the SQL&#160;admin toolset tools, you can specify which SQL&#160;Server instances you want to act on. Choosing a server group allows you to act on multiple instances that have a logical relationship.</p>
+        <p class="Body"> For example, you could create a server group that contains all the SQL Server instances that host accounting databases. Then, when you launch the Backup Status tool, you can simply specify the Accounting server group to check the backup status of all the instances in this group, no matter where they are located in your enterprise.</p>
+        <p class="Body">  Manage your server groups to:</p>
+        <ul>
+            <li class="Bullet" value="1">Create a server group</li>
+            <li class="Bullet" value="2">Change group memberships by adding or removing instances</li>
+            <li class="Bullet" value="3">Set the SQL&#160;Server connection credentials to use when a tool accesses an instance in this group</li>
+            <li class="Bullet" value="4">Rename an existing server group</li>
+            <li class="BulletLast" value="5">Delete a server group</li>
+        </ul>
+        <table class="TableStyle_Tip_Style" style="margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/Tip Style.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Style_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Style_Body_0_1_RowEnd_ColEnd">
+                        <p class="Body">When you first launch the SQL admin toolset, it loads any server groups previously defined through SQL Server Management Studio (2005 and 2008) or Enterprise Manager (2000).  After the initial import, you can use the Manage Server Groups tool to perform all management of the server groups. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Access Manage Server Groups</h2>
+        <p class="Body">You can access the Manage Server Groups window from the Tools menu on any tool window. You can also launch this window from the SQL&#160;admin toolset Launchpad by clicking <span class="GUI_Item">Manage Server Groups</span>.</p>
+        <h2 class="Heading2">Nest your server groups</h2>
+        <p class="Body">You can nest server groups to better organize your SQL&#160;Server instances. Nesting is beneficial when you need to organize several small server groups or when you need to sort instances by multiple properties, such as local and data type. For example, nesting HR databases in Chicago, Houston, and London.</p>
+        <p class="Body"><span class="If_Then_Statement">If you select a nested server group when running one of SQL&#160;admin toolset tools</span>, the tool acts on all the instances belonging to the selected server group as well as any instances belonging to the child server groups. Using our previous example, when you select the HR server group, the tool acts on the instances belonging to the Chicago, Houston, and London server groups.</p>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/support/faq" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL admin toolset delivers 25 essential administration tools. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://partners.idera.com/" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2013 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+    </body>
+</html>

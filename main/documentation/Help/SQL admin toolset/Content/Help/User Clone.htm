@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="543" MadCap:lastWidth="998">
+    <head><title>Create new logins from existing profiles using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="User Clone;clone user accounts" />User Clone</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">User Clone</h2>
+        <p class="Body">The User Clone tool helps you create new logins by copying an existing SQL&#160;Server user and using that login as a template. You can immediately perform the clone operation through the tool, or generate a T-SQL script that you can preview and edit.</p>
+        <h2 class="Heading2">How the User Clone tool works</h2>
+        <p class="Body">Use the User Clone tool to create new user accounts from an existing account. You can copy a SQL&#160;Server login across SQL Servers and keep the same access settings and specify a new default database or password during the clone. After creating a new account, you can set the new SQL&#160;Server login as enabled or disabled.</p>
+        <p class="Body">Another new function is that you can generate a T-SQL&#160;script that you can integrate into your existing work flows. </p>
+        <p class="Body">By default, User Clone        <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account. The User Clone tool then copies the specified source SQL&#160;Server login and recreates it on the target SQL&#160;Server instance and databases. By default, the new login shares the same password, server and database roles, permissions and database access of the source login. </p>
+        <h2 class="Heading2">Use the User Clone tool</h2>
+        <p class="StepIntro">To use User Clone:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">User Clone</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server login you want to clone and the SQL&#160;Server instance where this login is located. By default, User Clone lists the available logins on the specified instance.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance and database where you want to create the new login. The new login name is the same as the source login name.</li>
+            <li class="NumberedList">Select which security properties you would like to clone.</li>
+            <li class="NumberedList">To perform the clone operation immediately, click <span class="GUI_Item">Clone User</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to create a T-SQL&#160;script based on your settings</span>, choose the appropriate action based on the version of SQL&#160;Server you are running.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the script</span>, copy the code to clipboard, or save the code to a file.</li>
+        </ol>
+    </body>
+</html>

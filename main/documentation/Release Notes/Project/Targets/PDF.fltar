@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL admin toolset Release Notes"
+  Type="PDF"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ConditionTagExpression="include[Default.PrintOnly] exclude[Default.Google or &quot;Default.Internal Use Only&quot; or &quot;Default.Not in PDF&quot; or Default.ScreenOnly or Default.SEO] "
+  MasterToc="/Project/TOCs/RN TOC.fltoc"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  OutputFile="SQL admin toolset Release Notes"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLAdminToolset\main\documentation\Release Notes\Output">
+  <PDF
+    ShowUsedBookmarks="false"
+    Tagged="true" />
+  <DocumentProperties
+    Title="Idera SQL admin toolset"
+    Author="Idera" />
+</CatapultTarget>

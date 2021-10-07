@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="ToolSet" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Diagnostic Tools">
+    <!-- saved from url=(0014)about:internet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Find new or rogue SQL Server instances using Idera SQL admin toolset</title>
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a><a name="kanchor18"></a>SQL Discovery</h1>
+        <p class="Body">The SQL&#160;Discovery tool helps you find new or rogue SQL Server instances that are online in your network. This tool allows you to locate SQL&#160;Server instances and create a server group for the SQL&#160;Server instances you locate. Once you identify and group newly-discovered SQL Server instances, you can properly lock down these instances to prevent any security issues.</p>
+        <p class="Body">SQL&#160;Discovery searches computers hosting SQL&#160;Server instances by specifying IP&#160;ranges, a list of computers, or servers registered with Active Directory or Network Browser Service. You can also use a number of different scans or probes to increase the effectiveness of your search. The following table displays a list of available probes and their purposes.</p>
+        <table style="mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Type of probe</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">What it does</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Active Directory Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks for SQL Server instances registered with Windows Active Directory.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Browser Service Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks for SQL Server instances registered with Network Browser Service.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Service Control Manager Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks with Service Control Manager for installed SQL&#160;Server instances.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">SQL&#160;Server Resolution Service Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks port 1434 to determine whether SQL&#160;Server instances are registered with the SQL&#160;Server Resolution Service.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">TCP Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks the standard ports SQL&#160;Server uses to listen. The standard ports are 1433 and 2433.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Windows Registry Probe</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Checks the registry on each computer to detect whether SQL&#160;Server services are installed.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">WMI Enumeration Probe</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Checks for installed SQL&#160;Server instances by using WMI for the search.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">Once the results are available, you can review the list of discovered SQL&#160;Servers, see which probe found each instance, and check the configuration details of each instance. </p>
+        <h2 class="Heading2">Considerations before using the SQL&#160;Discovery tool</h2>
+        <p class="Body">One factor to consider before using SQL&#160;Discovery is to check the firewall settings your local computer, such as the native Windows Firewall or any third-party firewall application. SQL&#160;Discovery uses ports 1433,1434, and 2433 to scan your network for SQL&#160;Server instances. Make sure these ports are open and enabled for communication.</p>
+        <p class="Body">You can use Inventory Reporter, Patch Analyzer, and Password Checker with SQL&#160;Discovery to further enhance your validation. These other tools work with the SQL&#160;Discovery tool in the following ways:</p>
+        <p class="DefinitionListTerm">Inventory Reporter</p>
+        <p class="DefinitionListBody">Save the found SQL&#160;Server instances as a new server group, and then run <a href="Inventory Reporter.htm">Inventory Reporter</a> against this server group to capture configuration details.</p>
+        <p class="DefinitionListTerm">Patch Analyzer</p>
+        <p class="DefinitionListBody">Use <a href="Patch Analyzer.htm">Patch Analyzer</a> to verify that the found SQL&#160;Server instances are properly patched and are running supported versions of Microsoft SQL&#160;Server software.</p>
+        <p class="DefinitionListTerm">Password Checker
+</p>
+        <p class="DefinitionListBodyLast">Use <a href="Password Checker.htm">Password Checker</a> to test the security of the found SQL&#160;Server instances. </p>
+        <h2 class="Heading2">Use the SQL&#160;Discovery tool</h2>
+        <p class="StepIntro">To find new or rogue SQL Server instances using SQL&#160;Discovery:</p>
+        <ol>
+            <li class="NumberedList" value="1">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">SQL&#160;Discovery</span>.</li>
+            <li class="NumberedList" value="2">On the Welcome window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="3">Select which scan technique you want to use to locate SQL&#160;Server instances on your network, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="4"><span class="If_Then_Statement">If you selected IP&#160;Range in the previous window</span>, specify one or more IP addresses that you want to scan.</li>
+            <li class="NumberedList" value="5"><span class="If_Then_Statement">If you selected SQL&#160;Server(s) in the previous window</span>, specify one or more SQL&#160;Servers or the server group on whose host computers you want to perform a scan.  To specify multiple SQL Servers, separate each name with a semicolon.</li>
+            <li class="NumberedList" value="6"><span class="If_Then_Statement">If you selected Computer(s) in the previous window</span>,  specify one or more computers to scan for SQL&#160;Servers.  To specify multiple computers, separate each name with a semicolon.</li>
+            <li class="NumberedList" value="7">Click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList" value="8">Choose which probes you want SQL&#160;Discovery to run as part of the discovery process, and then click <span class="GUI_Item">Finish</span>.</li>
+            <li class="NumberedList" value="9">Review the scan results. To see more details about a discovered instance, select that instance from the Scan Results list, and then view the details displayed below.</li>
+            <li class="NumberedList" value="10"><span class="If_Then_Statement">If you want to create a server group that contains these instances</span>, click <span class="GUI_Item">Save as Server Group</span>.</li>
+            <li class="NumberedList" value="11"><span class="If_Then_Statement">If you want to save the results</span>, click <span class="GUI_Item">Copy Results To Clipboard</span>, or export the list as an XML&#160;or CSV file.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/support/faq" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL admin toolset delivers 25 essential administration tools. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://partners.idera.com/" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2013 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="714" MadCap:lastWidth="998">
+    <head><title>Manage your SQL Server jobs using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Job Editor;bulk edit SQL Server jobs" />Job Editor</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Job Editor</h2>
+        <p class="Body">The Job Editor tool helps you easily manage your SQL&#160;Server jobs by  performing bulk updates across your environment. For example, you can sort jobs by status and property, such as whether the job is enabled and who is the owner. You can then bulk update the owners to a new login. The Job Editor tool allows you to:</p>
+        <ul>
+            <li class="Bullet">Check job settings and last run status across multiple SQL Server instances.</li>
+            <li class="Bullet">View summary of key job statistics.</li>
+            <li class="Bullet">Sort jobs by status or property, such as  category, owner, or last run time.</li>
+            <li class="Bullet">Bulk update job properties on multiple jobs across servers.</li>
+            <li class="BulletLast">Save job information.</li>
+        </ul>
+        <h2 class="Heading2">How the Job Editor tool works</h2>
+        <p class="Body">When you edit jobs that exist on different SQL Server instances, you can choose from the values currently available on the selected instances.
+
+</p>
+        <p class="Body">This restriction affects the general job properties, such as the job owner, and the notification settings. Be aware that SQL Server has dependencies between the notification types, levels, and operators. For example, you cannot change the notification level if an operator was not previously assigned to the job. For more information about managing notifications, see Microsoft SQL Server Books Online.
+</p>
+        <p class="Body">By default, Job Editor <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then collects job statistics for all jobs deployed on these instances.</p>
+        <h2 class="Heading2">Use the Job Editor tool</h2>
+        <p class="StepIntro">To use Job Editor to view jobs:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Job Editor</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance or server group that contains the jobs you want to edit. To specify multiple SQL&#160;Servers, separate each instance name with a semicolon.</li>
+            <li class="NumberedList">Click<span class="GUI_Item"> Get Job Information</span>.</li>
+            <li class="NumberedList">View the results.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or export the list as an XML&#160;or CSV file.</li>
+        </ol>
+        <p class="StepIntro">To use Job Editor to edit jobs:</p>
+        <ol>
+            <li class="NumberedList">Get the job information from the target SQL&#160;Server instances.</li>
+            <li class="NumberedList">Select the jobs you want to edit. To select all jobs that match a specific search criteria, click <span class="GUI_Item">Check Jobs by Property Values</span>.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Update Checked Jobs</span>.</li>
+            <li class="NumberedList">On the Update Properties window, change the appropriate properties, and then click <span class="GUI_Item">Update</span>.</li>
+        </ol>
+    </body>
+</html>

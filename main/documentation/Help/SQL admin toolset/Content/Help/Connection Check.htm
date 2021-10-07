@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="614" MadCap:lastWidth="998">
+    <head><title>Check your SQL Server connections using the Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>Connection Check</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Connection Check</h2>
+        <p class="Body">
+            <MadCap:keyword term="Connection Check;check SQL Server connections" />The Connection Check tool helps you check your SQL&#160;Server connections and diagnose why a database user cannot connect to a specific instance. Connection problems are difficult to identify because there are many causes, such as a service not restarting after routine maintenance or an incorrect network configuration setting on the client computer. With this  tool, database administrators and Help Desk technicians can quickly and easily assess connection problems.</p>
+        <h2 class="Heading2">How the Connection Check tool works</h2>
+        <p class="Body">The Connection Check tool allows you to:</p>
+        <ul>
+            <li class="Bullet">Check whether you can connect to a SQL&#160;Server.</li>
+            <li class="Bullet">Validate the network connection between the client computer and the SQL&#160;Server computer including proper network and DNS configuration.</li>
+            <li class="Bullet">Check the status of the SQL&#160;Server service.</li>
+            <li class="Bullet">Receive best-practice recommendations for your next steps.</li>
+            <li class="Bullet">Specify alternate SQL&#160;login or Windows user credentials to test the database access from the end-user viewpoint.</li>
+        </ul>
+        <p class="Body">By default, Connection Checker attempts to <a href="Configure Authentication.htm">connect</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account. Connection Check then performs a series of tests that diagnose what is working on your SQL&#160;Server computer. These tests validate the SQL&#160;Server configuration and the network connectivity. After Connection Check completes these tests, it provides best-practice guidance regarding the steps required to confirm the diagnoses and repair the problem.</p>
+        <h2 class="Heading2">Use the Connection Check tool</h2>
+        <p class="StepIntro">To check the connection on a SQL&#160;Server instance using the Connection Check tool:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Connection Check</span>.</li>
+            <li class="NumberedList">Search for and then select the SQL Server instance whose connection you want to check.</li>
+            <li class="NumberedList"><em>Optional</em>. Type the name of the database you want to check.</li>
+            <li class="NumberedList">Type which port you want to use during the test. By default, the Connection Check tool uses port 1433.</li>
+            <li class="NumberedList">Specify the account credentials you want to use to perform the test.</li>
+            <li class="NumberedList">Click the appropriate button for the type of test you want to run.</li>
+            <li class="NumberedList">Use the Test Results pane to review the individual test results as each test runs, and then use the Recommendation pane to review your next steps.</li>
+        </ol>
+    </body>
+</html>

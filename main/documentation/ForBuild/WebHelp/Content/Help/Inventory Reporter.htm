@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html class="ToolSet" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Analytic Tools">
+    <!-- saved from url=(0014)about:internet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Report on your SQL Server inventory using Idera SQL admin toolset</title>
+        <link href="../../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" />
+        <script src="../../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body class="NewPage">
+        <h1 class="Heading1" data-mc-conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a><a name="kanchor35"></a>Inventory Reporter</h1>
+        <p class="Body">The Inventory Reporter tool helps you report on inventory and configuration details about your SQL Server instances and the host computers. With this tool, you can view and compare inventory data more easily using inventory reports that include:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet" value="1">a comprehensive inventory</li>
+            <li class="Bullet" value="2">SQL&#160;Server properties</li>
+            <li class="Bullet" value="3">SQL&#160;Server version details</li>
+            <li class="Bullet" value="4">computer properties</li>
+        </ul>
+        <p class="Body">You can also capture inventory data for one or more SQL&#160;Server instances. Use the Inventory Reporter tool to compare configuration across multiple SQL&#160;Server instances or a server group and highlight the differences in each inventory. After capturing the data, you can save the data as a baseline snapshot to compare against future inventories
+ or other instances.</p>
+        <h2 class="Heading2">How the Inventory Reporter tool works</h2>
+        <p class="Body">Inventory Reporter also features various export options so you can use this data in other programs.</p>
+        <p class="Body">Before using this tool, it is important that you know that Inventory Reporter uses the credentials of currently logged on Windows account to make a WMI&#160;connection to the computers hosting your SQL&#160;Server instances. To successfully complete the connection, your user account must have permission to use the WMI&#160;protocol.</p>
+        <p class="Body">By default, Inventory Reporter      <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances and the host computers using the credentials of your currently logged on Windows account, collecting configuration information and then generating the inventory report.</p>
+        <h2 class="Heading2">Use the Inventory Reporter tool</h2>
+        <p class="StepIntro">To generate an inventory report:</p>
+        <ol>
+            <li class="NumberedList" value="1">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Inventory Reporter</span>.</li>
+            <li class="NumberedList" value="2"><span class="If_Then_Statement">If you want to discard any previously collected data</span>, click <span class="GUI_Item">Clear</span>.</li>
+            <li class="NumberedList" value="3">Click <span class="GUI_Item">Capture Live Data</span>.</li>
+            <li class="NumberedList" value="4">Specify the SQL&#160;Server instance or server group that contains the logins whose passwords you want to check, or click the browse button to select them. To specify multiple SQL&#160;Servers, separate each instance name with a semicolon.</li>
+            <li class="NumberedList" value="5">Click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList" value="6">To view the data in a grid format, click <span class="GUI_Item">Show Servers As Rows</span> on the View menu.</li>
+            <li class="NumberedList" value="7"><span class="If_Then_Statement">If you want to create a baseline snapshot using this inventory data</span>, click <span class="GUI_Item">Save Baseline</span>.</li>
+            <li class="NumberedList" value="8"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or save the results as an XML&#160;or CSV file.</li>
+        </ol>
+        <p class="StepIntro">To compare the inventory of multiple instances:</p>
+        <ol>
+            <li class="NumberedList" value="1">Generate an inventory report, specifying which instances you want to compare against each other.</li>
+            <li class="NumberedList" value="2">Click <span class="GUI_Item">Highlight Differences</span>.</li>
+            <li class="NumberedList" value="3">Review the properties and settings highlighted with a yellow bar.</li>
+        </ol>
+        <p class="StepIntro">To compare the current inventory against a baseline snapshot:</p>
+        <ol>
+            <li class="NumberedList" value="1">Generate an inventory report, specifying which instances you want to compare against the baseline snapshot.</li>
+            <li class="NumberedList" value="2">Click<span class="GUI_Item"> Open Snapshot.</span></li>
+            <li class="NumberedList" value="3">Select the snapshot you want to compare against, and then click <span class="GUI_Item">OK</span>.</li>
+            <li class="NumberedList" value="4">Click <span class="GUI_Item">Highlight Differences</span>.</li>
+            <li class="NumberedList" value="5">Review the properties and settings highlighted with a yellow bar.</li>
+        </ol>
+        <div class="breadcrumb">
+            <p class="FooterWebLink" data-mc-conditions="Default.SEO"><a href="http://www.idera.com/support/faq" target="_blank" class="FooterWebLink">Need more help? Search the Idera Customer Support Portal &gt; &gt;</a>
+            </p>
+        </div>
+        <div class="LearnMore">
+            <p data-mc-conditions="Default.SEO">SQL admin toolset delivers 25 essential administration tools. <a class="LearnMore" href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank">Learn&#160;more</a> &gt; &gt;</p>
+        </div>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO"><a class="IderaFooter" href="http://www.idera.com/productssolutions/sqlserver" target="_blank">Product</a> | <a href="http://www.idera.com/productssolutions/sqlserver/sqladmintoolset" target="_blank" class="IderaFooter">Downloads</a> | <a href="http://www.idera.com/buynow/shoppingcart" target="_blank" class="IderaFooter">Purchase</a> | <a href="http://www.idera.com/support/faq" target="_blank" class="IderaFooter">Support</a> |&#160;<a href="http://www.idera.com/resourcecentral" target="_blank" class="IderaFooter">Resources</a> | <a href="http://www.idera.com/about/news" target="_blank" class="IderaFooter">News</a> | <a href="http://www.idera.com/about/aboutus" target="_blank" class="IderaFooter">About Us</a> | <a href="http://www.idera.com/about/customers" target="_blank" class="IderaFooter">Customers</a> | <a href="http://partners.idera.com/" target="_blank" class="IderaFooter">Partners</a></p>
+        <p class="IderaFooter" data-mc-conditions="Default.SEO">Copyright ©2003-2013 Idera, Inc. | <a href="Legal Notice.htm" target="_blank" class="IderaFooter">Legal</a></p>
+    </body>
+</html>

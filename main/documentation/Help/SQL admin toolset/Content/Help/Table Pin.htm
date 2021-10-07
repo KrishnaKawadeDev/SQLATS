@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="538" MadCap:lastWidth="998">
+    <head><title>Manage pinned SQL Server tables using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1"><a name="help_link_1_1278434053"></a>Table Pin</h1>
+        <p class="Body">The Table Pin tool allows you to manage pinned SQL&#160;Server tables. Pinning tables into SQL&#160;Server memory can provide performance boosts when SQL Server accesses those tables. Despite the performance benefit, this feature can become dangerous and cause serious performance issues when misused. With this tool, you can:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Monitor exactly which tables are pinned and how much memory they consume from the SQL Server memory pool</li>
+            <li class="BulletLast"> Pin or unpin tables  and easily set up the proper configuration</li>
+        </ul>
+        <p class="Body">This tool only works for SQL Server 2000 instances since the Pinned Table feature was removed in SQL Server 2005 and later.
+
+</p>
+        <p class="Body">By default, Table Pin    <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then  determines which database tables are pinned to the SQL&#160;Server memory.</p>
+        <p class="StepIntro">To pin a table:</p>
+        <ol>
+            <li class="NumberedList">Specify the SQL Server whose table status you want to view.</li>
+            <li class="NumberedList">Clear the <span class="GUI_Item">Hide tables that are not pinned</span> option.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Get Pinned Status</span>.</li>
+            <li class="NumberedList">Select the table you want to pin, and then click <span class="GUI_Item">Pin Table</span>.
+The action takes effect immediately.</li>
+        </ol>
+        <p class="StepIntro">To view a pinned status:</p>
+        <ol>
+            <li class="NumberedList">Specify the SQL Server whose table status you want to view. <span class="If_Then_Statement">If you want to see the status of all tables on this SQL&#160;Server instance</span>, clear the <span class="GUI_Item">Hide tables that are not pinned</span> option. 
+</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Get Pinned Status</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or export the list as an XML&#160;or CSV file.</li>
+        </ol>
+        <p class="StepIntro">To unpin a table:</p>
+        <ol>
+            <li class="NumberedList">Specify the SQL Server whose table status you want to view.&#160;</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Get Pinned Status</span>.</li>
+            <li class="NumberedList">Select the table you want to unpin, and then click <span class="GUI_Item">Unpin Table</span>.
+The action takes effect immediately.</li>
+        </ol>
+    </body>
+</html>

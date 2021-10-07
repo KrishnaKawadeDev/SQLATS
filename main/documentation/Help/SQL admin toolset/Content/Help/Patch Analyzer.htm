@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="769" MadCap:lastWidth="998">
+    <head><title>Manage your SQL Server patches using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Patch Analyzer;manage:SQL Server patches" />Patch Analyzer</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Patch Analyzer</h2>
+        <p class="Body">The Patch Analyzer tool helps you manage SQL&#160;Server patches and keep your environment properly patched. Specify your managed SQL Servers and Patch Analyzer tells you if they are running a supported version of SQL Server. In addition, you can get information about the patches running on your SQL Server and  whether additional  hotfixes are available for your SQL Server level.</p>
+        <h2 class="Heading2">How the Patch Analyzer tool works</h2>
+        <p class="Body">Patch Analyzer allows you to:</p>
+        <ul style="list-style-type: circle;">
+            <li class="Bullet">Verify that your SQL Servers instances are patched to the same level and/or the appropriate level.</li>
+            <li class="Bullet">Identify whether any SQL Server instances are running unsupported versions of SQL Server (or versions whose support is about to expire).</li>
+            <li class="Bullet">Use quick links to Microsoft Knowledge Base articles to get more information about applied hotfixes and new hotfixes.</li>
+            <li class="BulletLast">Keep up with the latest patches
+by downloading the most recent list compiled by Idera.</li>
+        </ul>
+        <p class="Body">By default, Patch Analyzer      <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account.</p>
+        <h2 class="Heading2">Use the Patch Analyzer tool</h2>
+        <p class="StepIntro">To use Patch Analyzer:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Patch Analyzer</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance or server group whose SQL&#160;Server versions you want to check. To specify multiple SQL&#160;Servers, separate each instance name with a semicolon.
+</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Load Version Information</span>. Review the results and note the highlighted versions that are no longer supported or are soon becoming unsupported. </li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to group the results by SQL&#160;Server version</span>, click <span class="GUI_Item">Show Groups</span> on the View menu.
+</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to see more information about a hotfix that was applied to your SQL Server instance</span>, select the instance from the results list, and then click <span class="GUI_Item">View the Microsoft Knowledge Base Article</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to see which new hotfixes are available</span>, select the SQL Server instance you want to update from the results list, and then click <span class="GUI_Item">View Available Updates</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to save the results</span>, copy the list to clipboard, or save the results as an XML&#160;or CSV file.</li>
+        </ol>
+        <p class="StepIntro">To find SQL&#160;Server downloads:</p>
+        <ol>
+            <li class="NumberedList">Click <span class="GUI_Item">SQL Server Downloads / Support Lifecycle</span>.</li>
+            <li class="NumberedList">Find the download you need, and then click the link to proceed to the corresponding Microsoft Web site page.</li>
+        </ol>
+        <p class="StepIntro">To review which patches are checked:</p>
+        <ol>
+            <li class="NumberedList">Click the <span class="GUI_Item">Display Build List</span> link.<span class="If_Then_Statement"> If you are not sure you have the latest list</span>, click <span class="GUI_Item">Check for New List</span>. This link downloads the most recent list of releases, Service Packs, and hotfixes for SQL&#160;Server software.</li>
+            <li class="NumberedList">Review the list of all known releases of SQL Server software.</li>
+            <li class="NumberedList">To see the Microsoft Knowledge Base article for a specific hotfix, select the hotfix, and then click <span class="GUI_Item">View Microsoft Knowledge Base Article</span>.</li>
+        </ol>
+    </body>
+</html>

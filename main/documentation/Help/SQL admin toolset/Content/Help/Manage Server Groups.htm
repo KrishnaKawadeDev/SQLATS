@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="707" MadCap:lastWidth="993">
+    <head>
+        <link href="../../../../../../../SQLAdminToolset/main/Documentation/Help/SQL admin toolset/Content/Resources/TableStyles/Tip Style.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Manage your Idera SQL admin toolset server groups</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>Manage server groups</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Manage server groups</h2>
+        <p class="Body">
+            <MadCap:keyword term="manage:server groups;server groups:manage" />The Manage Server Groups window helps you organize access to your SQL Server instances so you can fully leverage the scope and power of the SQL&#160;admin toolset tools. </p>
+        <p class="Body">A server group can contain multiple instances, whether these instances are hosted on the same computer or on different computers. When you create a server group, you specify a single set of credentials that the SQL&#160;admin toolset uses to connect to each instance in the group.</p>
+        <p class="Body">When you use one of the SQL&#160;admin toolset tools, you can specify which SQL&#160;Server instances you want to act on. Choosing a server group allows you to act on multiple instances that have a logical relationship.</p>
+        <p class="Body"> For example, you could create a server group that contains all the SQL Server instances that host accounting databases. Then, when you launch the Backup Status tool, you can simply specify the Accounting server group to check the backup status of all the instances in this group, no matter where they are located in your enterprise.</p>
+        <p class="Body">  Manage your server groups to:</p>
+        <ul>
+            <li class="Bullet">Create a server group</li>
+            <li class="Bullet">Change group memberships by adding or removing instances</li>
+            <li class="Bullet">Set the SQL&#160;Server connection credentials to use when a tool accesses an instance in this group</li>
+            <li class="Bullet">Rename an existing server group</li>
+            <li class="BulletLast">Delete a server group</li>
+        </ul>
+        <table class="TableStyle_Tip_Style" style="margin-left: 0;margin-right: auto;mc-table-style: url('../Resources/TableStyles/Tip Style.css');" cellspacing="0">
+            <col />
+            <col />
+            <tbody>
+                <tr>
+                    <td class="TableStyle_Tip_Style_Body_0_0_RowEnd_ColSep">
+                        <p class="TableHeadRow">TIP</p>
+                    </td>
+                    <td class="TableStyle_Tip_Style_Body_0_1_RowEnd_ColEnd">
+                        <p class="Body">When you first launch the SQL admin toolset, it loads any server groups previously defined through SQL Server Management Studio (2005 and 2008) or Enterprise Manager (2000).  After the initial import, you can use the Manage Server Groups tool to perform all management of the server groups. </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Access Manage Server Groups</h2>
+        <p class="Body">You can access the Manage Server Groups window from the Tools menu on any tool window. You can also launch this window from the SQL&#160;admin toolset Launchpad by clicking <span class="GUI_Item">Manage Server Groups</span>.</p>
+        <h2 class="Heading2">Nest your server groups</h2>
+        <p class="Body">You can nest server groups to better organize your SQL&#160;Server instances. Nesting is beneficial when you need to organize several small server groups or when you need to sort instances by multiple properties, such as local and data type. For example, nesting HR databases in Chicago, Houston, and London.</p>
+        <p class="Body"><span class="If_Then_Statement">If you select a nested server group when running one of SQL&#160;admin toolset tools</span>, the tool acts on all the instances belonging to the selected server group as well as any instances belonging to the child server groups. Using our previous example, when you select the HR server group, the tool acts on the instances belonging to the Chicago, Houston, and London server groups.</p>
+    </body>
+</html>

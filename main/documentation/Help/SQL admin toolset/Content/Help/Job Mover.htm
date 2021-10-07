@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="6" MadCap:lastHeight="545" MadCap:lastWidth="998">
+    <head><title>Move or copy SQL Server jobs using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Job Mover;move SQL Server jobs" />Job Mover</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Job Mover</h2>
+        <p class="Body">The Job Mover tool helps you move or copy SQL&#160;Server jobs from one SQL&#160;Server instance or database to another, preserving the associated actions as well as the assigned user privileges. You can also rename jobs during the move or copy operation. The Job Mover tool helps you achieve a faster result than script-based solutions.</p>
+        <h2 class="Heading2">How the Job Mover works</h2>
+        <p class="Body">By default, the Job Mover tool <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account, and then collects information about the SQL&#160;Server jobs. Depending on your selection, Job Mover than copies or moves the specified jobs. <span class="If_Then_Statement">If you are moving a job from one instance to another</span>, Job Mover deletes the original job from the source instance.</p>
+        <p class="Body">Before using Job Mover, it is important that you understand that Job Mover requires your Windows user account to have administrative access to the target SQL Server instance. Job Mover uses administrative shares to perform the job copy.</p>
+        <h2 class="Heading2">Use the Job Mover tool</h2>
+        <p class="StepIntro">To move jobs using Job Mover:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Job Mover</span>.</li>
+            <li class="NumberedList">On the Welcome window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select which action you want to perform, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you are copying or moving a job to another instance</span>, select the source and target SQL&#160;Server instance, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you are copying a job to another database on the same instance</span>,select the source SQL&#160;Server instance, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select which jobs you want to move, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Indicate whether you want to keep the existing job schedule and native SQL&#160;Server alerts and notification settings, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Configure options for the new job, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review the summary, and then click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+    </body>
+</html>

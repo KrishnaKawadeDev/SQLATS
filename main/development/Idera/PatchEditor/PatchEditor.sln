@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatchEditor", "PatchEditor.csproj", "{4A2259DF-AA4B-4D0D-A7BA-B110E4F58A4F}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccProjectName0 = Perforce\u0020Project
+		SccLocalPath0 = ..
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection0 = PatchEditor\\
+		SccProjectUniqueName1 = PatchEditor.csproj
+		SccLocalPath1 = ..
+		SccProjectFilePathRelativizedFromConnection1 = PatchEditor\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A2259DF-AA4B-4D0D-A7BA-B110E4F58A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A2259DF-AA4B-4D0D-A7BA-B110E4F58A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A2259DF-AA4B-4D0D-A7BA-B110E4F58A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A2259DF-AA4B-4D0D-A7BA-B110E4F58A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

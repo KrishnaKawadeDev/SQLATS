@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="624" MadCap:lastWidth="998">
+    <head><title>Move databases between SQL Server instances using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Database Mover;move databases" />Database Mover</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Database Mover</h2>
+        <p class="Body">The Database Mover tool helps you move databases from one SQL&#160;Server instance to another, preserving the associated data files and the SQL Server logins. With this tool, you can move or copy databases between SQL Server instances or on the same SQL&#160;Server instance. You can also relocate the data files for a database to a different storage device while keeping the database on the same SQL Server. For example, you can move a performance intensive database to a faster hard disk to speed up performance. You can also rename a database while moving or copying to another location.</p>
+        <h2 class="Heading2">How the Database Mover tool works</h2>
+        <p class="Body">The Database Mover tool requires your Windows user account to have administrative access to the target SQL Server instance because the tool uses administrative shares to perform the file copy. By default, the Database Mover tool <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account, and then collects information about the specified database.</p>
+        <p class="Body">To perform the move, the Database Mover tool detaches the source database to copy the data files for the specified database to the target SQL&#160;Server instance. The tool then attaches the database at the source and target instances, and copies the SQL Server logins to the target instance. The copy database and move data files operation leaves the source database intact. The move database operation drops or deletes the source database.</p>
+        <h2 class="Heading2">Use the Database Mover tool</h2>
+        <p class="StepIntro">To move a database from one SQL&#160;Server instance to another:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Database Mover</span>.</li>
+            <li class="NumberedList">On the Welcome window, click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select which action you want to perform, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you are copying or moving a database</span>, select the source and destination SQL&#160;Server instances and databases. To rename the database during the copy or move operation, specify a new name for the destination database. Click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you are moving data files</span>,select the source SQL&#160;Server instance and database, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the appropriate copy or move options, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Specify the target folder to which the data files should be copied or moved, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Select which SQL&#160;Server logins you want to copy or move to the target instance, and then click <span class="GUI_Item">Next</span>.</li>
+            <li class="NumberedList">Review the summary, and then click <span class="GUI_Item">Finish</span>.</li>
+        </ol>
+        <p class="TableText">&#160;</p>
+    </body>
+</html>

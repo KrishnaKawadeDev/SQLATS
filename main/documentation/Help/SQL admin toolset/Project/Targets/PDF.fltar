@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQLat_Help"
+  Type="PDF"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  ConditionTagExpression="include[Default.PrintOnly] exclude[Default.Google or &quot;Default.Not in PDF&quot; or Default.ScreenOnly or Default.SEO] "
+  MasterToc="/Project/TOCs/SQL admin toolset TOC.fltoc"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLAdminToolset\main\documentation\Help\SQL admin toolset\Output"
+  OutputFile="SQLat_Help">
+  <PDF
+    ShowUsedBookmarks="false"
+    Tagged="true" />
+  <DocumentProperties
+    Title=""
+    Author="Idera" />
+</CatapultTarget>

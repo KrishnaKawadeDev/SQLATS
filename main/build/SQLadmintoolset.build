@@ -1,0 +1,714 @@
+<?xml version="1.0"?>
+<project name="SQLadmintoolset" default="Build.Dev" basedir="..">
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Targets                                      -->
+	<!-- ***************************************************************************** -->
+	
+	<!-- ********* -->
+	<!-- Build.Dev -->
+	<!-- ********* -->
+	<target name="Build.Dev">
+	   <call target="Perforce.Sync" />
+	   <call target="BuildBinaries" />
+           <call target="BuildInstallers" />
+           <call target="CopyBuildToDevShare" />
+	</target>
+	
+	<!-- ************** -->
+	<!-- Build.Official -->
+	<!-- ************** -->
+        <target name="Build.Official">
+           <call target="Perforce.Sync" />
+           <call target="BuildBinaries" />
+           <call target="SignBinaries" />
+           <call target="BuildInstallers" />
+           <call target="Perforce.Label" />
+         <call target="CopyBuildToDevShare" />
+           <call target="Archive" />
+        </target>
+	
+	<!-- ************** -->
+	<!-- Build.Hotfix   -->
+	<!-- ************** -->
+        <target name="Build.Hotfix">
+           <call target="BuildBinaries" />
+           <call target="SignBinaries" />
+           <call target="BuildInstallers" />
+           <call target="Perforce.Label" />
+          <call target="CopyBuildToDevShare" />
+           <call target="Archive" />
+        </target>
+	
+	<!-- ***************** -->
+	<!-- Build.DocOnly -->
+	<!-- ***************** -->
+	<target name="Build.DocOnly"  basedir="..">	
+	        <!-- call target="FetchArchive" -->
+		<!-- call target="Perforce.Sync" -->
+		<!-- call target="Perforce.Sync.Doc" -->
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="Perforce.Label" />
+	    <call target="CopyBuildToDevShare" />
+		<call target="Archive" />
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Build.DocInstallOnly -->
+	<!-- ***************** -->
+	<target name="Build.DocInstallOnly">	
+		<call target="FetchArchive" />
+		<call target="Perforce.Sync" />
+		<call target="Perforce.Sync.Doc" />
+		<call target="Perforce.Sync.Install" />
+		<call target="BuildInstallers" />
+		<call target="BuildDocVersion" />
+		<call target="Perforce.Label" />
+	<call target="CopyBuildToDevShare" />
+		<call target="Archive" />
+	</target>
+	
+
+	<!-- ***************************************************************************** -->
+	<!--                            Setup Nant build properties                        -->
+	<!-- ***************************************************************************** -->
+	<!-- Use TStamp to set a property to the the current datetime defining the format -->
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HHmm" verbose="true" />
+	<setenv name="SQLADMINTOOLSET_ROOT" value="${project::get-base-directory()}"/>
+
+	<!-- Nant Properties -->
+	<property name="Framework.Version" value="v2.0.50727"/>
+	<property name="Framework.Install" value="c:/Windows/Microsoft.NET/Framework/${Framework.Version}"/>
+	<property name="nant.settings.currentframework" value="net-2.0"/>
+
+	<property name="Build.Config" value="Release" unless="${property::exists('Build.Config')}" />
+
+	<property name="Build.StartDate" value="5/1/2012"/>
+
+	<!-- Project Directories -->
+	<property name="SQLadmintoolset.Root" value="development/Idera"/>
+
+	<property name="SQLadmintoolset.BackupStatus.ProjectDir" value="${SQLadmintoolset.Root}/BackupStatus"/>
+	<property name="SQLadmintoolset.ConnectionCheck.ProjectDir" value="${SQLadmintoolset.Root}/ConnectionCheck"/>
+	<property name="SQLadmintoolset.ConnectionStringGenerator.ProjectDir" value="${SQLadmintoolset.Root}/ConnectionStringGenerator"/>
+	<property name="SQLadmintoolset.DatabaseConfiguration.ProjectDir" value="${SQLadmintoolset.Root}/DatabaseConfiguration"/>
+	<property name="SQLadmintoolset.DatabaseMover.ProjectDir" value="${SQLadmintoolset.Root}/DatabaseMover"/>
+	<property name="SQLadmintoolset.DatabaseMoverLibrary.ProjectDir" value="${SQLadmintoolset.Root}/DatabaseMoverLibrary"/>
+	<property name="SQLadmintoolset.IndexAnalyzer.ProjectDir" value="${SQLadmintoolset.Root}/IndexAnalyzer"/>
+	<property name="SQLadmintoolset.InventoryReport.ProjectDir" value="${SQLadmintoolset.Root}/InventoryReport2"/>
+	<property name="SQLadmintoolset.JobEditor.ProjectDir" value="${SQLadmintoolset.Root}/JobEditor"/>
+	<property name="SQLadmintoolset.JobMover.ProjectDir" value="${SQLadmintoolset.Root}/JobMover"/>
+  <property name="SQLadmintoolset.Launchpad.ProjectDir" value="${SQLadmintoolset.Root}/Launchpad"/>
+  <property name="SQLadmintoolset.LoginCopy.ProjectDir" value="${SQLadmintoolset.Root}/LoginCopy"/>
+  <property name="SQLadmintoolset.LinkedServerCopy.ProjectDir" value="${SQLadmintoolset.Root}/LinkedServerMover"/>
+	<property name="SQLadmintoolset.MultiQuery.ProjectDir" value="${SQLadmintoolset.Root}/MultiQuery"/>
+	<property name="SQLadmintoolset.ObjectSearch.ProjectDir" value="${SQLadmintoolset.Root}/ObjectSearch"/>
+	<property name="SQLadmintoolset.PartitionGenerator.ProjectDir" value="${SQLadmintoolset.Root}/PartitionGenerator"/>
+	<property name="SQLadmintoolset.PasswordChecker.ProjectDir" value="${SQLadmintoolset.Root}/PasswordChecker"/>
+	<property name="SQLadmintoolset.PatchAnalyzer.ProjectDir" value="${SQLadmintoolset.Root}/PatchAnalyzer"/>
+	<property name="SQLadmintoolset.QuickReindex.ProjectDir" value="${SQLadmintoolset.Root}/QuickReindex"/>
+	<property name="SQLadmintoolset.ServerConfiguration.ProjectDir" value="${SQLadmintoolset.Root}/ServerConfiguration"/>
+	<property name="SQLadmintoolset.ServerPing.ProjectDir" value="${SQLadmintoolset.Root}/ServerPing"/>
+	<property name="SQLadmintoolset.ServerStatistics.ProjectDir" value="${SQLadmintoolset.Root}/ServerStatistics"/>
+	<property name="SQLadmintoolset.SpaceAnalyzer.ProjectDir" value="${SQLadmintoolset.Root}/SpaceAnalyzer"/>
+  <property name="SQLadmintoolset.SqlAdminToolsetCore.ProjectDir" value="${SQLadmintoolset.Root}/SqlAdminToolsetCore"/>
+  <property name="SQLadmintoolset.SqlDiscovery.ProjectDir" value="${SQLadmintoolset.Root}/SqlDiscovery"/>
+	<property name="SQLadmintoolset.SQLSearch.ProjectDir" value="${SQLadmintoolset.Root}/SQLsearch2"/>
+	<property name="SQLadmintoolset.TablePin.ProjectDir" value="${SQLadmintoolset.Root}/TablePin"/>
+	<property name="SQLadmintoolset.UserClone.ProjectDir" value="${SQLadmintoolset.Root}/UserClone"/>
+
+	<property name="SQLadmintoolset.Build.Root" value="Build"/>
+  <property name="SQLadmintoolset.Build.Bin" value="${SQLadmintoolset.Build.Root}/Bin" />
+  <property name="SQLadmintoolset.Build.FilesForInstallATS" value="${SQLadmintoolset.Build.Root}/FilesForInstallATS" />
+  <property name="SQLadmintoolset.Build.Output" value="${SQLadmintoolset.Build.Root}/Output" />
+	<property name="SQLadmintoolset.Install.ProjectDir" value="development/Install"/>
+	<property name="SQLadmintoolset.Documentation.ProjectDir" value="documentation/ForBuild"/>
+	<property name="SQLadmintoolset.ThirdParty" value="Redist"/>
+	<property name="SQLadmintoolset.version.final" value="${SQLadmintoolset.version}"  if="${property::exists('SQLadmintoolset.version')}"/>
+	<property name="SQLadmintoolset.SqlScripts" value="install/Script Files"/>
+
+	<!-- Common Assembly Info -->
+	<property name="AssemblyInfo.Company" value="Idera Inc." />
+	<property name="AssemblyInfo.Product" value="Idera SQL admin toolset" />
+	<property name="AssemblyInfo.Copyright" value="Copyright (C) 2005-2018 Idera Inc., All Rights Reserved." />
+	
+	<!-- File Names -->
+	<property name="File.BackupStatus" value="BackupStatus.exe"/>
+  <property name="File.ConnectionCheck" value="ConnectionCheck.exe"/>
+  <property name="File.ConnectionStringGenerator" value="ConnectionStringGenerator.exe"/>
+  <property name="File.DatabaseConfiguration" value="DatabaseConfiguration.exe"/>
+  <property name="File.DatabaseMover" value="DatabaseMover.exe"/>
+  <property name="File.DatabaseMoverLibrary" value="DatabaseMoverLibrary.dll"/>
+  <property name="File.IndexAnalyzer" value="IndexAnalyzer.exe"/>
+  <property name="File.InventoryReport" value="InventoryReport.exe"/>
+  <property name="File.JobEditor" value="JobEditor.exe"/>
+  <property name="File.JobMover" value="JobMover.exe"/>
+  <property name="File.Launchpad" value="Launchpad.exe"/>
+  <property name="File.LoginCopy" value="LoginCopy.exe"/>
+  <property name="File.LinkedServerCopy" value="LinkedServerCopy.exe"/>
+  <property name="File.MultiQuery" value="MultiQuery.exe"/>
+  <property name="File.ObjectSearch" value="ObjectSearch.exe"/>
+  <property name="File.PartitionGenerator" value="PartitionGenerator.exe"/>
+  <property name="File.PasswordChecker" value="PasswordChecker.exe"/>
+  <property name="File.PatchAnalyzer" value="PatchAnalyzer.exe"/>
+  <property name="File.PatchAnalyzer.DataFile" value="SqlServerVersions.xml"/>
+  <property name="File.PatchAnalyzer.DataFile2" value="SqlServerVersions_Default.xml"/>
+   <property name="File.PatchAnalyzer.DataFile3" value="SQLServerVersionList_Default.xml"/>
+  <property name="File.QuickReindex" value="QuickReindex.exe"/>
+  <property name="File.ServerConfiguration" value="ServerConfiguration.exe"/>
+  <property name="File.ServerPing" value="ServerPing.exe"/>
+  <property name="File.ServerStatistics" value="ServerStatistics.exe"/>
+  <property name="File.SpaceAnalyzer" value="SpaceAnalyzer.exe"/>
+  <property name="File.SqlAdminToolsetCore" value="SqlAdminToolsetCore.dll"/>
+  <property name="File.SqlAdminToolset.Config" value="SqlAdminToolset.config"/>
+  <property name="File.SqlDiscovery" value="SqlDiscovery.exe"/>
+  <property name="File.SQLSearch" value="SQLSearch.exe"/>
+  <property name="File.TablePin" value="TablePin.exe"/>
+  <property name="File.UserClone" value="UserClone.exe"/>
+
+  <property name="FullPath.Install" value="${SQLadmintoolset.Install.ProjectDir}/setup"/>
+
+  <property name="File.BackupStatus.Config" value="BackupStatus.exe.config"/>
+  <property name="File.ConnectionCheck.Config" value="ConnectionCheck.exe.config"/>
+  <property name="File.ConnectionStringGenerator.Config" value="ConnectionStringGenerator.exe.config"/>
+  <property name="File.DatabaseConfiguration.Config" value="DatabaseConfiguration.exe.config"/>
+  <property name="File.DatabaseMover.Config" value="DatabaseMover.exe.config"/>
+ 
+  <property name="File.IndexAnalyzer.Config" value="IndexAnalyzer.exe.config"/>
+  <property name="File.InventoryReport.Config" value="InventoryReport.exe.config"/>
+  <property name="File.JobEditor.Config" value="JobEditor.exe.config"/>
+  <property name="File.JobMover.Config" value="JobMover.exe.config"/>
+  <property name="File.Launchpad.Config" value="Launchpad.exe.config"/>
+  <property name="File.LoginCopy.Config" value="LoginCopy.exe.config"/>
+  <property name="File.LinkedServerCopy.Config" value="LinkedServerCopy.exe.config"/>
+  <property name="File.MultiQuery.Config" value="MultiQuery.exe.config"/>
+  <property name="File.ObjectSearch.Config" value="ObjectSearch.exe.config"/>
+  <property name="File.PartitionGenerator.Config" value="PartitionGenerator.exe.config"/>
+  <property name="File.PasswordChecker.Config" value="PasswordChecker.exe.config"/>
+  <property name="File.PatchAnalyzer.Config" value="PatchAnalyzer.exe.config"/>
+
+
+  <property name="File.QuickReindex.Config" value="QuickReindex.exe.config"/>
+  <property name="File.ServerConfiguration.Config" value="ServerConfiguration.exe.config"/>
+  <property name="File.ServerPing.Config" value="ServerPing.exe.config"/>
+  <property name="File.ServerStatistics.Config" value="ServerStatistics.exe.config"/>
+  <property name="File.SpaceAnalyzer.Config" value="SpaceAnalyzer.exe.config"/>
+
+  <property name="File.SqlAdminToolset.Config" value="SqlAdminToolset.config"/>
+  <property name="File.SqlDiscovery.Config" value="SqlDiscovery.exe.config"/>
+  <property name="File.SQLSearch.Config" value="SQLSearch.exe.config"/>
+  <property name="File.TablePin.Config" value="TablePin.exe.config"/>
+  <property name="File.UserClone.Config" value="UserClone.exe.config"/>
+  
+  
+  
+  
+  
+	<!-- Output Directories -->
+
+  <!-- Local Output -->
+	<property name="SQLadmintoolset.Compile.Output" value="bin/${Build.Config}"/>
+	<property name="SQLadmintoolset.Final.Output" value="${SQLadmintoolset.Build.Root}/FinalOutput"/>
+
+	<!-- Final Output -->
+	<property name="SQLadmintoolset.DevShare" value="\\redhousefs-02\Development\SQLadmintoolset" />
+	<property name="SQLadmintoolset.DevShare.Builds" value="${SQLadmintoolset.DevShare}\Builds" />
+
+	<property name="SQLadmintoolset.Development.Builds" value="//redhousefs-02/Development/SQLadmintoolset/Builds/"/>
+	<property name="SQLadmintoolset.Development.Archives" value="//redhousefs-02/Development/SQLadmintoolset/Archives/"/>
+	
+	<!-- InstallShield Information -->
+	<property name="InstallShield.Builder" value="C:\Program Files (x86)\InstallShield\2014 SAB\System\IsCmdBld.exe"/>
+	<property name="installshield.mergemodules" value="C:\Program Files (x86)\InstallShield\2014 SAB\Objects"/>
+	<property name="InstallShield.Full.Project" value="setup.ism"/>
+	<property name="BuildNumberPlaceholder" value="9.88.777.666" />
+
+	<!-- Code-signing information -->
+	<property name="Signing.Dir" value="${SQLadmintoolset.Install.ProjectDir}/CodeSigning"/>
+	<property name="Signing.Application" value="${Signing.Dir}/signtool.exe"/>
+	<property name="Signing.Key" value="${Signing.Dir}/ideracredentials.pfx"/>
+	<property name="Signing.TimeStamp" value="http://timestamp.verisign.com/scripts/timstamp.dll"/>
+	<property name="Signing.Password" value="idera*88"/>
+	<property name="Signing.Url" value="http://www.idera.com/"/>
+	<property name="Signing.Name" value=""/>
+	<property name="Signing.Target" value=""/>
+	
+  <!-- Email Properties -->
+	<property name="Email.Server" value="mx.bbstek.com" />
+	<property name="Email.BuildMaster" value="SQLadmintoolsetBuild@idera.com" />
+	<property name="Email.Developers" value="douglas.watson@idera.com" />
+	<property name="Email.From" value="${Email.BuildMaster}" />
+	<property name="Email.Success.To" value="${Email.Developers}" />
+	<property name="Email.Failure.To" value="${Email.Developers}" />
+	<property name="MailLogger.mailhost" value="${Email.Server}" />
+	<property name="MailLogger.from" value="${Email.From}" />
+	<property name="MailLogger.success.to" value="${Email.Success.To}" />
+	<property name="MailLogger.failure.to" value="${Email.Failure.To}" />
+	<property name="MailLogger.success.subject" value="SQL admin toolset  Build ${SQLadmintoolset.version} Available" dynamic="true" />
+	<property name="MailLogger.failure.subject" value="SQL admin toolset Build ${SQLadmintoolset.version} Failed on ${Build.DateTime}"  dynamic="true" />
+	<property name="MailLogger.success.notify" value="true" />
+	<property name="MailLogger.failure.notify" value="true" />
+	
+	<!-- Perforce Information -->
+	<property name="Perforce.Sync.Force" value="true"/>
+	<property name="Perforce.TargetLabel" value="latest"/>
+	<property name="Perforce.Branch" value="//SQLats/main"/>
+	<property name="Perforce.View" value="${Perforce.Branch}/..."/>
+	
+	<!-- Utility -->	
+	<property name="Utility.Sed" value="build/bin/sed.exe"/>
+	<property name="Utility.WinZip" value="C:\Program Files\WinZip"/>
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Steps                                        -->
+	<!-- ***************************************************************************** -->
+
+	<!-- ************ -->
+	<!-- PerforceSync -->
+	<!-- ************ -->
+	<target name="Perforce.Sync">
+		<if test="${Perforce.TargetLabel=='latest'}">
+			<echo message="Fetching latest source"/>
+			<p4sync force="${Perforce.Sync.Force}"  view="${Perforce.View}"/>
+		</if>
+		<ifnot test="${Perforce.TargetLabel=='latest'}">
+			<echo message="Fetching label:  ${Perforce.TargetLabel}"/>
+			<p4sync force="${Perforce.Sync.Force}" label="${Perforce.TargetLabel}"/>
+		</ifnot>
+		<!--  Always get the latest build.number to avoid resolves during version submission.  Also need newest scripts -->
+		<p4sync view="${Perforce.Branch}/build/..."/>
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Perforce.Sync.Doc -->
+	<!-- ***************** -->
+	<target name="Perforce.Sync.Doc">
+		<p4sync force="true"  view="${Perforce.Branch}/${SQLadmintoolset.Documentation.ProjectDir}/..."/>
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Perforce.Sync.Doc -->
+	<!-- ***************** -->
+	<target name="Perforce.Sync.Install">
+		<p4sync force="true"  view="${Perforce.Branch}/install/..."/>
+	</target>
+	
+	<!-- ************* -->
+	<!-- BuildBinaries -->
+	<!-- ************* -->
+	<target name="BuildBinaries">
+		<call target="UpdateVersion" />
+		<call target="GenerateCommonAssemblyInfo" />
+                <call target="UpdateCheckVersion" />
+		<call target="CompileBinaries" />
+		<call target="CopyFiles" />
+	</target>
+	
+	<!-- *************** -->
+	<!-- BuildInstallers -->
+	<!-- *************** -->
+	<target name="BuildInstallers">
+  	  <call target="ApplyVersionToInstallers" />
+		<call target="CreateInstallers" />
+<!--		<call target="CreateZipFile" /> -->
+	</target>
+	
+	<!-- ************* -->
+	<!-- UpdateVersion -->
+	<!-- ************* -->
+	<target name="UpdateVersion">
+		<!-- Set the build.number file to read-write -->
+		<loadtasks assembly="${SQLadmintoolset.Build.Bin}/BuildUtilities.dll" />
+		<p4edit view="${Perforce.Branch}/build/build.number"/>
+		
+		<!-- Generate the build/revision number -->
+		<version path="build/build.number" startdate="${Build.StartDate}" prefix="SQLadmintoolset" buildtype="MonthDay" revisiontype="Increment" />
+		<p4submit changelist="Update build number" view="${Perforce.Branch}/build/build.number"/>		
+		<property name="SQLadmintoolset.version.final" value = "${SQLadmintoolset.version}"/>
+	</target>
+	
+	<!-- ************************** -->
+	<!-- GenerateCommonAssemblyInfo -->
+	<!-- ************************** -->
+	<target name="GenerateCommonAssemblyInfo">
+		<property name="CommonAssemblyInfo" value="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/CommonAssemblyInfo.cs" />
+	
+		<!-- Set the common assembly info file to read-write -->
+		<attrib file="${CommonAssemblyInfo}" readonly="false" />
+		
+		<!-- Generate common assembly info -->
+		<asminfo output="${CommonAssemblyInfo}" language="CSharp">
+			<imports>
+				<import namespace="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyCompanyAttribute" value="${AssemblyInfo.Company}" />
+				<attribute type="AssemblyProductAttribute" value="${AssemblyInfo.Product}" />
+				<attribute type="AssemblyCopyrightAttribute" value="${AssemblyInfo.Copyright}" />
+				<attribute type="AssemblyVersionAttribute" value="${SQLadmintoolset.version}" />		
+			</attributes>
+		</asminfo>
+		
+		<!-- Set the common assembly info file to read-only -->
+		<attrib file="${CommonAssemblyInfo}" readonly="true" />
+	</target>	
+
+	<!-- ****************** -->
+	<!-- UpdateCheckVersion -->
+	<!-- ****************** -->
+	<target name="UpdateCheckVersion">
+		<property name="CoreGlobals" value="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/CoreGlobals.cs" />
+
+	    <property name="CheckVersion" value="${version::get-major(version::parse(SQLadmintoolset.version))}${version::get-minor(version::parse(SQLadmintoolset.version))}${version::get-build(version::parse(SQLadmintoolset.version))}" />
+
+	
+		<!-- Set the common assembly info file to read-write -->
+		<attrib file="${CoreGlobals}" readonly="false" />
+		<move file="${CoreGlobals}" tofile="${CoreGlobals}.old"   overwrite="true" />
+		<exec program="${Utility.Sed}">
+		   <arg value="${CoreGlobals}.old"/>
+		   <arg value="${CoreGlobals}"/>
+		   <arg value="${BuildNumberPlaceholder}"/>
+		   <arg value="${CheckVersion}"/>
+		</exec>
+		
+	</target>	
+
+	
+	<!-- ************************** -->
+	<!-- CompileBinaries            -->
+	<!-- ************************** -->
+	<target name="CompileBinaries">
+		<!-- Build the Primary C# solution -->
+		<msbuild project="development/SQLAdminToolset.sln">
+			<property name="Configuration" value="${Build.Config}"/>
+			<property name="Platform" value = "Any CPU"/>
+		</msbuild>
+	</target>	
+	
+	<!-- ************************** -->
+	<!-- CopyFiles                  -->
+	<!-- ************************** -->
+	<target name="CopyFiles">
+		<mkdir dir="${SQLadmintoolset.Build.FilesForInstallATS}"/>
+    
+    <!--- Built Files -->
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset>
+        <include name="${SQLadmintoolset.BackupStatus.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.BackupStatus}"/>
+        <include name="${SQLadmintoolset.ConnectionCheck.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ConnectionCheck}"/>
+        <include name="${SQLadmintoolset.ConnectionStringGenerator.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ConnectionStringGenerator}"/>
+        <include name="${SQLadmintoolset.DatabaseConfiguration.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseConfiguration}"/>
+        <include name="${SQLadmintoolset.DatabaseMover.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseMover}"/>
+        <include name="${SQLadmintoolset.DatabaseMoverLibrary.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseMoverLibrary}"/>
+        <include name="${SQLadmintoolset.IndexAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.IndexAnalyzer}"/>
+        <include name="${SQLadmintoolset.InventoryReport.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.InventoryReport}"/>
+        <include name="${SQLadmintoolset.JobEditor.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.JobEditor}"/>
+        <include name="${SQLadmintoolset.JobMover.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.JobMover}"/>
+        <include name="${SQLadmintoolset.Launchpad.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.Launchpad}"/>
+        <include name="${SQLadmintoolset.LoginCopy.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.LoginCopy}"/>
+        <include name="${SQLadmintoolset.LinkedServerCopy.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.LinkedServerCopy}"/>
+        <include name="${SQLadmintoolset.MultiQuery.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.MultiQuery}"/>
+        <include name="${SQLadmintoolset.ObjectSearch.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ObjectSearch}"/>
+        <include name="${SQLadmintoolset.PartitionGenerator.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PartitionGenerator}"/>
+        <include name="${SQLadmintoolset.PasswordChecker.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PasswordChecker}"/>
+        <include name="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer}"/>
+        <include name="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer.DataFile}"/>
+	   <include name="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer.DataFile3}"/>
+        <include name="${SQLadmintoolset.QuickReindex.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.QuickReindex}"/>
+        <include name="${SQLadmintoolset.ServerConfiguration.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerConfiguration}"/>
+        <include name="${SQLadmintoolset.ServerPing.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerPing}"/>
+        <include name="${SQLadmintoolset.ServerStatistics.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerStatistics}"/>
+        <include name="${SQLadmintoolset.SpaceAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SpaceAnalyzer}"/>
+        <include name="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlAdminToolsetCore}"/>
+        <include name="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlAdminToolset.Config}"/>
+        <include name="${SQLadmintoolset.SqlDiscovery.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlDiscovery}"/>
+        <include name="${SQLadmintoolset.SQLSearch.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SQLSearch}"/>
+        <include name="${SQLadmintoolset.TablePin.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.TablePin}"/>
+        <include name="${SQLadmintoolset.UserClone.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.UserClone}"/>
+		
+		
+		<include name="${SQLadmintoolset.BackupStatus.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.BackupStatus.config}"/>
+        <include name="${SQLadmintoolset.ConnectionCheck.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ConnectionCheck.config}"/>
+        <include name="${SQLadmintoolset.ConnectionStringGenerator.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ConnectionStringGenerator.config}"/>
+        <include name="${SQLadmintoolset.DatabaseConfiguration.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseConfiguration.config}"/>
+        <include name="${SQLadmintoolset.DatabaseMover.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseMover.config}"/>
+        <include name="${SQLadmintoolset.DatabaseMoverLibrary.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.DatabaseMoverLibrary.config}"/>
+        <include name="${SQLadmintoolset.IndexAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.IndexAnalyzer.config}"/>
+        <include name="${SQLadmintoolset.InventoryReport.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.InventoryReport.config}"/>
+        <include name="${SQLadmintoolset.JobEditor.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.JobEditor.config}"/>
+        <include name="${SQLadmintoolset.JobMover.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.JobMover.config}"/>
+        <include name="${SQLadmintoolset.Launchpad.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.Launchpad.config}"/>
+        <include name="${SQLadmintoolset.LoginCopy.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.LoginCopy.config}"/>
+        <include name="${SQLadmintoolset.LinkedServerCopy.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.LinkedServerCopy.config}"/>
+        <include name="${SQLadmintoolset.MultiQuery.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.MultiQuery.config}"/>
+        <include name="${SQLadmintoolset.ObjectSearch.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ObjectSearch.config}"/>
+        <include name="${SQLadmintoolset.PartitionGenerator.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PartitionGenerator.config}"/>
+        <include name="${SQLadmintoolset.PasswordChecker.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PasswordChecker.config}"/>
+        <include name="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer.config}"/>
+        <include name="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer.DataFile.config}"/>
+        <include name="${SQLadmintoolset.QuickReindex.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.QuickReindex.config}"/>
+        <include name="${SQLadmintoolset.ServerConfiguration.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerConfiguration.config}"/>
+        <include name="${SQLadmintoolset.ServerPing.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerPing.config}"/>
+        <include name="${SQLadmintoolset.ServerStatistics.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.ServerStatistics.config}"/>
+        <include name="${SQLadmintoolset.SpaceAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SpaceAnalyzer.config}"/>
+        <include name="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlAdminToolsetCore.config}"/>
+        <include name="${SQLadmintoolset.SqlAdminToolsetCore.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlAdminToolset.Config}"/>
+        <include name="${SQLadmintoolset.SqlDiscovery.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SqlDiscovery.config}"/>
+        <include name="${SQLadmintoolset.SQLSearch.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.SQLSearch.config}"/>
+        <include name="${SQLadmintoolset.TablePin.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.TablePin.config}"/>
+        <include name="${SQLadmintoolset.UserClone.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.UserClone.config}"/>
+      </fileset>
+    </copy>
+
+    <!--- Built Files -->
+    <copy 
+       file="${SQLadmintoolset.PatchAnalyzer.ProjectDir}/${SQLadmintoolset.Compile.Output}/${File.PatchAnalyzer.DataFile}"
+       tofile="${SQLadmintoolset.Build.FilesForInstallATS}/${File.PatchAnalyzer.DataFile2}"
+    />
+
+
+    <!--- Documentation Files -->
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="${SQLadmintoolset.Documentation.ProjectDir}">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+
+    <!--- Redist Files -->
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\DevComponents">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\DMO">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\Idera">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\Qwhale">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+    <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\ReportViewer">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+     <copy todir="${SQLadmintoolset.Build.FilesForInstallATS}" flatten="true">
+      <fileset basedir="redist\SMO">
+        <include name="*.*"/>
+      </fileset>
+    </copy>
+
+	</target>
+
+	<!-- ************** -->
+	<!-- SignBinaries   -->
+	<!-- ************** -->
+	<target name="SignBinaries">
+
+		<foreach item="File" property="filename">
+	           <in>
+		      <items basedir="${SQLadmintoolset.Build.FilesForInstallATS}">
+		         <include name="*.exe" />
+		         <exclude name="*TracerX.exe" />
+				 <exclude name="*WebHelp.exe" />
+		      </items>
+		   </in>
+	           <do>
+   		      <property name="Signing.Name" value="SQL admin toolset"/>
+		      <property name="Signing.Target" value="${filename}"/>
+   		      <call target="SignCode"/>
+                   </do>
+		</foreach>
+	</target>
+
+	<!-- ************************** -->
+	<!-- CreateInstallers           -->
+	<!-- ************************** -->
+	<target name="CreateInstallers" >
+
+		
+		<!-- Full Install -->
+		<!-- x86 -->
+
+
+			<echo message="CreateInstallers"/>
+			<echo message="${SQLadmintoolset.Install.ProjectDir}"/>
+			<echo message="${InstallShield.Full.Project}"/>
+                        <echo message ="${directory::get-current-directory()}"/>
+
+
+		<attrib file="${SQLadmintoolset.Install.ProjectDir}/${InstallShield.Full.Project}" readonly="false" />
+
+
+		<exec program="${InstallShield.Builder}" workingdir="${SQLadmintoolset.Install.ProjectDir}">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.Project}"/>
+			<arg value="-e"/>
+			<arg value="N"/>
+		</exec>
+
+		<property name="Signing.Name" value="SQL admin toolset"/>
+		<property name="Signing.Target" value="${FullPath.Install}/SQLadmintoolset.msi"/>
+		<call target="SignCode"/>
+
+	</target>
+	
+
+	<!-- ****************** -->
+	<!-- CreateZipFile -->
+	<!-- ****************** -->
+<!--	<target name="CreateZipFile">
+		<mkdir dir="${SQLadmintoolset.Build.Output}"/>
+-->
+    <!-- Zip the full solutions-->
+<!--		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="-p"/>
+			<arg value="-r"/>
+			<arg value="${SQLadmintoolset.Build.Output}\SqladmintoolsetInstallationKit.zip"/>
+      <arg value="${FullPath.Install}/SQLadmintoolset.msi"/>
+      <arg value="${SQLadmintoolset.Build.FilesForInstallATS}/SQL admin toolset Release Notes.pdf"/>
+      <arg value="${SQLadmintoolset.Build.FilesForInstallATS}/BBS - Software License Agreement.pdf"/>
+      <arg value="${SQLadmintoolset.Build.FilesForInstallATS}/BBS - Trial Software License Agreement.pdf"/>
+    </exec> 
+		
+	</target> -->
+
+	<!-- ******************* -->
+	<!-- CopyBuildToDevShare -->
+	<!-- ******************* -->
+	<target name="CopyBuildToDevShare">
+
+
+			<echo message="${SQLadmintoolset.DevShare.Builds}/${SQLadmintoolset.version.final}"/>
+			<echo message="${FullPath.Install}"/>
+
+
+		<copy todir="${SQLadmintoolset.DevShare.Builds}/${SQLadmintoolset.version.final}" flatten="false">
+			<fileset basedir="${FullPath.Install}">
+				<include name="**"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ******************* -->
+	<!-- SignCode            -->
+	<!-- ******************* -->
+	<target name="SignCode">
+		<!-- Sign web installation kit -->
+		<exec program="${Signing.Application}">
+			<arg value="sign"/>
+			<arg value="-d"/>
+			<arg value="${Signing.Name}"/>
+			<arg value="-du"/>
+			<arg value="${Signing.Url}"/>
+			<arg value="-f"/>
+			<arg value="${Signing.Key}"/>
+			<arg value="-p"/>
+			<arg value="${Signing.Password}"/>
+			<arg value="-t"/>
+			<arg value="${Signing.TimeStamp}"/>
+			<arg value="${Signing.Target}"/>
+		</exec>
+	</target>
+
+	<!-- ******************* -->
+	<!-- Perforce.Label      -->
+	<!-- ******************* -->
+	<target name="Perforce.Label">
+		<p4label label="sqladmintoolset_${SQLadmintoolset.version.final}" view="${Perforce.View}"/>
+		<p4labelsync label="sqladmintoolset_${SQLadmintoolset.version.final}"  view="${Perforce.View}"/>
+		<exec workingdir="build" program="LockLabel.bat" commandline="sqladmintoolset_${SQLadmintoolset.version.final}"/>
+	</target>
+
+	<!-- ************************** -->
+	<!-- ApplyVersionToInstallers   -->
+	<!-- ************************** -->
+	<target name="ApplyVersionToInstallers">
+		<!-- Replaces build number placeholder with real build number in ISM files -->
+		<!-- x86 -->
+		<foreach item="File" property="filename">
+			<in>
+				<items basedir="${SQLadmintoolset.Install.ProjectDir}">
+					<include name="*.ism" />
+				</items>
+			</in>
+				<do>
+					<attrib file="${filename}" readonly="false"/>
+					<move file="${filename}" tofile="${filename}.old"   overwrite="true" />
+					<exec program="${Utility.Sed}">
+						<arg value="${filename}.old"/>
+						<arg value="${filename}"/>
+						<arg value="${BuildNumberPlaceholder}"/>
+						<arg value="${SQLadmintoolset.version}"/>
+					</exec>
+				</do>
+		</foreach>
+		
+	</target>
+	
+	<!-- ******************* -->
+	<!-- Archive             -->
+	<!-- ******************* -->
+	<target name="Archive">
+		<!-- Zip up the SQLadmintoolset folder -->
+		<exec program="${Utility.WinZip}\wzzip">
+			<arg value="-a"/>
+			<arg value="-p"/>
+			<arg value="-r"/>
+			<arg value="-x*.ncb"/>
+			<arg value="-xbuild/*.*"/>
+			<arg value="../SQLadmintoolset_${SQLadmintoolset.version.final}.zip"/>
+			<arg value="*.*"/>
+		</exec>
+		<move file="../SQLadmintoolset_${SQLadmintoolset.version.final}.zip" tofile="${SQLadmintoolset.Development.Archives}/SQLadmintoolset_${SQLadmintoolset.version.final}.zip"/>
+		
+	</target>
+	
+	<!-- ******************* -->
+	<!-- FetchArchive        -->
+	<!-- ******************* -->
+	<target name="FetchArchive">
+		<copy todir="." overwrite="true">
+			<fileset basedir="${SQLadmintoolset.Development.Archives}/SQLadmintoolset-${SQLadmintoolset.version}">
+				<exclude name="SQLadmintoolset.build"/>
+				<exclude name="DoBuild.bat"/>
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- BuildDocVersion     -->
+	<!-- ******************* -->
+	<target name="BuildDocVersion">
+		<property name="FriendlyDate" value="${datetime::get-month(datetime::now())}-${datetime::get-day(datetime::now())}-${datetime::get-year(datetime::now())}"/>
+		<property name="FriendlyTime" value="${datetime::get-hour(datetime::now())}.${datetime::get-minute(datetime::now())}.${datetime::get-second(datetime::now())}"/>
+		<property name="SQLadmintoolset.version.final" value="${SQLadmintoolset.version}_${FriendlyDate}_${FriendlyTime}"/>
+	</target>
+	
+	<!-- - - - -->
+	<!-- CLEAN -->
+	<!-- - - - -->
+	<!-- Clean the build directories -->
+	<target name="Build.Clean">
+		<delete failonerror="false">
+	 		<fileset basedir="${SQLadmintoolset.Root}">
+	  		<include name="**/bin/**/*" />
+	  		<include name="**/obj/**/*" />
+	 		</fileset>
+		</delete>
+	</target>
+</project>

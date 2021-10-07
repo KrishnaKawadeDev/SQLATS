@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultConditionTagSet>
+  <ConditionTag
+    Comment=""
+    Name="ScreenOnly"
+    BackgroundColor="Blue" />
+  <ConditionTag
+    Comment=""
+    Name="PrintOnly"
+    BackgroundColor="Red" />
+  <ConditionTag
+    BackgroundColor="#add8e6"
+    Name="SEO"
+    Comment="" />
+  <ConditionTag
+    BackgroundColor="#f08080"
+    Name="Google"
+    Comment="" />
+  <ConditionTag
+    BackgroundColor="#ffa500"
+    Name="Not in PDF"
+    Comment="" />
+  <ConditionTag
+    BackgroundColor="#ffeb00"
+    Name="RN"
+    Comment="" />
+  <ConditionTag
+    BackgroundColor="#00ff18"
+    Name="Internal Use Only"
+    Comment="" />
+</CatapultConditionTagSet>

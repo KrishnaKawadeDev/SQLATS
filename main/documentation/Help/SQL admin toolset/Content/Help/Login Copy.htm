@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="480" MadCap:lastWidth="998">
+    <head><title>Sync your SQL Server logins using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="synchronize logins between instances;Login Copy" />Login Copy</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Login Copy</h2>
+        <p class="Body">The Login Copy tool helps you keep SQL&#160;Server logins synchronized between instances by letting you transfer logins using a simple, easy-to-use interface. Easy login transfer is important because it is difficult administering parallel SQL Server environments such as test and production systems. Use the Login Copy tool to preview the missing SQL&#160;Server logins on a secondary SQL&#160;Server or move the SQL&#160;Server Logins to the secondary SQL&#160;Server. </p>
+        <h2 class="Heading2">How the Login Copy tool works</h2>
+        <p class="Body">With this tool, you can ensure SQL Server logins required for database access on multiple SQL Servers are up to date and Supplement existing backup and recovery scripts by capturing the SQL&#160;Server logins stored outside the databases at the server level.</p>
+        <p class="Body">By default, the Login Copy tool    <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instance using the credentials of your currently logged on Windows account. The Login Copy tool then copies the appropriate login information and recreates the SQL&#160;Server logins on the target instance.</p>
+        <h2 class="Heading2">Use the Login Copy tool</h2>
+        <p class="StepIntro">To sync your SQL&#160;Server instances using Login Copy: </p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Login Copy</span>.</li>
+            <li class="NumberedList">Specify the source SQL Server instance for the move login operation. The source SQL&#160;Server instance contains the SQL Server logins you want to move.</li>
+            <li class="NumberedList">Specify the destination SQL Server.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Preview Missing Logins</span> to see the list of the logins that exist on the source SQL Server but do not exist on the target SQL Server.</li>
+            <li class="NumberedList">Check which logins you want to move to the target SQL Server.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Copy Logins</span> to create the selected logins on the target SQL Server.</li>
+        </ol>
+    </body>
+</html>

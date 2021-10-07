@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="6" MadCap:lastHeight="1513" MadCap:lastWidth="998">
+    <head><title>Build a SQL connection string using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+        <link href="../Resources/TableStyles/Idera Table Stylesheet.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Connection String;build a SQL connection string" />Connection String Generator</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Connection String Generator</h2>
+        <p class="Body">The Connection String Generator tool helps you build a SQL connection string, eliminating the need to research and memorize all the available options. Connection String Generator creates a ready-to-use connection string that allows a third-party application to connect to a SQL&#160;Server instance. Each generated connection string contains only those options you selected, arranged in the correct order with the correct syntax.</p>
+        <p class="Body">The Connection String Generator puts all the connection string options at your fingertips. Simply specify the desired options and the tool automatically builds the corresponding connection string. Once you build the connection string, you can test it within the tool and then copy it to your code. </p>
+        <h2 class="Heading2">How the Connection String Generator tool works</h2>
+        <p class="Body">The Connection String Generator
+offers over 40 editable connection string options to build your custom string. The following table includes the basic connection string options available when using the Connection String Generator tool.</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col style="width: 1in;" class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Property</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">SQL Server</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><em>Required</em>. Specifies the name or network address of the SQL Server instance to which you want to connect. To specify a local unnamed instance, type "(local)".</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">TCP/IP Port</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText"><em>Required when the target SQL Server does not use the default port of 1433</em>.
+Specifies the port on which the SQL Server listens. </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Database or Initial Catalog</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the database or catalog to which you want to connect.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Application Name</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the name of the application that you want to connect to the SQL&#160;Server instance. Use this option to identify your application in audit trails.</p>
+                        <p class="TableText"><span class="If_Then_Statement">If you are using ADO and do not specify an application name</span>, Connection String Generator uses the default string '.NET SQLCLient Data Provider'. </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Connection Timeout</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the amount of time in seconds you want to wait before the connection times out due to a failure or error. This option is set to 15 seconds by default. </p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Encrypt Data</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Enables SLL encryption for all data sent between client and server. This option requires a certificate installed at the server.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Connect Using</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Specifies the credentials to use when connecting to the SQL&#160;Server instance. Choosing  Windows authentication use the current Windows login credentials whereas choosing SQL authentication lets you specify a SQL login and password. 
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">The following table includes the connection pooling options available when using the Connection String Generator tool.</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col style="width: 1in;" class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Property</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Use Connection Pooling</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Enables connection pooling. When enabled, the connection is drawn from the pool or created and added to the pool. This option is enabled by default.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Max Pool Size</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText" style="font-weight: normal;">Specifies the maximum number of connections available in the connection pool. This option is set to 100 by default. 
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Min Pool Size</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the minimum number of connections available in the connection pool. This option is set to 0 by default.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Connection Lifetime</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the lifetime of a connection in seconds. This option indicates whether the connection is destroyed or kept alive when returned to the connection pool. Specifying 0 gives the connection  the maximum allowed timeout.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Reset Database Connection</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Specifies whether the connection is reset when drawn from the connection pool.
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">The following table includes the client network library options available when using the Connection String Generator.</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col style="width: 1in;" class="Column-Column1" />
+            <col class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Property</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1" style="font-weight: normal;">
+                        <p class="TableText">Client Network Library</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Specifies alternate network protocols to use during the connection. Named pipes is used by default. 
+</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Body">The following table includes the advanced connection string options available when using the Connection String Generator.</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/Idera Table Stylesheet.css');" class="TableStyle-Idera_Table_Stylesheet" cellspacing="0">
+            <col style="width: 1in;" class="Column-Column1" />
+            <col style="width: 539px;" class="Column-Column2" />
+            <thead>
+                <tr class="Head-Header1">
+                    <th class="HeadE-Column1-Header1">
+                        <p class="TableHeadRow">Property</p>
+                    </th>
+                    <th class="HeadD-Column2-Header1">
+                        <p class="TableHeadRow">Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Attach DB File Name</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the full path for the primary database file of the database. This option ensures that the database is attached  before making the connection.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Current Language</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the SQL Server Language record name.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Driver</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the driver to be used for the connection. 
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Packet Size</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the size in bytes of network packets sent between the client and server. This option is set to 8k by default.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Network Library</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the network library used to establish the connection.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Workstation ID</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the name of the workstation connecting to the SQL Server instance.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Database Mirroring Fail Over Partner</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Specifies the name of the fail over partner server used for database mirroring.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Asynchronous Processing</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Enables asynchronous support. This option is disabled by default.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">MARS Connection</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Enables the ability to an application to maintain multiple active result sets. This option is available for .NET version 2.0 and above only.</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyE-Column1-Body1">
+                        <p class="TableText">Persist Security Info</p>
+                    </td>
+                    <td class="BodyD-Column2-Body1">
+                        <p class="TableText">Enables returning security-sensitive information, such as a password, returned as part of the connection if the connection is open or is ever open.
+</p>
+                    </td>
+                </tr>
+                <tr class="Body-Body1">
+                    <td class="BodyB-Column1-Body1">
+                        <p class="TableText">Enlist</p>
+                    </td>
+                    <td class="BodyA-Column2-Body1">
+                        <p class="TableText">Enables the SQL&#160;Server connection pooler to automatically enlist the connection in the current transaction of the creation thread.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 class="Heading2">Use the Connection String Generator tool</h2>
+        <p class="StepIntro">To generate a connection string:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Connection String</span>.</li>
+            <li class="NumberedList">Specify the SQL Server instance to which you want to connect. This field is the only required field to generate a connection string.</li>
+            <li class="NumberedList"> 
+Specify any other options you want to include in your string, such as the default database, alternate credentials, or your application name.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Test Connection</span> to ensure you specified the correct options for the connection string.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If the test connection is successful</span>,  copy the connection string to paste into your own code by clicking <span class="GUI_Item">Copy to Clipboard</span>.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../TableStyles/banner.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <table style="caption-side: bottom;margin-top: 0px;border-spacing: 0px 0px;margin: -15px 0px 0px 0px;mc-table-style: url('../TableStyles/banner.css');border-collapse: separate;width: 100%;border-left-style: none;border-left-width: 0px;border-left-color: #000000;border-right-style: none;border-right-width: 0px;border-right-color: #000000;border-top-style: solid;border-top-width: 1px;border-top-color: #ffffff;border-bottom-style: solid;border-bottom-width: 2px;border-bottom-color: #dcdcdc;" class="TableStyle_banner" cellspacing="0">
+        <col style="width: 100%;" />
+        <thead>
+            <tr>
+                <th class="TableStyle_banner_Head_0_0_ColEnd" style="background-color: #dcdcdc;">&#160;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="height: 100%;">
+                <th style="text-align: right;font-family: arial;font-size: 6pt;border-left-style: none;border-left-width: 1px;border-right-style: none;border-right-width: 1px;border-top-style: none;border-top-width: 1px;border-bottom-style: none;border-bottom-width: 1px;margin-top: 0px;margin-bottom: -49px;" class="TableStyle_banner_Body_0_0_RowEnd_ColEnd">
+                    <img src="../Images/AdminToolSetLogo.png" />
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <body>
+        <MadCap:bodyProxy style="font-size: 6pt;" />
+    </body>
+</html>

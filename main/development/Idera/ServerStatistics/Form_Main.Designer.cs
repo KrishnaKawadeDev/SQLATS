@@ -1,0 +1,794 @@
+namespace Idera.SqlAdminToolset.ServerStatistics
+{
+   partial class Form_Main
+   {
+      /// <summary>
+      /// Required designer variable.
+      /// </summary>
+      private System.ComponentModel.IContainer components = null;
+
+      /// <summary>
+      /// Clean up any resources being used.
+      /// </summary>
+      /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+      protected override void Dispose(bool disposing)
+      {
+         if (disposing && (components != null))
+         {
+            components.Dispose();
+         }
+         base.Dispose(disposing);
+      }
+
+      #region Windows Form Designer generated code
+
+      /// <summary>
+      /// Required method for Designer support - do not modify
+      /// the contents of this method with the code editor.
+      /// </summary>
+      private void InitializeComponent()
+      {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
+            this.panelMiddle = new System.Windows.Forms.Panel();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.serverSelection = new Idera.SqlAdminToolset.Core.Controls.ToolServerSelection();
+            this.buttonGetStatistics = new DevComponents.DotNetBar.ButtonX();
+            this.groupResults = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.listDetails = new DevComponents.DotNetBar.Controls.ListViewEx();
+            this.contextMenuDetails = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.expandableSplitter1 = new DevComponents.DotNetBar.ExpandableSplitter();
+            this.treeCategories = new DevComponents.AdvTree.AdvTree();
+            this.columnName = new DevComponents.AdvTree.ColumnHeader();
+            this.contextMenuTree = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuExpand = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuCollapse = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.node2 = new DevComponents.AdvTree.Node();
+            this.elementStyle1 = new DevComponents.DotNetBar.ElementStyle();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.labelTitle = new DevComponents.DotNetBar.LabelX();
+            this.labelSubtitle = new DevComponents.DotNetBar.LabelX();
+            this.pictureBoxTitle = new System.Windows.Forms.PictureBox();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExportAsCSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExportAsXML = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExitToLaunchpad = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expandAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.collapseAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuManageServerGroups = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolsetOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuLaunchpad = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuShowHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuContactTechnicalSupport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuDeactivateLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCheckForUpdates = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuAboutIderaProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.ideraTitleBar1 = new IderaTrialExperienceCommon.Controls.IderaTitleBar();
+            this.panelMiddle.SuspendLayout();
+            this.groupPanel1.SuspendLayout();
+            this.groupResults.SuspendLayout();
+            this.contextMenuDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeCategories)).BeginInit();
+            this.contextMenuTree.SuspendLayout();
+            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitle)).BeginInit();
+            this.panelBottom.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panelMiddle
+            // 
+            this.panelMiddle.Controls.Add(this.groupPanel1);
+            this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMiddle.Location = new System.Drawing.Point(0, 169);
+            this.panelMiddle.Name = "panelMiddle";
+            this.panelMiddle.Padding = new System.Windows.Forms.Padding(6);
+            this.panelMiddle.Size = new System.Drawing.Size(823, 72);
+            this.panelMiddle.TabIndex = 14;
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.serverSelection);
+            this.groupPanel1.Controls.Add(this.buttonGetStatistics);
+            this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel1.IsShadowEnabled = true;
+            this.groupPanel1.Location = new System.Drawing.Point(6, 6);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(811, 60);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.Class = "";
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.Class = "";
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.Class = "";
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 0;
+            // 
+            // serverSelection
+            // 
+            this.serverSelection.BackColor = System.Drawing.Color.Transparent;
+            this.serverSelection.Caption = "";
+            this.serverSelection.CredentialsVisible = true;
+            this.serverSelection.Location = new System.Drawing.Point(3, 7);
+            this.serverSelection.MinimumSize = new System.Drawing.Size(0, 40);
+            this.serverSelection.Name = "serverSelection";
+            this.serverSelection.SelectionOptions = Idera.SqlAdminToolset.Core.Controls.ServerSelectionOptions.ServersAndGroups;
+            this.serverSelection.Size = new System.Drawing.Size(618, 40);
+            this.serverSelection.TabIndex = 6;
+            this.serverSelection.TextChangedEventHandler = null;
+            // 
+            // buttonGetStatistics
+            // 
+            this.buttonGetStatistics.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonGetStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonGetStatistics.BackColor = System.Drawing.Color.White;
+            this.buttonGetStatistics.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonGetStatistics.Image = ((System.Drawing.Image)(resources.GetObject("buttonGetStatistics.Image")));
+            this.buttonGetStatistics.Location = new System.Drawing.Point(642, 4);
+            this.buttonGetStatistics.Name = "buttonGetStatistics";
+            this.buttonGetStatistics.Size = new System.Drawing.Size(160, 46);
+            this.buttonGetStatistics.TabIndex = 5;
+            this.buttonGetStatistics.Text = "View Statistics";
+            this.buttonGetStatistics.Click += new System.EventHandler(this.buttonGetResults_Click);
+            // 
+            // groupResults
+            // 
+            this.groupResults.BackColor = System.Drawing.Color.Transparent;
+            this.groupResults.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupResults.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupResults.Controls.Add(this.listDetails);
+            this.groupResults.Controls.Add(this.expandableSplitter1);
+            this.groupResults.Controls.Add(this.treeCategories);
+            this.groupResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupResults.IsShadowEnabled = true;
+            this.groupResults.Location = new System.Drawing.Point(6, 3);
+            this.groupResults.Name = "groupResults";
+            this.groupResults.Size = new System.Drawing.Size(811, 418);
+            // 
+            // 
+            // 
+            this.groupResults.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupResults.Style.BackColorGradientAngle = 90;
+            this.groupResults.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupResults.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupResults.Style.BorderBottomWidth = 1;
+            this.groupResults.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupResults.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupResults.Style.BorderLeftWidth = 1;
+            this.groupResults.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupResults.Style.BorderRightWidth = 1;
+            this.groupResults.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupResults.Style.BorderTopWidth = 1;
+            this.groupResults.Style.Class = "";
+            this.groupResults.Style.CornerDiameter = 4;
+            this.groupResults.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupResults.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupResults.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupResults.StyleMouseDown.Class = "";
+            this.groupResults.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupResults.StyleMouseOver.Class = "";
+            this.groupResults.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupResults.TabIndex = 6;
+            // 
+            // listDetails
+            // 
+            // 
+            // 
+            // 
+            this.listDetails.Border.Class = "ListViewBorder";
+            this.listDetails.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.listDetails.ContextMenuStrip = this.contextMenuDetails;
+            this.listDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listDetails.FullRowSelect = true;
+            this.listDetails.Location = new System.Drawing.Point(313, 0);
+            this.listDetails.Name = "listDetails";
+            this.listDetails.Size = new System.Drawing.Size(492, 412);
+            this.listDetails.SmallImageList = this.imageList1;
+            this.listDetails.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.listDetails.TabIndex = 17;
+            this.listDetails.UseCompatibleStateImageBehavior = false;
+            this.listDetails.View = System.Windows.Forms.View.Details;
+            this.listDetails.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listDetails_ColumnClick);
+            this.listDetails.DoubleClick += new System.EventHandler(this.listDetails_DoubleClick);
+            // 
+            // contextMenuDetails
+            // 
+            this.contextMenuDetails.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuCopy,
+            this.refreshToolStripMenuItem});
+            this.contextMenuDetails.Name = "contextMenuDetails";
+            this.contextMenuDetails.Size = new System.Drawing.Size(145, 48);
+            // 
+            // toolStripMenuCopy
+            // 
+            this.toolStripMenuCopy.Name = "toolStripMenuCopy";
+            this.toolStripMenuCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.toolStripMenuCopy.Size = new System.Drawing.Size(144, 22);
+            this.toolStripMenuCopy.Text = "&Copy";
+            this.toolStripMenuCopy.Click += new System.EventHandler(this.toolStripMenuCopy_Click);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.refreshToolStripMenuItem.Text = "&Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshData);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "server.png");
+            this.imageList1.Images.SetKeyName(1, "data.png");
+            this.imageList1.Images.SetKeyName(2, "data_copy.png");
+            this.imageList1.Images.SetKeyName(3, "data_information.png");
+            this.imageList1.Images.SetKeyName(4, "data_disk.png");
+            this.imageList1.Images.SetKeyName(5, "data_scroll.png");
+            this.imageList1.Images.SetKeyName(6, "users3.png");
+            this.imageList1.Images.SetKeyName(7, "user1_information.png");
+            this.imageList1.Images.SetKeyName(8, "user1_preferences.png");
+            this.imageList1.Images.SetKeyName(9, "user1_lock.png");
+            this.imageList1.Images.SetKeyName(10, "harddisk_network.png");
+            this.imageList1.Images.SetKeyName(11, "link.png");
+            this.imageList1.Images.SetKeyName(12, "server_network.png");
+            this.imageList1.Images.SetKeyName(13, "gears.png");
+            this.imageList1.Images.SetKeyName(14, "user1_monitor.png");
+            this.imageList1.Images.SetKeyName(15, "window_application.png");
+            this.imageList1.Images.SetKeyName(16, "harddisk.png");
+            this.imageList1.Images.SetKeyName(17, "document_error.png");
+            this.imageList1.Images.SetKeyName(18, "data_lock.png");
+            this.imageList1.Images.SetKeyName(19, "oszillograph.png");
+            this.imageList1.Images.SetKeyName(20, "user1.png");
+            // 
+            // expandableSplitter1
+            // 
+            this.expandableSplitter1.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(150)))));
+            this.expandableSplitter1.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandableSplitter1.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.expandableSplitter1.ExpandableControl = this.treeCategories;
+            this.expandableSplitter1.ExpandActionClick = false;
+            this.expandableSplitter1.ExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(150)))));
+            this.expandableSplitter1.ExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandableSplitter1.ExpandLineColor = System.Drawing.SystemColors.ControlText;
+            this.expandableSplitter1.ExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.expandableSplitter1.GripDarkColor = System.Drawing.SystemColors.ControlText;
+            this.expandableSplitter1.GripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.expandableSplitter1.GripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.expandableSplitter1.GripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.expandableSplitter1.HotBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(142)))), ((int)(((byte)(75)))));
+            this.expandableSplitter1.HotBackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(207)))), ((int)(((byte)(139)))));
+            this.expandableSplitter1.HotBackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground2;
+            this.expandableSplitter1.HotBackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBackground;
+            this.expandableSplitter1.HotExpandFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(150)))));
+            this.expandableSplitter1.HotExpandFillColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandableSplitter1.HotExpandLineColor = System.Drawing.SystemColors.ControlText;
+            this.expandableSplitter1.HotExpandLineColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            this.expandableSplitter1.HotGripDarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(150)))));
+            this.expandableSplitter1.HotGripDarkColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.expandableSplitter1.HotGripLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.expandableSplitter1.HotGripLightColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.expandableSplitter1.Location = new System.Drawing.Point(308, 0);
+            this.expandableSplitter1.Name = "expandableSplitter1";
+            this.expandableSplitter1.Size = new System.Drawing.Size(5, 412);
+            this.expandableSplitter1.TabIndex = 16;
+            this.expandableSplitter1.TabStop = false;
+            // 
+            // treeCategories
+            // 
+            this.treeCategories.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.treeCategories.AllowDrop = true;
+            this.treeCategories.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.treeCategories.BackgroundStyle.Class = "TreeBorderKey";
+            this.treeCategories.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.treeCategories.Columns.Add(this.columnName);
+            this.treeCategories.ContextMenuStrip = this.contextMenuTree;
+            this.treeCategories.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeCategories.DragDropEnabled = false;
+            this.treeCategories.ExpandButtonType = DevComponents.AdvTree.eExpandButtonType.Triangle;
+            this.treeCategories.HotTracking = true;
+            this.treeCategories.ImageList = this.imageList1;
+            this.treeCategories.LicenseKey = "F962CEC7-CD8F-4911-A9E9-CAB39962FC1F";
+            this.treeCategories.Location = new System.Drawing.Point(0, 0);
+            this.treeCategories.Name = "treeCategories";
+            this.treeCategories.Nodes.AddRange(new DevComponents.AdvTree.Node[] {
+            this.node2});
+            this.treeCategories.NodeStyle = this.elementStyle1;
+            this.treeCategories.PathSeparator = ";";
+            this.treeCategories.Size = new System.Drawing.Size(308, 412);
+            this.treeCategories.Styles.Add(this.elementStyle1);
+            this.treeCategories.TabIndex = 0;
+            this.treeCategories.Text = "Name";
+            this.treeCategories.BeforeExpand += new DevComponents.AdvTree.AdvTreeNodeCancelEventHandler(this.treeCategories_BeforeExpand);
+            this.treeCategories.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.treeCategories_AfterNodeSelect);
+            // 
+            // columnName
+            // 
+            this.columnName.Name = "columnName";
+            this.columnName.Width.Relative = 100;
+            // 
+            // contextMenuTree
+            // 
+            this.contextMenuTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuExpand,
+            this.toolStripMenuCollapse,
+            this.toolStripMenuRefresh});
+            this.contextMenuTree.Name = "contextMenuDetails";
+            this.contextMenuTree.Size = new System.Drawing.Size(137, 70);
+            this.contextMenuTree.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuTree_Opening);
+            // 
+            // toolStripMenuExpand
+            // 
+            this.toolStripMenuExpand.Name = "toolStripMenuExpand";
+            this.toolStripMenuExpand.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuExpand.Text = "&Expand All";
+            this.toolStripMenuExpand.Click += new System.EventHandler(this.toolStripMenuExpand_Click);
+            // 
+            // toolStripMenuCollapse
+            // 
+            this.toolStripMenuCollapse.Name = "toolStripMenuCollapse";
+            this.toolStripMenuCollapse.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuCollapse.Text = "Co&llapse All";
+            this.toolStripMenuCollapse.Click += new System.EventHandler(this.toolStripMenuCollapse_Click);
+            // 
+            // toolStripMenuRefresh
+            // 
+            this.toolStripMenuRefresh.Name = "toolStripMenuRefresh";
+            this.toolStripMenuRefresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.toolStripMenuRefresh.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuRefresh.Text = "&Refresh";
+            this.toolStripMenuRefresh.Click += new System.EventHandler(this.RefreshData);
+            // 
+            // node2
+            // 
+            this.node2.Name = "node2";
+            // 
+            // elementStyle1
+            // 
+            this.elementStyle1.Class = "";
+            this.elementStyle1.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.elementStyle1.Name = "elementStyle1";
+            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.Transparent;
+            this.panelTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTop.Controls.Add(this.labelTitle);
+            this.panelTop.Controls.Add(this.labelSubtitle);
+            this.panelTop.Controls.Add(this.pictureBoxTitle);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 117);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(823, 52);
+            this.panelTop.TabIndex = 16;
+            // 
+            // labelTitle
+            // 
+            // 
+            // 
+            // 
+            this.labelTitle.BackgroundStyle.Class = "";
+            this.labelTitle.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelTitle.Location = new System.Drawing.Point(59, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(310, 52);
+            this.labelTitle.TabIndex = 5;
+            this.labelTitle.TabStop = false;
+            this.labelTitle.ForeColor = System.Drawing.Color.Black;
+            this.labelTitle.Text = "<b><font size=\"+6\">Welcome to  Server Statistics</font></b> ";
+            // 
+            // labelSubtitle
+            // 
+            // 
+            // 
+            // 
+            this.labelSubtitle.BackgroundStyle.Class = "";
+            this.labelSubtitle.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelSubtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubtitle.Location = new System.Drawing.Point(380, 0);
+            this.labelSubtitle.Name = "labelSubtitle";
+            this.labelSubtitle.Size = new System.Drawing.Size(386, 52);
+            this.labelSubtitle.TabIndex = 6;
+            this.labelSubtitle.Text = "View statistics and counts about your SQL Servers";
+            // 
+            // pictureBoxTitle
+            // 
+            this.pictureBoxTitle.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxTitle.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTitle.Image")));
+            this.pictureBoxTitle.Location = new System.Drawing.Point(5, 2);
+            this.pictureBoxTitle.Name = "pictureBoxTitle";
+            this.pictureBoxTitle.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxTitle.TabIndex = 0;
+            this.pictureBoxTitle.TabStop = false;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Controls.Add(this.groupResults);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBottom.Location = new System.Drawing.Point(0, 241);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Padding = new System.Windows.Forms.Padding(6, 3, 6, 6);
+            this.panelBottom.Size = new System.Drawing.Size(823, 427);
+            this.panelBottom.TabIndex = 17;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuFile,
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem,
+            this.menuTools,
+            this.menuHelp});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 93);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(823, 24);
+            this.menuStrip1.TabIndex = 18;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuFile
+            // 
+            this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuExport,
+            this.menuExitToLaunchpad,
+            this.menuFileExit});
+            this.menuFile.Name = "menuFile";
+            this.menuFile.Size = new System.Drawing.Size(37, 20);
+            this.menuFile.Text = "&File";
+            // 
+            // menuExport
+            // 
+            this.menuExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuExportAsCSV,
+            this.menuExportAsXML});
+            this.menuExport.Enabled = false;
+            this.menuExport.Name = "menuExport";
+            this.menuExport.Size = new System.Drawing.Size(168, 22);
+            this.menuExport.Text = "&Save Results As";
+            // 
+            // menuExportAsCSV
+            // 
+            this.menuExportAsCSV.Name = "menuExportAsCSV";
+            this.menuExportAsCSV.Size = new System.Drawing.Size(267, 22);
+            this.menuExportAsCSV.Text = "&CSV File (comma separated values)...";
+            this.menuExportAsCSV.Click += new System.EventHandler(this.menuExportAsCSV_Click);
+            // 
+            // menuExportAsXML
+            // 
+            this.menuExportAsXML.Name = "menuExportAsXML";
+            this.menuExportAsXML.Size = new System.Drawing.Size(267, 22);
+            this.menuExportAsXML.Text = "X&ML File...";
+            this.menuExportAsXML.Click += new System.EventHandler(this.menuExportAsXML_Click);
+            // 
+            // menuExitToLaunchpad
+            // 
+            this.menuExitToLaunchpad.Name = "menuExitToLaunchpad";
+            this.menuExitToLaunchpad.Size = new System.Drawing.Size(168, 22);
+            this.menuExitToLaunchpad.Text = "Exit to &Launchpad";
+            this.menuExitToLaunchpad.Click += new System.EventHandler(this.menuExitToLaunchpad_Click);
+            // 
+            // menuFileExit
+            // 
+            this.menuFileExit.Name = "menuFileExit";
+            this.menuFileExit.Size = new System.Drawing.Size(168, 22);
+            this.menuFileExit.Text = "E&xit";
+            this.menuFileExit.Click += new System.EventHandler(this.menuFileExit_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.refreshToolStripMenuItem1});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "&Edit";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.copyToolStripMenuItem.Text = "&Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem1
+            // 
+            this.refreshToolStripMenuItem1.Name = "refreshToolStripMenuItem1";
+            this.refreshToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+            this.refreshToolStripMenuItem1.Text = "&Refresh";
+            this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.RefreshData);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.expandAllToolStripMenuItem,
+            this.collapseAllToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // expandAllToolStripMenuItem
+            // 
+            this.expandAllToolStripMenuItem.Name = "expandAllToolStripMenuItem";
+            this.expandAllToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.expandAllToolStripMenuItem.Text = "&Expand All";
+            this.expandAllToolStripMenuItem.Click += new System.EventHandler(this.MenuExpand_Click);
+            // 
+            // collapseAllToolStripMenuItem
+            // 
+            this.collapseAllToolStripMenuItem.Name = "collapseAllToolStripMenuItem";
+            this.collapseAllToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.collapseAllToolStripMenuItem.Text = "Co&llapse All";
+            this.collapseAllToolStripMenuItem.Click += new System.EventHandler(this.MenuCollapse_Click);
+            // 
+            // menuTools
+            // 
+            this.menuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuManageServerGroups,
+            this.menuToolsetOptions,
+            this.toolStripMenuItem4,
+            this.menuLaunchpad});
+            this.menuTools.Name = "menuTools";
+            this.menuTools.Size = new System.Drawing.Size(48, 20);
+            this.menuTools.Text = "&Tools";
+            // 
+            // menuManageServerGroups
+            // 
+            this.menuManageServerGroups.Name = "menuManageServerGroups";
+            this.menuManageServerGroups.Size = new System.Drawing.Size(233, 22);
+            this.menuManageServerGroups.Text = "Manage Server Groups...";
+            this.menuManageServerGroups.Click += new System.EventHandler(this.menuManageServerGroups_Click);
+            // 
+            // menuToolsetOptions
+            // 
+            this.menuToolsetOptions.Name = "menuToolsetOptions";
+            this.menuToolsetOptions.Size = new System.Drawing.Size(233, 22);
+            this.menuToolsetOptions.Text = "SQL admin toolset &Options...";
+            this.menuToolsetOptions.Click += new System.EventHandler(this.menuToolsetOptions_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(230, 6);
+            // 
+            // menuLaunchpad
+            // 
+            this.menuLaunchpad.Name = "menuLaunchpad";
+            this.menuLaunchpad.Size = new System.Drawing.Size(233, 22);
+            this.menuLaunchpad.Text = "SQL admin toolset &Launchpad";
+            this.menuLaunchpad.Click += new System.EventHandler(this.menuLaunchpad_Click);
+            // 
+            // menuHelp
+            // 
+            this.menuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuShowHelp,
+            this.menuContactTechnicalSupport,
+            this.toolStripMenuItem2,
+            this.menuDeactivateLicense,
+            this.menuCheckForUpdates,
+            this.toolStripMenuItem1,
+            this.menuAboutIderaProducts,
+            this.menuAbout});
+            this.menuHelp.Name = "menuHelp";
+            this.menuHelp.Size = new System.Drawing.Size(44, 20);
+            this.menuHelp.Text = "&Help";
+            this.menuHelp.Click += new System.EventHandler(this.menuHelp_Click);
+            // 
+            // menuShowHelp
+            // 
+            this.menuShowHelp.Name = "menuShowHelp";
+            this.menuShowHelp.Size = new System.Drawing.Size(216, 22);
+            this.menuShowHelp.Text = "Show &Help";
+            this.menuShowHelp.Click += new System.EventHandler(this.menuShowHelp_Click);
+            // 
+            // menuContactTechnicalSupport
+            // 
+            this.menuContactTechnicalSupport.Name = "menuContactTechnicalSupport";
+            this.menuContactTechnicalSupport.Size = new System.Drawing.Size(216, 22);
+            this.menuContactTechnicalSupport.Text = "SQL admin toolset &Support";
+            this.menuContactTechnicalSupport.Click += new System.EventHandler(this.menuContactTechnicalSupport_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            // 
+            // menuDeactivateLicense
+            // 
+            this.menuDeactivateLicense.Name = "menuDeactivateLicense";
+            this.menuDeactivateLicense.Size = new System.Drawing.Size(216, 22);
+            this.menuDeactivateLicense.Text = "Manage &License";
+            this.menuDeactivateLicense.Click += new System.EventHandler(this.menuDeactivateLicense_Click);
+            // 
+            // menuCheckForUpdates
+            // 
+            this.menuCheckForUpdates.Name = "menuCheckForUpdates";
+            this.menuCheckForUpdates.Size = new System.Drawing.Size(216, 22);
+            this.menuCheckForUpdates.Text = "Check For &Updates";
+            this.menuCheckForUpdates.Click += new System.EventHandler(this.menuCheckForUpdates_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            // 
+            // menuAboutIderaProducts
+            // 
+            this.menuAboutIderaProducts.Name = "menuAboutIderaProducts";
+            this.menuAboutIderaProducts.Size = new System.Drawing.Size(216, 22);
+            this.menuAboutIderaProducts.Text = "About Idera &Products";
+            this.menuAboutIderaProducts.Click += new System.EventHandler(this.menuAboutIderaProducts_Click);
+            // 
+            // menuAbout
+            // 
+            this.menuAbout.Name = "menuAbout";
+            this.menuAbout.Size = new System.Drawing.Size(216, 22);
+            this.menuAbout.Text = "&About BackupStatus";
+            this.menuAbout.Click += new System.EventHandler(this.menuAbout_Click);
+            // 
+            // ideraTitleBar1
+            // 
+            this.ideraTitleBar1.ActivateLicenseEventHandler = null;
+            this.ideraTitleBar1.BuyNowUrl = "www.idera.com/buynow/admin-toolset?utm_source=sqltoolset&utm_medium=inproduct&utm" +
+    "_content=bn&utm_campaign=buynow";
+            this.ideraTitleBar1.Close = true;
+            this.ideraTitleBar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ideraTitleBar1.IderaProductCommunityCenterUrl = "http://community.idera.com/forums/forum/products/idera-sql-admin-toolset/";
+            this.ideraTitleBar1.IderaProductNameText = "SQL Server Statistics";
+            this.ideraTitleBar1.IderaTrialCenterUrl = "http://www.idera.com/trialcenter";
+            this.ideraTitleBar1.LicenseInformation = null;
+            this.ideraTitleBar1.Location = new System.Drawing.Point(0, 0);
+            this.ideraTitleBar1.Maximize = true;
+            this.ideraTitleBar1.Minimize = true;
+            this.ideraTitleBar1.Name = "ideraTitleBar1";
+            this.ideraTitleBar1.Size = new System.Drawing.Size(823, 93);
+            this.ideraTitleBar1.TabIndex = 19;
+            this.ideraTitleBar1.TrialMode = true;
+            this.ideraTitleBar1.LicenseInfoButtonClick += new System.EventHandler(this.ideraTitleBar1_LicenseInfoButtonClick);
+            // 
+            // Form_Main
+            // 
+            this.AcceptButton = this.buttonGetStatistics;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(823, 668);
+            this.ControlBox = false;
+            this.Controls.Add(this.panelBottom);
+            this.Controls.Add(this.panelMiddle);
+            this.Controls.Add(this.panelTop);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ideraTitleBar1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(736, 426);
+            this.Name = "Form_Main";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.ShowF1Help);
+            this.panelMiddle.ResumeLayout(false);
+            this.groupPanel1.ResumeLayout(false);
+            this.groupResults.ResumeLayout(false);
+            this.contextMenuDetails.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.treeCategories)).EndInit();
+            this.contextMenuTree.ResumeLayout(false);
+            this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTitle)).EndInit();
+            this.panelBottom.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+      }
+
+      #endregion
+
+      private System.Windows.Forms.Panel panelMiddle;
+      private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+      private DevComponents.DotNetBar.ButtonX buttonGetStatistics;
+      private DevComponents.DotNetBar.Controls.GroupPanel groupResults;
+      private System.Windows.Forms.Panel panelTop;
+      private DevComponents.DotNetBar.LabelX labelTitle;
+      private DevComponents.DotNetBar.LabelX labelSubtitle;
+      private System.Windows.Forms.PictureBox pictureBoxTitle;
+      private System.Windows.Forms.Panel panelBottom;
+      private System.Windows.Forms.MenuStrip menuStrip1;
+      private System.Windows.Forms.ToolStripMenuItem menuFile;
+      private System.Windows.Forms.ToolStripMenuItem menuExitToLaunchpad;
+      private System.Windows.Forms.ToolStripMenuItem menuFileExit;
+      private System.Windows.Forms.ToolStripMenuItem menuTools;
+      private System.Windows.Forms.ToolStripMenuItem menuToolsetOptions;
+      private System.Windows.Forms.ToolStripMenuItem menuLaunchpad;
+      private System.Windows.Forms.ToolStripMenuItem menuHelp;
+      private System.Windows.Forms.ToolStripMenuItem menuShowHelp;
+      private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+      private System.Windows.Forms.ToolStripMenuItem menuAboutIderaProducts;
+      private System.Windows.Forms.ToolStripMenuItem menuContactTechnicalSupport;
+      private System.Windows.Forms.ToolStripMenuItem menuDeactivateLicense;
+      private System.Windows.Forms.ToolStripMenuItem menuCheckForUpdates;
+      private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+      private System.Windows.Forms.ToolStripMenuItem menuAbout;
+      private System.Windows.Forms.ToolStripMenuItem menuManageServerGroups;
+      private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+      private DevComponents.AdvTree.AdvTree treeCategories;
+      private DevComponents.DotNetBar.ElementStyle elementStyle1;
+      private DevComponents.DotNetBar.ExpandableSplitter expandableSplitter1;
+      private DevComponents.DotNetBar.Controls.ListViewEx listDetails;
+       private DevComponents.AdvTree.Node node2;
+      private System.Windows.Forms.ImageList imageList1;
+      private System.Windows.Forms.ContextMenuStrip contextMenuDetails;
+      private System.Windows.Forms.ToolStripMenuItem toolStripMenuCopy;
+      private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+      private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+      private System.Windows.Forms.ToolStripMenuItem menuExport;
+      private System.Windows.Forms.ToolStripMenuItem menuExportAsCSV;
+      private System.Windows.Forms.ToolStripMenuItem menuExportAsXML;
+      private Idera.SqlAdminToolset.Core.Controls.ToolServerSelection serverSelection;
+       private System.Windows.Forms.ContextMenuStrip contextMenuTree;
+       private System.Windows.Forms.ToolStripMenuItem toolStripMenuExpand;
+       private System.Windows.Forms.ToolStripMenuItem toolStripMenuCollapse;
+       private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+       private System.Windows.Forms.ToolStripMenuItem expandAllToolStripMenuItem;
+       private System.Windows.Forms.ToolStripMenuItem collapseAllToolStripMenuItem;
+       private DevComponents.AdvTree.ColumnHeader columnName;
+       private System.Windows.Forms.ToolStripMenuItem toolStripMenuRefresh;
+       private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+       private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem1;
+        private IderaTrialExperienceCommon.Controls.IderaTitleBar ideraTitleBar1;
+    }
+}
+

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="8" MadCap:lastHeight="767" MadCap:lastWidth="972">
+    <head><title>Create and manage SQL Server table partitions using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1" MadCap:conditions="Default.Not in PDF"><a name="help_link_1_1278434053"></a>
+            <MadCap:keyword term="Partition Generator;create SQL Server table partitions" />Partition Generator</h1>
+        <h2 class="Heading2" MadCap:conditions="Default.PrintOnly">Partition Generator</h2>
+        <p class="Body">The Partition Generator tool helps you create and manage SQL Server table partitions, which provides better data management for large tables. A large, unpartitioned table can cause performance issues, blocking issues, costly backups, and overall scalability issues as the table continues to grow. Partitions can help solve these problems by splitting the data into smaller, more manageable segments.
+</p>
+        <h2 class="Heading2">How the Partition Generator works</h2>
+        <p class="Body">The Partition Generator tool allows you to quickly determine whether a table is partitioned or needs partitioning. You can create the necessary partitions and specify the appropriate data ranges or change existing partitions by merging or splitting data ranges.</p>
+        <p class="Body">Before using the Partition Generator tool, it is important to know that table partitioning is supported by SQL&#160;Server 2005 or later. For more information, see Microsoft SQL Server Books Online.</p>
+        <p class="Body">By default, the Partition Generator tool <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account, and then collects partition information about each table. The Partition Generator tool uses partition functions and partition schemes to define how the data should be split.</p>
+        <h2 class="Heading2">Use the Partition Generator tool</h2>
+        <p class="StepIntro">To use the Partition Generator:</p>
+        <ol>
+            <li class="NumberedList">Open the Idera SQL&#160;admin toolset Launchpad, and then click <span class="GUI_Item">Partition Generator</span>.</li>
+            <li class="NumberedList">Specify the SQL&#160;Server instance or server group that contains the database you want to partition. To specify multiple SQL&#160;Servers, separate each instance name with a semicolon.</li>
+            <li class="NumberedList">Click <span class="GUI_Item">Get Partition Information</span>.</li>
+            <li class="NumberedList">To see only partitioned tables, select that option on the <span class="GUI_Item">Table </span>pane.</li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to create a partition</span>, complete these steps:<ol style="list-style-type: lower-alpha;"><li class="NumberedList">In the <span class="GUI_Item">Partition Details</span> column, click <span class="GUI_Item">Create</span> for the table you want to partition.</li><li class="NumberedList">On the Partition Information window, specify the appropriate partition settings. </li><li class="NumberedList">To add a new data range, click <span class="GUI_Item">Add new</span>, and then type the range values in the new grid row. Ensure the range values are in ascending order and can be converted to the SQL data type of the partition column.</li><li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li></ol></li>
+            <li class="NumberedList"><span class="If_Then_Statement">If you want to edit a partition</span>,complete these steps:</li>
+            <ol style="list-style-type: lower-alpha;">
+                <li class="NumberedList">In the <span class="GUI_Item">Partition Details</span> column, click <span class="GUI_Item">Edit </span>for the partitioned table you want to update.</li>
+                <li class="NumberedList">On the Partition Information window, change the appropriate partition settings. </li>
+                <li class="NumberedList">To add a new data range, click <span class="GUI_Item">Add new</span>, and then type the range values in the new grid row. Ensure the range values are in ascending order and can be converted to the SQL data type of the partition column.</li>
+                <li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li>
+            </ol>
+            <li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li>
+        </ol>
+    </body>
+</html>

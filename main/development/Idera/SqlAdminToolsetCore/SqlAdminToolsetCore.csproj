@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77765FAE-5EF0-4A6C-BAB9-FEE8E9CF6989}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Idera.SqlAdminToolset.Core</RootNamespace>
+    <AssemblyName>SqlAdminToolsetCore</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DeployLX.Licensing.v5, Version=5.0.2000.0, Culture=neutral, PublicKeyToken=798276055709c98a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\XHEO\DeployLX.Licensing.v5.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=7.3.0.6, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\DevComponents\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SQLDMO, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\DMO\Interop.SQLDMO.dll</HintPath>
+    </Reference>
+    <Reference Include="License4Net, Version=6.0.6374.15863, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\Idera\License4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\SMO\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.RegisteredServers, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\SMO\Microsoft.SqlServer.Management.RegisteredServers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\SMO\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\SMO\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TracerX, Version=1.7.11006.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\redist\Idera\TracerX.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CLI\ToolCommandLineHandler.cs" />
+    <Compile Include="Common Forms\Form_MiniBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_MiniBrowser.Designer.cs">
+      <DependentUpon>Form_MiniBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_MultipleErrorHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_MultipleErrorHandler.Designer.cs">
+      <DependentUpon>Form_MultipleErrorHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_MultipleServerError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_MultipleServerError.Designer.cs">
+      <DependentUpon>Form_MultipleServerError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_SaveServersAsServerGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_SaveServersAsServerGroup.designer.cs">
+      <DependentUpon>Form_SaveServersAsServerGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_ShowWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_ShowWarning.Designer.cs">
+      <DependentUpon>Form_ShowWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\ToolProgressBarDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\ToolProgressBarDialog.Designer.cs">
+      <DependentUpon>ToolProgressBarDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonFunctions.cs" />
+    <Compile Include="Controls\ToolProgressEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolProgressEx.Designer.cs">
+      <DependentUpon>ToolProgressEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolServerSelectionNoMru.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolServerSelectionNoMru.Designer.cs">
+      <DependentUpon>ToolServerSelectionNoMru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolProgressList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolProgressList.Designer.cs">
+      <DependentUpon>ToolProgressList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolProgressListMini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolProgressListMini.Designer.cs">
+      <DependentUpon>ToolProgressListMini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolServerSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolServerSelection.Designer.cs">
+      <DependentUpon>ToolServerSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeployLX.Licensing.v5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeployLX.Licensing.v5.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Export\ExportToClipboard.cs" />
+    <Compile Include="Export\ExportToCSV.cs" />
+    <Compile Include="Export\ExportToDataSet.cs" />
+    <Compile Include="Export\ExportToTable.cs" />
+    <Compile Include="Export\ExportToXML.cs" />
+    <Compile Include="DisplayHelp.cs" />
+    <Compile Include="GenericMru.cs" />
+    <Compile Include="LicenseViews\DeactivationConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\DeactivationConfirmationForm.Designer.cs">
+      <DependentUpon>DeactivationConfirmationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\ManageBBSLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\ManageBBSLicense.Designer.cs">
+      <DependentUpon>ManageBBSLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\ManageLicensePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\ManageLicensePanel.designer.cs">
+      <DependentUpon>ManageLicensePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivateManually.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivateManually.Designer.cs">
+      <DependentUpon>ActivateManually.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivateOnline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivateOnline.Designer.cs">
+      <DependentUpon>ActivateOnline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivatePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivationInformationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ActivationInformationPanel.Designer.cs">
+      <DependentUpon>ActivationInformationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\DeactivationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\DeactivationPanel.Designer.cs">
+      <DependentUpon>DeactivationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\DoDeactivation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\DoDeactivation.Designer.cs">
+      <DependentUpon>DoDeactivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ExtendPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\ExtendPanel.Designer.cs">
+      <DependentUpon>ExtendPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\RegisterOnline.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\RegisterOnline.Designer.cs">
+      <DependentUpon>RegisterOnline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseViews\Panels\RegisterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\SupportPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LicenseViews\SupportPanel.Designer.cs">
+      <DependentUpon>SupportPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licensing\BypassDeployLX.cs" />
+    <Compile Include="Licensing\ToolsetLicense.cs" />
+    <Compile Include="MRU.cs" />
+    <Compile Include="Security\Impersonation.cs" />
+    <Compile Include="Security\SecurityRole.cs" />
+    <Compile Include="ServerGroup\Form_AddServerToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerGroup\Form_AddServerToGroup.designer.cs">
+      <DependentUpon>Form_AddServerToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerGroup\Form_AddServerGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerGroup\Form_AddServerGroup.designer.cs">
+      <DependentUpon>Form_AddServerGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerGroup\Form_ManageServerGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerGroup\Form_ManageServerGroups.Designer.cs">
+      <DependentUpon>Form_ManageServerGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_ServerGroupBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_ServerGroupBrowse.Designer.cs">
+      <DependentUpon>Form_ServerGroupBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_ServersOrGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_ServersOrGroup.Designer.cs">
+      <DependentUpon>Form_ServersOrGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_ExportToTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_ExportToTable.Designer.cs">
+      <DependentUpon>Form_ExportToTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_Connect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_Connect.Designer.cs">
+      <DependentUpon>Form_Connect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_Credentials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_Credentials.Designer.cs">
+      <DependentUpon>Form_Credentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_DatabaseBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_DatabaseBrowse.designer.cs">
+      <DependentUpon>Form_DatabaseBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_HelpViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_HelpViewer.Designer.cs">
+      <DependentUpon>Form_HelpViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_Options.Designer.cs">
+      <DependentUpon>Form_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Menu\HelpMenu.cs" />
+    <Compile Include="CommonAssemblyInfo.cs" />
+    <Compile Include="Controls\ToolGroupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolGroupPanel.designer.cs">
+      <DependentUpon>ToolGroupPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolNumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolNumericTextBox.designer.cs">
+      <DependentUpon>ToolNumericTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolProgress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ToolProgress.Designer.cs">
+      <DependentUpon>ToolProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoreGlobals.cs" />
+    <Compile Include="Encryption\EncryptionHelper.cs" />
+    <Compile Include="Common Forms\Form_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_About.designer.cs">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_AddLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_AddLicense.designer.cs">
+      <DependentUpon>Form_AddLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_ManageLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_ManageLicense.designer.cs">
+      <DependentUpon>Form_ManageLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_SQLServerBrowse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_SQLServerBrowse.designer.cs">
+      <DependentUpon>Form_SQLServerBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Forms\Form_Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_Welcome.designer.cs">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Common Menu\Launchpad.cs" />
+    <Compile Include="Licensing\License.cs" />
+    <Compile Include="Licensing\LicenseUI.cs" />
+    <Compile Include="Messaging.cs" />
+    <Compile Include="ServerGroup\Form_RenameServerGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerGroup\Form_RenameServerGroup.Designer.cs">
+      <DependentUpon>Form_RenameServerGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerGroup\ServerGroup.cs" />
+    <Compile Include="ServerGroup\Wiz_AddServerToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerGroup\Wiz_AddServerToGroup.Designer.cs">
+      <DependentUpon>Wiz_AddServerToGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServerInformation.cs" />
+    <Compile Include="SQL\SQLCredentials.cs" />
+    <Compile Include="Threading\JobPoolOptions.cs" />
+    <Compile Include="ToolMessageBox.cs" />
+    <Compile Include="ToolsetOptions.cs" />
+    <Compile Include="Startup\Startup.cs" />
+    <Compile Include="Startup\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\Connection.cs" />
+    <Compile Include="SQL\SQLObjects.cs" />
+    <Compile Include="SQL\SQLHelpers.cs" />
+    <Compile Include="SQL\SQLVersion.cs" />
+    <Compile Include="Threading\CommonTasks.cs" />
+    <Compile Include="Threading\JobExecutionResults.cs" />
+    <Compile Include="Threading\JobPool.cs" />
+    <Compile Include="Threading\WorkItem.cs" />
+    <Compile Include="Common Menu\ToolsMenu.cs" />
+    <Compile Include="WmiHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common Forms\Form_MiniBrowser.resx">
+      <DependentUpon>Form_MiniBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_MultipleErrorHandler.resx">
+      <DependentUpon>Form_MultipleErrorHandler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_MultipleServerError.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_MultipleServerError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_SaveServersAsServerGroup.resx">
+      <DependentUpon>Form_SaveServersAsServerGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_ShowWarning.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ShowWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\ToolProgressBarDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolProgressBarDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolProgressEx.resx">
+      <DependentUpon>ToolProgressEx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolServerSelectionNoMru.resx">
+      <DependentUpon>ToolServerSelectionNoMru.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolProgressList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolProgressList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolProgressListMini.resx">
+      <DependentUpon>ToolProgressListMini.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolServerSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolServerSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeployLX.Licensing.v5.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DeployLX.Licensing.v5.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseViews\DeactivationConfirmationForm.resx">
+      <DependentUpon>DeactivationConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseViews\ManageBBSLicense.resx">
+      <DependentUpon>ManageBBSLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseViews\ManageLicensePanel.resx">
+      <DependentUpon>ManageLicensePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LicenseViews\SupportPanel.resx">
+      <DependentUpon>SupportPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerGroup\Form_AddServerToGroup.resx">
+      <DependentUpon>Form_AddServerToGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerGroup\Form_AddServerGroup.resx">
+      <DependentUpon>Form_AddServerGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerGroup\Form_ManageServerGroups.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ManageServerGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_ServerGroupBrowse.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ServerGroupBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_ServersOrGroup.resx">
+      <DependentUpon>Form_ServersOrGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_Connect.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_Connect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_Credentials.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_Credentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_DatabaseBrowse.resx">
+      <DependentUpon>Form_DatabaseBrowse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_About.resx">
+      <DependentUpon>Form_About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_AddLicense.resx">
+      <DependentUpon>Form_AddLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_ExportToTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_ExportToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_HelpViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_HelpViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_ManageLicense.resx">
+      <DependentUpon>Form_ManageLicense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_Options.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_SQLServerBrowse.resx">
+      <DependentUpon>Form_SQLServerBrowse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common Forms\Form_Welcome.resx">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolGroupPanel.resx">
+      <DependentUpon>ToolGroupPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolNumericTextBox.resx">
+      <DependentUpon>ToolNumericTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ToolProgress.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerGroup\Form_RenameServerGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_RenameServerGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerGroup\Wiz_AddServerToGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Wiz_AddServerToGroup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Common Forms\Form_OldLicenseWarning.resx">
+      <DependentUpon>Form_OldLicenseWarning.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\32_SystemError.png" />
+    <None Include="Resources\32_SystemOK.png" />
+    <None Include="Resources\32_SystemWarn.png" />
+    <None Include="Resources\Working.gif" />
+    <None Include="SqlAdminToolset.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="toolset_icon.png" />
+    <None Include="Resources\_16_RoundRed.png" />
+    <None Include="Resources\icon_info.gif" />
+    <None Include="Resources\toolbox_128.png" />
+    <None Include="Resources\information.png" />
+    <Content Include="Resources\ATS-Icon-16.png" />
+    <None Include="Resources\ATS-Icon-161.png" />
+    <Content Include="Resources\Close.png" />
+    <None Include="Resources\Close1.png" />
+    <Content Include="toolset.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Compile Include="Common Forms\Form_OldLicenseWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common Forms\Form_OldLicenseWarning.designer.cs">
+      <DependentUpon>Form_OldLicenseWarning.cs</DependentUpon>
+    </Compile>
+    <Reference Include="WebHelp, Version=2010.5.10.1600, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\redist\Idera\WebHelp.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IderaTrialExperienceCommon\IderaTrialExperienceCommon.csproj">
+      <Project>{7c498ba5-5860-48bd-84a2-8ff64d878bde}</Project>
+      <Name>IderaTrialExperienceCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeployLXKeys.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Licensing\LicenseDefinition.lic" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" class="ToolSet" MadCap:lastBlockDepth="8" MadCap:lastHeight="748" MadCap:lastWidth="972">
+    <head><title>View the status of your SQL Server instances using Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1"><a name="help_link_1_1278434053"></a>Server Health Check</h1>
+        <p class="Body">The Server Health Check tool helps you keep a constant eye on the status of SQL Server instances across your enterprise.  You can run Server Health Check as centralized interface or as system tray service  alerts you when instance goes offline or becomes unhealthy.</p>
+        <MadCap:dropDown>
+            <MadCap:dropDownHead>
+                <MadCap:dropDownHotspot>What does Server Health Check offer?</MadCap:dropDownHotspot>
+            </MadCap:dropDownHead>
+            <MadCap:dropDownBody>
+                <ul style="list-style-type: circle;">
+                    <li class="Bullet">Monitor a SQL&#160;Server instance or a server group</li>
+                    <li class="Bullet">Run tool in system tray<ul><li class="Bullet">Use status icon to quickly see health of the instance</li><li class="Bullet">Use pop-up alerts to monitor when instances come online or go offline</li><li class="Bullet">     Launch tool on Windows startup</li></ul></li>
+                    <li class="Bullet">Refresh data automatically at specified intervals</li>
+                    <li class="Bullet">Start, stop, pause, resume, and restart servers</li>
+                    <li class="Bullet">Avoid unnecessary alerts by selecting which instances should be ignored during maintenance periods</li>
+                    <li class="BulletLast">Choose WMI or a SQL query to collect health information</li>
+                </ul>
+            </MadCap:dropDownBody>
+        </MadCap:dropDown>
+        <MadCap:dropDown>
+            <MadCap:dropDownHead>
+                <MadCap:dropDownHotspot>How do I&#160;use Server Health Check?</MadCap:dropDownHotspot>
+            </MadCap:dropDownHead>
+            <MadCap:dropDownBody>
+                <ol>
+                    <li class="NumberedList">Specify the SQL&#160;Server instance or server group that contains the logins whose passwords you want to check.To specify more than one instance, complete the following steps:<ol style="list-style-type: lower-alpha;"><li class="NumberedList">Click <span class="GUI_Item">Add</span>.</li><li class="NumberedList">On the Add Server window, type the name of each instance, separating multiple instances with semicolons.</li><li class="NumberedList">Specify the type of authentication you want Server Health Check to use to connect to the specified instances. By default, the credentials of your current Windows account are used.</li><li class="NumberedList">To verify that the connection settings are valid for the specified instances, click <span class="GUI_Item">Test Connection</span>.</li><li class="NumberedList">Indicate whether you want to receive overall status information or alerts and notifications about the specified instance.</li><li class="NumberedList">Click <span class="GUI_Item">OK</span>.</li></ol></li>
+                    <li class="NumberedList">Select the appropriate system tray options.</li>
+                    <li class="NumberedList">Choose whether you to run a WMI&#160;or SQL query to retrieve the status of the specified instances. You can specify which SQL&#160;command you want to run in the query. </li>
+                    <li class="NumberedList">Click<span class="GUIItem_1"><span class="GUI_Item">Check Health Now</span></span>.</li>
+                </ol>
+            </MadCap:dropDownBody>
+        </MadCap:dropDown>
+        <MadCap:dropDown>
+            <MadCap:dropDownHead>
+                <MadCap:dropDownHotspot>How does Server Health Check work?</MadCap:dropDownHotspot>
+            </MadCap:dropDownHead>
+            <MadCap:dropDownBody>
+                <p class="Body">By default, Server Health Checker  <a href="Configure Authentication.htm">connects</a> to the specified SQL&#160;Server instances using the credentials of your currently logged on Windows account.</p>
+                <p class="Body">Server Health Check then uses either a WMI or SQL query to collect information, such as whether the SQL&#160;Server services are running, and when an instance comes online or goes offline.</p>
+            </MadCap:dropDownBody>
+        </MadCap:dropDown>
+        <p>&#160;</p>
+    </body>
+</html>

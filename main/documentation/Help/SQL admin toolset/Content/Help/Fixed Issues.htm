@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:lastBlockDepth="7" MadCap:lastHeight="2347" MadCap:lastWidth="985">
+    <head><title>Previous features and fixed issues in Idera SQL admin toolset</title>
+        <link href="../Resources/Stylesheets/Idera Stylesheet.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <h1 class="Heading1"><a name="help_link_1_1278434053"></a>Previous features and fixed issues</h1>
+        <p class="Body">Idera strives to ensure our products provide quality solutions for your SQL Server needs. This version of the SQL&#160;admin toolset includes many improvements, including these fixed issues.</p>
+        <h2 class="Heading2">1.6 features</h2>
+        <p class="DefinitionListTerm">SQL&#160;Server 2012 support</p>
+        <p class="DefinitionListBody">All tools included in the SQL admin toolset fully support SQL Server 2012 RTM.</p>
+        <h2 class="Heading2">1.5 features</h2>
+        <p class="DefinitionListTerm">New Linked Server Copy tool</p>
+        <p class="DefinitionListBody">The new Linked Server Copy tool lets you quickly and easily copy linked servers from one SQL&#160;Server instance to another. This copy includes all of the associated settings, logins, passwords, and permissions.</p>
+        <p class="DefinitionListTerm">New options for the Quick Re-Index tool</p>
+        <p class="DefinitionListBody">With the SQL&#160;admin toolset, you can now:</p>
+        <ul>
+            <li class="Bullet-Def-Body">Specify the fill factor you want to use when rebuilding a selected index.</li>
+            <li class="Bullet-Def-Body">Enable online processing during a rebuild.</li>
+            <li class="Bullet-Def-Body-Last">Use the Maxdrop setting to specify the maximum degree of parallelism used during the rebuild.</li>
+        </ul>
+        <h2 class="Heading2">1.5 fixed issues</h2>
+        <ul>
+            <li class="Bullet-Def-Body">Index Analyzer now lists the columns of an index in the order that they were defined.</li>
+            <li class="Bullet-Def-Body">Patch Analyzer now includes the latest SQL Server service packs.</li>
+            <li class="Bullet-Def-Body">Multi Query now correctly sorts the returned results.</li>
+            <li class="Bullet-Def-Body">Multi Query now correctly supports multi-line strings.</li>
+            <li class="Bullet-Def-Body-Last">Space Analyzer now reports the correct value for the Maximum Potential Size metric.</li>
+        </ul>
+        <h2 class="Heading2">1.3 fixed issues</h2>
+        <p class="DefinitionListTerm">Job Editor</p>
+        <p class="DefinitionListBody">You can now successfully retrieve job information from a Server Group that contains duplicate SQL&#160;Server instances. (1449)</p>
+        <p class="DefinitionListTerm">Job Mover</p>
+        <p class="DefinitionListBody">You can now successfully move SQL&#160;Server jobs whose names contain single quotation marks ('). (1469)</p>
+        <p class="DefinitionListTerm">Multi Query</p>
+        <p class="DefinitionListBody">You can now successfully clear the returned results of your query from the Query Execution and Results pane.(1470)</p>
+        <p class="DefinitionListTerm">Server Groups</p>
+        <p class="DefinitionListBody">Special characters are no longer supported when naming new SQL&#160;Server groups. Existing Server Groups, previously created by SQL admin toolset version 1.2 or earlier, that contain special characters are still supported. (1465)</p>
+        <p class="DefinitionListTerm">SQL&#160;Search</p>
+        <p class="DefinitionListBodyLast">You can successfully search for text strings in a SQL&#160;Server job, even if the MSDB system database is not listed in your search criteria. (1490)</p>
+        <h2 class="Heading2">1.2 fixed issues</h2>
+        <p class="DefinitionListTerm">General</p>
+        <ul>
+            <li class="Bullet-Def-Body">This release offers full support for SQL&#160;Server 2008.</li>
+            <li class="Bullet-Def-Body">You now may browse and select databases on a single server. You must manually add multiple databases on server groups.</li>
+            <li class="Bullet-Def-Body">All server browse lists include any servers defined in server groups.</li>
+            <li class="Bullet-Def-Body-Last">You now can copy error reports to the clipboard.</li>
+        </ul>
+        <p class="DefinitionListTerm">Connection Check</p>
+        <p class="DefinitionListBodyLast">The <span class="GUI_Item">Windows Authentication</span> field allows you to run a connection test under an alternate user account.</p>
+        <p class="DefinitionListTerm">Database Configuration</p>
+        <p class="DefinitionListBodyLast">Database Configuration includes a new comparison report.</p>
+        <p class="DefinitionListTerm">Database Mover</p>
+        <ul>
+            <li class="Bullet-Def-Body">Database Mover now supports database clusters.</li>
+            <li class="Bullet-Def-Body">When moving a database, you can set the default for all of the migrated users as the matching databases on the destination server.</li>
+            <li class="Bullet-Def-Body">When you move a database, the database owner also is copied to the destination server.</li>
+            <li class="Bullet-Def-Body">When selecting a destination, you now can browse to servers on different drives.</li>
+            <li class="Bullet-Def-Body-Last">You now can rename a database and then copy it to the same server instance.</li>
+        </ul>
+        <p class="DefinitionListTerm">Index Analysis</p>
+        <p class="DefinitionListBodyLast">You can select individual or multiple databases before running the Index Analyzer.</p>
+        <p class="DefinitionListTerm">Inventory Reporter</p>
+        <p class="DefinitionListBody">The Server Inventory now includes the following fields along with a list of enabled SQL Server Network Libraries:</p>
+        <ul>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">TCP Port Setting</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Memory Allocation Type</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Minimum SQL Server Memory</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Maximum SQL Server Memory</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Allocated CPU Count</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Allocated CPU Count I/O</span>
+            </li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Number of Physical Processors</span>
+            </li>
+            <li class="Bullet-Def-Body-Last"><span class="GUI_Item">Number of Logical Processors</span>
+            </li>
+        </ul>
+        <p class="DefinitionListTerm">Job Mover</p>
+        <p class="DefinitionListBodyLast">Moving jobs containing multiple steps no longer causes an error.</p>
+        <p class="DefinitionListTerm">Partition Generator</p>
+        <p class="DefinitionListBodyLast">Viewing details of a partitioned table no longer generates an error message.</p>
+        <p class="DefinitionListTerm">Password Checker</p>
+        <ul>
+            <li class="Bullet-Def-Body">You can export results as a TXT, CSV, or XML file.</li>
+            <li class="Bullet-Def-Body">Results show the servers and number of logins tested, bad passwords, blank passwords, and passwords that match the login.</li>
+            <li class="Bullet-Def-Body">The default list now includes additional password dictionaries.</li>
+            <li class="Bullet-Def-Body-Last">You can simultaneously use multiple dictionaries.</li>
+        </ul>
+        <p class="DefinitionListTerm">Patch Analyzer</p>
+        <p class="DefinitionListBodyLast">You can sort results by SQL Server name and a further sort by column within each group.</p>
+        <p class="DefinitionListTerm">Quick Reindex</p>
+        <ul>
+            <li class="Bullet-Def-Body">Index results are no longer automatically resorted after re-indexing. </li>
+            <li class="Bullet-Def-Body">You have the option to turn off the re-indexing warning message. </li>
+            <li class="Bullet-Def-Body-Last">You can select individual databases before loading index statistics.</li>
+        </ul>
+        <p class="DefinitionListTerm">Server Configuration</p>
+        <ul>
+            <li class="Bullet-Def-Body">Configuration information now includes service pack level, server collation, and login audit information.</li>
+            <li class="Bullet-Def-Body-Last">Comparison results now display differences in server collation values. You cannot update these differences.</li>
+        </ul>
+        <p class="DefinitionListTerm">Server Ping</p>
+        <p class="DefinitionListBody">You now can start, stop, pause, resume, and restart your SQL&#160;Server instances using the Server Ping tool.</p>
+        <p class="DefinitionListTerm">Server Statistics</p>
+        <ul>
+            <li class="Bullet-Def-Body">The server state is now correct for SQL Server 2000.</li>
+            <li class="Bullet-Def-Body-Last">The results for per-second counters (e.g. logins/sec) are more accurate.</li>
+        </ul>
+        <p class="DefinitionListTerm">Space Analyzer</p>
+        <ul>
+            <li class="Bullet-Def-Body">The Space Analyzer tool now has the ability to display space information for local mount points. However, it only detects mount points on Windows 2003, 2008, and Vista, and the mount point must host a valid database.</li>
+            <li class="Bullet-Def-Body">Results now include system databases (e.g. tempdb, msdb).</li>
+            <li class="Bullet-Def-Body">Results include a new column <span class="GUI_Item">% Disk Used by Database File</span> showing how much disk space is used by the selected file.</li>
+        </ul>
+        <p class="DefinitionListTerm">SQL&#160;Discovery</p>
+        <p class="DefinitionListBodyLast">When scanning, you may enter a range of IP addresses or a local subnet.</p>
+        <p class="DefinitionListTerm">User Clone</p>
+        <ul>
+            <li class="Bullet-Def-Body">	The <span class="GUI_Item">Default Database</span> field for a new user correctly displays databases from the destination SQL Server.</li>
+            <li class="Bullet-Def-Body"><span class="GUI_Item">Source User</span> displays all Windows authenticated group logins.</li>
+            <li class="Bullet-Def-Body">You have the option to exclude role-level object permissions.</li>
+        </ul>
+    </body>
+</html>

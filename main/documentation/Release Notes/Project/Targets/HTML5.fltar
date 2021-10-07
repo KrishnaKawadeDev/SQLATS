@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="1"
+  Comment="SQL admin toolset Release Notes"
+  Type="WebHelp2"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  DefaultUrl="/Content/Start Help.htm"
+  Skin="/Project/Skins/DefaultHTML5.flskn"
+  MasterToc="/Project/TOCs/RN TOC.fltoc"
+  BrowseSequence="/Project/Advanced/PDF.flbrs"
+  MasterStylesheet="/Content/Resources/Stylesheets/Idera Stylesheet.css"
+  ConditionTagExpression="include[Default.ScreenOnly or Default.SEO] exclude[Default.Google or &quot;Default.Internal Use Only&quot; or Default.PrintOnly] "
+  InsertMOTW="true"
+  MoveOutputContentToRoot="false"
+  MasterPage="/Content/Resources/MasterPages/NewPage.flmsp"
+  EnableSitemap="false"
+  SitemapWebUrl="http://www.idera.com/help/sqlat/1-7/RN/"
+  OutputFile="SQL admin toolset Release notes"
+  OutputFolder="C:\Users\npollard\Documents\GitHub\SQLAdminToolset\main\documentation\Release Notes\Output">
+  <PrintedOutput
+    CollapseMargins="true" />
+</CatapultTarget>

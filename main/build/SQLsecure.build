@@ -1,0 +1,502 @@
+<?xml version="1.0"?>
+<project name="SQLtoolset" default="Build.Dev" basedir="..">
+	<!-- ***************************************************************************** -->
+	<!--                            Setup Nant build properties                        -->
+	<!-- ***************************************************************************** -->
+	<!-- Use TStamp to set a proerty to the the current datetime defining the format -->
+	<tstamp property="Build.DateTime" pattern="MM-dd-yyyy.HHmm" verbose="true" />
+
+	<!-- Nant Properties -->
+	<property name="Framework.Version" value="v2.0.50727"/>
+	<property name="Framework.Install" value="c:/Windows/Microsoft.NET/Framework/${Framework.Version}"/>
+	<property name="nant.settings.currentframework" value="net-2.0"/>
+
+	<property name="Build.Config" value="Release" unless="${property::exists('Build.Config')}" />
+	<property name="BuildNumberPlaceholder" value="9.88.777.666" />
+	<property name="Build.Dev" value="Release" unless="${property::exists('Build.Dev')}" />
+	<property name="Build.Official" value="true" unless="${property::exists('Build.Official')}" />
+
+	<!-- Project Directories -->
+	<property name="SQLToolset.Root" value="development/SQLadmintoolset"/>
+	<property name="SQLToolset.Build" value="${SQLToolset.Root}/Build"/>
+	<property name="SQLToolset.ThirdPartySoftware" value="${SQLToolset.Root}/redist"/>
+	<property name="SQLToolset.Documentation" value="${SQLToolset.Root}/documentation/ForBuild"/>
+  <property name="SQLToolset.Install" value="${SQLToolset.Root}/Install"/>
+  <property name="SQLToolset.InstallSource" value="${SQLToolset.Root}/Install/Output"/>
+  <property name="SQLToolset.Development" value="${SQLToolset.Root}/main/development"/>
+
+  <!-- Common Assembly Info -->
+	<property name="AssemblyInfo.Company" value="Idera, a division of BBS Technologies, Inc." />
+	<property name="AssemblyInfo.Product" value="Idera SQL admin toolset" />
+	<property name="AssemblyInfo.Copyright" value="Copyright (C) 2005 - 2016 BBS Technologies" />
+	
+	<!-- InstallShield Information -->
+  <property name="InstallShield.Builder" value="C:/Program Files/InstallShield 10.5/System"/>
+	<property name="InstallShield.Output" value="${SQLToolset.Install}/setup/Product Configuration 1/Release 1/DiskImages/DISK1/setup.exe"/>
+
+  <!-- Redistributables -->
+	<property name="Redist" value="C:\Redist"/>
+	
+	<!-- Winzip dir -->
+	<property name="WinZip" value="C:\Program Files\WinZip"/>
+	
+	<!-- Absolute Packager dir -->
+	<property name="AbsolutePackager" value="C:\Program Files\Absolute Packager"/>
+	
+
+	<!-- Code-signing information -->
+	<property name="Signing.Dir" value="${SQLToolset.Install}/CodeSigning"/>
+	<property name="Signing.Application" value="${Signing.Dir}/signtool.exe"/>
+	<property name="Signing.Key" value="${Signing.Dir}/ideracredentials.pfx"/>
+	<property name="Signing.TimeStamp" value="http://timestamp.verisign.com/scripts/timstamp.dll"/>
+	<property name="Signing.Password" value="idera.redhouse.hq"/>
+	<property name="Signing.Url" value="http://www.idera.com/"/>
+	<property name="Signing.Name" value=""/>
+	<property name="Signing.Target" value=""/>
+
+	<!-- Additional Product Information -->
+	<property name="Product.Name" value="${AssemblyInfo.Company} ${AssemblyInfo.Product}" />
+	<property name="Product.Name.Simple" value="${AssemblyInfo.Company} SQL admin toolset" />
+	<property name="Product.Url" value="http://www.idera.com/" />
+
+	<!-- File Names -->
+  <property name="File.BackupStatus"               value="${SQLToolset.Root}/Idera/BackupStatus/release/BackupStatus.exe"/>
+  <property name="File.ConnectionStringGenerator"  value="${SQLToolset.Root}/Idera/ConnectionStringGenerator/release/ConnectionStringGenerator.exe"/>
+  <property name="File.DatabaseConfiguration"      value="${SQLToolset.Root}/Idera/DatabaseConfiguration/release/DatabaseConfiguration.exe"/>
+  <property name="File.DatabaseMover"              value="${SQLToolset.Root}/Idera/DatabaseMover/release/DatabaseMover.exe"/>
+  <property name="File.DatabaseMoverLibrary"       value="${SQLToolset.Root}/Idera/DatabaseMoverLibrary/release/DatabaseMoverLibrary.dll"/>
+  <property name="File.DatabaseSpace"              value="${SQLToolset.Root}/Idera/DatabaseSpace/release/SpaceAnalyzer.exe"/>
+  <property name="File.ServerPing"                 value="${SQLToolset.Root}/Idera/HealthCheck/release/ServerPing.exe"/>
+  <property name="File.IndexAnalyzer"              value="${SQLToolset.Root}/Idera/IndexAnalyzer/release/IndexAnalyzer.exe"/>
+  <property name="File.InventoryReport"            value="${SQLToolset.Root}/Idera/InventoryReport2/release/InventoryReport.exe"/>
+  <property name="File.JobEditor"                  value="${SQLToolset.Root}/Idera/JobEditor/release/JobEditor.exe"/>
+  <property name="File.JobMover"                   value="${SQLToolset.Root}/Idera/JobMover/release/JobMover.exe"/>
+  <property name="File.Launchpad"                  value="${SQLToolset.Root}/Idera/Launchpad/release/Launchpad.exe"/>
+  <property name="File.LoginCopy"                  value="${SQLToolset.Root}/Idera/LoginMover/release/LoginCopy.exe"/>
+  <property name="File.MultiQuery"                 value="${SQLToolset.Root}/Idera/MultiQuery/release/MultiQuery.exe"/>
+  <property name="File.PartitionGenerator"         value="${SQLToolset.Root}/Idera/PartitionGenerator/release/PartitionGenerator.exe"/>
+  <property name="File.PasswordChecker"            value="${SQLToolset.Root}/Idera/PasswordChecker/release/PasswordChecker.exe"/>
+  <property name="File.PatchAnalyzer"              value="${SQLToolset.Root}/Idera/PatchAnalyzer/release/PatchAnalyzer.exe"/>
+  <property name="File.PatchServerList"            value="${SQLToolset.Root}/Idera/PatchAnalyzer/SqlServerVersions.xml"/>
+  <property name="File.QuickReindex"               value="${SQLToolset.Root}/Idera/QuickReindex/release/QuickReindex.exe"/>
+  <property name="File.ConnectionCheck"            value="${SQLToolset.Root}/Idera/ServerPing/release/ConnectionCheck.exe"/>
+  <property name="File.ServerStatistics"           value="${SQLToolset.Root}/Idera/ServerStatistics/release/ServerStatistics.exe"/>
+  <property name="File.SqlAdminToolsetCore"        value="${SQLToolset.Root}/Idera/SqlAdminToolsetCore/bin/Release/SqlAdminToolsetCore.dll"/>
+  <property name="File.SqlAdminToolsetCore.Config" value="${SQLToolset.Root}/Idera/SqlAdminToolsetCore/bin/Release/SqlAdminToolset.config"/>
+  <property name="File.SqlDiscovery"               value="${SQLToolset.Root}/Idera/SqlDiscovery/release/SqlDiscovery.exe"/>
+  <property name="File.Launchpad"                  value="${SQLToolset.Root}/Idera/Launchpad/release/Launchpad.exe"/>
+  <property name="File.LoginCopy"                  value="${SQLToolset.Root}/Idera/LoginMover/release/LoginCopy.exe"/>
+  <property name="File.MultiQuery"                 value="${SQLToolset.Root}/Idera/MultiQuery/release/MultiQuery.exe"/>
+  <property name="File.PartitionGenerator"         value="${SQLToolset.Root}/Idera/PartitionGenerator/release/PartitionGenerator.exe"/>
+  <property name="File.PasswordChecker"            value="${SQLToolset.Root}/Idera/PasswordChecker/release/PasswordChecker.exe"/>
+  <property name="File.ServerConfiguration"        value="${SQLToolset.Root}/Idera/ServerConfiguration/release/ServerConfiguration.exe"/>
+  <property name="File.SqlSearch"                  value="${SQLToolset.Root}/Idera/SqlSearch2/release/SqlSearch.exe"/>
+  <property name="File.ObjectSearch"               value="${SQLToolset.Root}/Idera/SuperSearch/release/ObjectSearch.exe"/>
+  <property name="File.TablePin"                   value="${SQLToolset.Root}/Idera/TablePin/release/TablePin.exe"/>
+  <property name="File.UserClone"                  value="${SQLToolset.Root}/Idera/UserClone/release/UserClone.exe"/>
+
+  <!--- Network shares for Builds -->
+	<property name="SQLToolset.Development.Builds"   value="//redhousefs-02/Development/SQLadmintoolset/Builds/"/>
+	<property name="SQLToolset.Development.Archives" value="//redhousefs-02/Development/SQLadmintoolset/Archives/"/>
+
+	<!-- Perforce Information -->
+	<property name="Perforce.Branch" value="//sqladmintoolset/main"/>
+	<property name="Perforce.View" value="${Perforce.Branch}/..."/>
+	<property name="Perforce.DocView" value="${Perforce.Branch}/Documentation/..."/>
+
+	<property name="Utility.Sed" value="build/bin/sed.exe"/>
+
+	<!-- Version Information -->
+	<property name="Build.StartDate" value="1/1/2007"/>
+
+	<!-- ***************************************************************************** -->
+	<!--                            Build Steps                                        -->
+	<!-- ***************************************************************************** -->
+	
+	<!-- ************* -->
+	<!-- Build.Compile -->
+	<!-- ************* -->
+	
+	<target name="Build.Compile">
+
+	  <exec program="msbuild" workingdir="${SQLToolset.Development}">
+  		  <arg value="SqlAdminToolset.sln"/>
+  		  <arg value="/p:Configuration=${Build.Config}"/>
+	  </exec>
+
+	</target>
+
+	<!-- **************** -->
+  	<!-- Build.Installers -->
+	<!-- **************** -->
+	
+	<target name="Build.Installers">
+
+    <!-- Copy exe & dll & documentation files -->
+    	<copy todir="${SQLToolset.InstallSource" flatten="true">
+
+        <fileset>
+
+          <include name="${SQLToolset.ThirdPartySoftware}/DevComponents/*.*"/>
+          <include name="${SQLToolset.ThirdPartySoftware}/DMO/*.*"/>
+          <include name="${SQLToolset.ThirdPartySoftware}/Idera/*.*"/>
+          <include name="${SQLToolset.ThirdPartySoftware}/ReportViewer/*.*"/>
+          <include name="${SQLToolset.ThirdPartySoftware}/SMO/*.*"/>
+
+          <include name="${File.BackupStatus}"/>
+          <include name="${File.ConnectionStringGenerator}"/>
+          <include name="${File.DatabaseConfiguration}"/>
+          <include name="${File.DatabaseMover}"/>
+          <include name="${File.DatabaseMoverLibrary}"/>
+          <include name="${File.DatabaseSpace}"/>
+          <include name="${File.ServerPing}"/>
+          <include name="${File.IndexAnalyzer}"/>
+          <include name="${File.InventoryReport}"/>
+          <include name="${File.JobEditor}"/>
+          <include name="${File.JobMover}"/>
+          <include name="${File.Launchpad}"/>
+          <include name="${File.LoginCopy}"/>
+          <include name="${File.MultiQuery}"/>
+          <include name="${File.PartitionGenerator}"/>
+          <include name="${File.PasswordChecker}"/>
+          <include name="${File.PatchAnalyzer}"/>
+          <include name="${File.PatchServerList}"/>
+          <include name="${File.QuickReindex}"/>
+          <include name="${File.ConnectionCheck}"/>
+          <include name="${File.ServerStatistics}"/>
+          <include name="${File.SqlAdminToolsetCore}"/>
+          <include name="${File.SqlAdminToolsetCore.Config}"/>
+          <include name="${File.SqlDiscovery}"/>
+          <include name="${File.Launchpad}"/>
+          <include name="${File.LoginCopy}"/>
+          <include name="${File.MultiQuery}"/>
+          <include name="${File.PartitionGenerator}"/>
+          <include name="${File.PasswordChecker}"/>
+          <include name="${File.ServerConfiguration}"/>
+          <include name="${File.SqlSearch}"/>
+          <include name="${File.ObjectSearch}"/>
+          <include name="${File.TablePin}"/>
+          <include name="${File.UserClone}"/>
+
+          <include name="${SQLToolset.Documentation}/*.*"/>
+          
+        </fileset>
+    	</copy>
+	    	
+		  <!-- Add version number to the installer x86 -->	    	
+		  <attrib file="${SQLToolset.Install}/setup.ism" readonly="false"/>
+		  <move file="${SQLToolset.Install}/setup.ism" tofile="${SQLToolset.Install}/setup.old"   overwrite="true" />
+		  <exec program="${Utility.Sed}">
+			  <arg value="${SQLToolset.Install}/setup.old"/>
+			  <arg value="${SQLToolset.Install}/setup.ism"/>
+			  <arg value="${BuildNumberPlaceholder}"/>
+			  <arg value="${SQLToolset.version}"/>
+		  </exec>
+		  <attrib file="${SQLToolset.Install}/setup.ism" readonly="true"/>
+
+		<!-- Create Install Package-->
+		<exec program="${InstallShield.Builder}\IsBuild" workingdir="${SQLToolset.Install.InstallShield}">
+			<arg value="-c"/>
+			<arg value="COMP"/>
+			<arg value="-p"/>
+			<arg value="${InstallShield.Full.Project}"/>
+			<arg value="-e"/>
+			<arg value="Y"/>
+			<arg value="-o"/>
+			<arg value="${installshield.mergemodules.searchpath}"/>
+		</exec>
+		<property name="Signing.Name" value="Idera SQL admin toolset"/>
+		<property name="Signing.Target" value="${FullPath.Install.Full}"/>
+		<call target="SignCode"/>
+
+
+    <!-- ********* -->
+    <!-- Sign Code -->
+    <!-- ********* -->
+    <target name="SignCode">
+		<exec program="${Signing.Application}">
+			<arg value="sign"/>
+			<arg value="-d"/>
+			<arg value="${Signing.Name}"/>
+			<arg value="-du"/>
+			<arg value="${Signing.Url}"/>
+			<arg value="-f"/>
+			<arg value="${Signing.Key}"/>
+			<arg value="-p"/>
+			<arg value="${Signing.Password}"/>
+			<arg value="-t"/>
+			<arg value="${Signing.TimeStamp}"/>
+			<arg value="${Signing.Target}"/>
+		</exec>
+ 	  </target>
+
+	<!-- ************* -->
+	<!-- Build.CDImage -->
+	<!-- ************* -->
+	
+	<target name="Build.CDImage">
+	    	<!-- copy installers -->
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full/Intel" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full}"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x64/Full/Intel" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full.x64}"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/ia64/Full/Intel" flatten="true">
+			<fileset>
+				<include name="${FullPath.Install.Full.ia64}"/>
+			</fileset>
+	    	</copy>
+	    	
+	    	<!-- copy Documentation -->
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full/Documentation" flatten="true">
+	      		<fileset>
+				<include name="${SQLToolset.Documentation}/*" />
+	      		</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x64/Full/Documentation" flatten="true">
+	      		<fileset>
+				<include name="${SQLToolset.Documentation}/*" />
+	      		</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/ia64/Full/Documentation" flatten="true">
+	      		<fileset>
+				<include name="${SQLToolset.Documentation}/*" />
+	      		</fileset>
+	    	</copy>
+	    	
+	    	<!-- copy Redist -->
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full/redist/NET Framework 2.0" flatten="true">
+			<fileset>
+				<include name="${Redist}/NET Framework 2.0/*"/>
+			</fileset>
+	    	</copy>
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full/redist/Windows Installer 3.1" flatten="true">
+			<fileset>
+				<include name="${Redist}/Windows Installer 3.1/*"/>
+			</fileset>
+	    	</copy>
+	    	
+	    	<!-- Copy Autorun -->
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.x86}/*"/>
+			</fileset>
+	    	</copy>
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Full/Bin" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.x86.Bin}/*"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x64/Full" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.x64}/*"/>
+			</fileset>
+	    	</copy>
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x64/Full/Bin" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.x64.Bin}/*"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/ia64/Full" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.ia64}/*"/>
+			</fileset>
+	    	</copy>
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/ia64/Full/Bin" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.Install.Autorun.Bin.ia64.Bin}/*"/>
+			</fileset>
+	    	</copy>
+	    	
+	</target>
+
+	<!-- ****************** -->
+	<!-- Build.WebInstaller -->
+	<!-- ****************** -->
+	
+	<target name="Build.WebInstaller">
+		<!-- Zip the full solutions-->
+	    	<exec program="${WinZip}\wzzip">
+	      		<arg value="-a"/>
+	      		<arg value="-p"/>
+	      		<arg value="-r"/>
+	      		<arg value="C:\Perforce\SQLsecure\Main\Build\BuildCompileOutput\SQLToolset.zip"/>
+	      		<arg value="${SQLToolset.Build.Output}\${SQLToolset.BuildLabel}\x86\Full\*.*"/>
+	    	</exec>
+		<exec program="${WinZip}\wzzip">
+	      		<arg value="-a"/>
+	      		<arg value="-p"/>
+	      		<arg value="-r"/>
+	      		<arg value="C:\Perforce\SQLsecure\Main\Build\BuildCompileOutput\SQLsecure-x64.zip"/>
+	      		<arg value="${SQLToolset.Build.Output}\${SQLToolset.BuildLabel}\x64\Full\*.*"/>
+	    	</exec>
+		<exec program="${WinZip}\wzzip">
+	      		<arg value="-a"/>
+	      		<arg value="-p"/>
+	      		<arg value="-r"/>
+	      		<arg value="C:\Perforce\SQLsecure\Main\Build\BuildCompileOutput\SQLsecure-ia64.zip"/>
+	      		<arg value="${SQLToolset.Build.Output}\${SQLToolset.BuildLabel}\ia64\Full\*.*"/>
+	    	</exec>
+	    	
+		<!-- Build absolute packager -->
+	    	<exec program="InstallationKit.bat" workingdir="C:\Perforce\SQLsecure\Main\Build">
+		</exec>
+		<exec program="InstallationKit-x64.bat" workingdir="C:\Perforce\SQLsecure\Main\Build">
+		</exec>
+		<exec program="InstallationKit-ia64.bat" workingdir="C:\Perforce\SQLsecure\Main\Build">
+	    	</exec>
+	    	
+                <!-- Zip the EXE (used for HTTP downloads where we dont want an EXE) -->
+		<exec program="${WinZip}\wzzip">
+			    <arg value="-a"/>
+			    <arg value="${SQLToolset.BuildCompile.Output}\IderaSQlsecureInstallationKit.zip"/>
+			    <arg value="${SQLToolset.BuildCompile.Output}\IderaSQlsecureInstallationKit.exe"/>
+		</exec>
+
+	    	
+	    	<!-- Copy files to the Build output folder -->
+	    	<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x86/Web" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.BuildCompile.Output}\IderaSQlsecureInstallationKit.exe"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/x64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.BuildCompile.Output}\IderaSQlsecureInstallationKit-x64.exe"/>
+			</fileset>
+	    	</copy>
+		<copy todir="${SQLToolset.Build.Output}/${SQLToolset.BuildLabel}/ia64/Web" flatten="true">
+			<fileset>
+				<include name="${SQLToolset.BuildCompile.Output}\IderaSQlsecureInstallationKit-ia64.exe"/>
+			</fileset>
+	    	</copy>
+	</target>
+	
+	<!-- ******************* -->
+	<!-- Build.AllInstallers -->
+	<!-- ******************* -->
+	
+	<target name="Build.AllInstallers">	
+		<call target="Build.Installers" />
+		<call target="Build.CDImage" />
+		<call target="Build.WebInstaller" />
+	</target>
+	
+	<!-- ********* -->
+	<!-- Build.Dev -->
+	<!-- ********* -->
+	
+	<target name="Build.Dev">
+		<call target="Perforce.Sync" />
+		<call target="Build.ApplyVersionInfo" />
+		<call target="Build.Compile" />
+		<call target="Build.Obfuscate" />
+		<call target="Build.AllInstallers" />
+	</target>
+	
+	<target name="Perforce.Sync">
+	    <p4sync force="true"  view="${Perforce.View}" />
+	</target>
+	
+	<target name="Build.ApplyVersionInfo">
+		<call target="Build.Version" unless="${property::exists('SQLToolset.version')}"/>
+		<call target="Build.GenerateCommonAssemblyInfo"/>
+	</target>
+	
+	<target name="Build.Version">
+		<!-- Set the build.number file to read-write -->
+		<loadtasks assembly="build/bin/BuildUtilities.dll" />
+		<p4edit view="${Perforce.Branch}/build/build.number"/>
+
+		<!-- Generate the build/revision number -->
+		 <version path="build/build.number" startdate="${Build.StartDate}" prefix="SQLsecure" buildtype="MonthDay" revisiontype="Increment" />
+		<p4submit changelist="Update build number" view="${Perforce.Branch}/build/build.number"/>
+		
+		<!-- Set the build label used for P4 labeling, output dir & zip file -->
+		<property name="SQLToolset.BuildLabel" value="${SQLToolset.version}" />
+	</target>
+	
+	<target name="Build.GenerateCommonAssemblyInfo">
+		<property name="CommonAssemblyInfo" value="${SQLToolset.Root}/CommonAssemblyInfo.cs" />
+
+		<!-- Set the common assembly info file to read-write -->
+		<attrib file="${CommonAssemblyInfo}" readonly="false" />
+
+		<!-- Generate common assembly info -->
+		<asminfo output="${CommonAssemblyInfo}" language="CSharp">
+			<imports>
+				<import namespace="System.Reflection" />
+			</imports>
+			<attributes>
+				<attribute type="AssemblyCompanyAttribute" value="${AssemblyInfo.Company}" />
+				<attribute type="AssemblyProductAttribute" value="${AssemblyInfo.Product}" />
+				<attribute type="AssemblyCopyrightAttribute" value="${AssemblyInfo.Copyright}" />
+				<attribute type="AssemblyVersionAttribute" value="${SQLToolset.version}" />
+			</attributes>
+	    	</asminfo>
+
+    		<!-- Set the common assembly info file to read-only -->
+	    	<attrib file="${CommonAssemblyInfo}" readonly="true" />
+	</target>
+	
+	<!-- ***************** -->
+	<!-- Build.Incremental -->
+	<!-- ***************** -->
+	
+	<target name="Build.Incremental">
+		<call target="Build.GetCurrentVersion" />
+		<call target="Build.AllInstallers" />
+		<call target="Perforce.Label" />
+		<call target="Archive" />
+	</target>
+	
+	<target name="Build.GetCurrentVersion">
+		<!-- Make build number file as R/W -->
+		<attrib file="build/build.number" readonly="false"/>
+		
+		<!-- Call utility to maintain the same build number -->
+		<loadtasks assembly="build/bin/BuildUtilities.dll" />
+		<versionex path="build/build.number" prefix="SQLsecure" buildtype="NoIncrement" revisiontype="NoIncrement" />
+		
+		<!-- Make build number file as R -->
+		<attrib file="build/build.number" readonly="true"/>
+		
+		<!-- Set the build label used for P4 labeling, output dir & zip file -->
+		<property name="SQLToolset.BuildLabel" value="${SQLToolset.version}_${SQLToolset.Incremental.Label}" />
+	</target>
+	
+	<!-- ************** -->
+	<!-- Build.Official -->
+	<!-- ************** -->
+	
+	<target name="Build.Official">	
+		<call target="Build.Dev" />
+		<call target="Perforce.Label" />
+		<call target="Archive" />
+	</target>
+	
+	<target name="Perforce.Label">
+		<p4label label="sqlsecure_${SQLToolset.BuildLabel}" view="${Perforce.View}"/>
+		<p4labelsync label="sqlsecure_${SQLToolset.BuildLabel}"  view="${Perforce.View}"/>
+		<exec program="LockLabel.bat" workingdir="C:\Perforce\SQLsecure\Main\Build">
+			<arg value="sqlsecure_${SQLToolset.BuildLabel}"/>
+	    	</exec>
+	</target>
+
+	<target name="Archive">
+		<!-- Zip the full solution -->
+	    	<exec program="${WinZip}\wzzip">
+	      		<arg value="-a"/>
+	      		<arg value="-p"/>
+	      		<arg value="-r"/>
+	      		<arg value="C:\Perforce\SQLsecure_${SQLToolset.BuildLabel}.zip"/>
+	      		<arg value="C:\Perforce\SQLsecure\*.*"/>
+	    	</exec>
+	</target>
+	
+</project>
