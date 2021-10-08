@@ -605,6 +605,11 @@ namespace Idera.SqlAdminToolset.QuickReindex
                 dataGridViewX1.Columns["Index"].ReadOnly = true;
             }
             
+            if (dataGridViewX1.Columns.Contains("IsColumnStore"))
+            {
+                dataGridViewX1.Columns["IsColumnStore"].Visible = false;
+            }
+            
             if (dataGridViewX1.Columns.Contains("IsClustered"))
             {
                 dataGridViewX1.Columns["IsClustered"].Visible = true;
@@ -815,6 +820,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
 //            dataTable.Columns.Add("SchemaName", typeof(string));
             dataTable.Columns.Add("TableName", typeof(string));
             dataTable.Columns.Add("Index", typeof(Index));
+            dataTable.Columns.Add("IsColumnStore", typeof(string));
             dataTable.Columns.Add("IsClustered", typeof(string));
             dataTable.Columns.Add("FillFactor", typeof(string));
             dataTable.Columns.Add("IsDisabled", typeof(string));
@@ -836,6 +842,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
                     dataTable.Rows.Add(new object[] {   i.DatabaseName, 
                                                 string.Format("{0}.{1}", i.SchemaName, i.TableName),
                                                 i,
+                                                i.IsColumnStore ? "Yes" : "No",
                                                 i.IsClustered ? "Yes" : "No",
                                                 i.FillFactor,
                                                 i.IsDisabled ? "Yes" : "No",
@@ -1237,7 +1244,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
                                 }
                             }
 
-                            i.Rebuild(_OnlineRebuild, _SortInTempdbOnOff, conn); //CGVAK -Passed the assignd variable
+                            i.Rebuild(_OnlineRebuild, _SortInTempdbOnOff, i.IsColumnStore, conn); //CGVAK -Passed the assignd variable
 
 						}
                     }
@@ -1596,6 +1603,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
                           "  [Schema] [nvarchar](256)   NULL, " +
                           "  [Table] [nvarchar](256)   NULL, " +
                           "  [Index] [nvarchar] (256)   NULL, " +
+                          "  [IsColumnStore] [nvarchar] (12) NULL, " +
                           "  [IsClustered] [nvarchar](12)   NULL, " +
                           "  [IsDisabled]  [nvarchar] (12)  NULL," +
                           "  [CountPages] [int] NULL, " +
@@ -1634,6 +1642,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
                     PopulateTable_AddProperty("Schema", SQLHelpers.CreateSafeString(index.SchemaName));
                     PopulateTable_AddProperty("Table", SQLHelpers.CreateSafeString(index.TableName));
                     PopulateTable_AddProperty("Index", SQLHelpers.CreateSafeString(index.Name));
+                    PopulateTable_AddProperty("IsColumnStore", SQLHelpers.CreateSafeString(index.IsColumnStore ? "Yes" : "No"));
                     PopulateTable_AddProperty("IsClustered", SQLHelpers.CreateSafeString(index.IsClustered ? "Yes" : "No"));
                     PopulateTable_AddProperty("IsDisabled", SQLHelpers.CreateSafeString(index.IsDisabled ? "Yes" : "No"));
                     PopulateTable_AddProperty("CountPages", index.CountPages.ToString());

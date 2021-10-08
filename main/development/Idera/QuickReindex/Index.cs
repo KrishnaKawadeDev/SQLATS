@@ -11,6 +11,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
     {
         private static SqlCommand Command = null;
         private bool _isSystem;
+        private bool _isColumnStore;
         private bool _isClustered;
         private string _fillFactor;
         private bool _isDisabled;
@@ -32,12 +33,12 @@ namespace Idera.SqlAdminToolset.QuickReindex
         private const string Reorganize2005 = "ALTER INDEX {0} ON {1}.{2}.{3} REORGANIZE";
         private const string Rebuild2000 = "DBCC DBREINDEX ({0}, {1}{2}";
         //RG: Added two addition parameters to support ONLINE and SORT_IN_TEMP
-        private const string Rebuild2005 = "ALTER INDEX {0} ON {1}.{2}.{3} REBUILD WITH ({4}, {5} MAXDOP = {6} {7})";
+        private const string Rebuild2005 = "ALTER INDEX {0} ON {1}.{2}.{3} REBUILD WITH ({4} {5} MAXDOP = {6} {7})";
         //RG: Added constants for ONLINE ON|OFF and SORT_IN_TEMP ON|OFF
         private const string OnlineOff = ", ONLINE = OFF";
         private const string OnlineOn = ", ONLINE = ON";
-        private const string SortInTempdbOff = "SORT_IN_TEMPDB = OFF";
-        private const string SortInTempdbOn = "SORT_IN_TEMPDB = ON";
+        private const string SortInTempdbOff = "SORT_IN_TEMPDB = OFF,";
+        private const string SortInTempdbOn = "SORT_IN_TEMPDB = ON,";
 
         private const int AverageRecordSize2000 = 9;
         private const int AveragePageDensity2000 = 14;
@@ -78,6 +79,12 @@ namespace Idera.SqlAdminToolset.QuickReindex
         {
             get { return _fillFactor; }
             set { _fillFactor = value; }
+        }
+
+        public bool IsColumnStore
+        {
+            get { return _isColumnStore; }
+            set { _isColumnStore = value; }
         }
 
         public bool IsClustered
@@ -270,7 +277,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
             }
         }
 
-        public void Rebuild(bool OnLine, bool IsSortInTemp, SqlConnection conn)
+        public void Rebuild(bool OnLine, bool IsSortInTemp, bool IsColumnStore, SqlConnection conn)
         {
             string query;
             try
@@ -300,6 +307,10 @@ namespace Idera.SqlAdminToolset.QuickReindex
                     if (IsSortInTemp)
                     {
                         sortInTempdbCmd = SortInTempdbOn;
+                    }
+                    if (IsColumnStore)
+                    {
+                        sortInTempdbCmd = "";
                     }
                     if (OnLine)
                     {

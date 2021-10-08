@@ -54,6 +54,7 @@ namespace Idera.SqlAdminToolset.Core
            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler( this.webBrowser1_Navigating );
            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler( this.webBrowser1_DocumentCompleted );
            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler( this.webBrowser1_Navigated );
+           this.webBrowser1.ScriptErrorsSuppressed = true;
            // 
            // buttonClose
            // 

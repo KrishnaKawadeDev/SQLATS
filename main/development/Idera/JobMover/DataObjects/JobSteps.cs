@@ -38,45 +38,46 @@ namespace Idera.SqlAdminToolset.JobMover.DataObjects
             foreach (DataRow row in items.Rows)
             {
                 JobStepInfo item = new JobStepInfo(jobMetaInfo, row);
-                if(item.Command != null) { 
-                var command = item.Command.Split(' ');
-                if (item.Command.Contains("File System"))
+                if (item.Command != null)
                 {
-                    for (int i = 0; i < command.Length; i++)
+                    var command = item.Command.Split(' ');
+                    if (item.Command.Contains("File System"))
                     {
-                        if (command[i].Contains("SERVER"))
+                        for (int i = 0; i < command.Length; i++)
                         {
-                            stringbuilder.Append(" /SERVER " + "\"\\\"" + ServerName + "\\\"\"");
-                            i++;
-                        }
-                        else
-                        {
-                            stringbuilder.Append(" " + command[i]);
-                        }
-                    }
-                    item.Command = stringbuilder.ToString();
-                }
-                else if (command[0].Contains("SERVER"))
-                {
-                    for (int i = 0; i < command.Length; i++)
-                    {
-                        if (command[i].Contains("SERVER"))
-                        {
-                            stringbuilder.Append("/SERVER " + ServerName + "");
-                        }
-                        else
-                        {
-                            if (i == command.Length - 1)
+                            if (command[i].Contains("SERVER"))
                             {
+                                stringbuilder.Append(" /SERVER " + "\"\\\"" + ServerName + "\\\"\"");
+                                i++;
                             }
                             else
                             {
-                                stringbuilder.Append(" " + command[i + 1]);
+                                stringbuilder.Append(" " + command[i]);
                             }
                         }
+                        item.Command = stringbuilder.ToString();
                     }
-                    item.Command = stringbuilder.ToString();
-                }
+                    else if (command[0].Contains("SERVER") && !item.Command.Contains("ISSERVER"))
+                    {
+                        for (int i = 0; i < command.Length; i++)
+                        {
+                            if (command[i].Contains("SERVER"))
+                            {
+                                stringbuilder.Append("/SERVER " + ServerName + "");
+                            }
+                            else
+                            {
+                                if (i == command.Length - 1)
+                                {
+                                }
+                                else
+                                {
+                                    stringbuilder.Append(" " + command[i + 1]);
+                                }
+                            }
+                        }
+                        item.Command = stringbuilder.ToString();
+                    }
                 }
                 Add((int)row["step_id"], item);
             }

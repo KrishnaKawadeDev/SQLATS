@@ -54,6 +54,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
 
         private const string GetIndexFrag2005 = "USE {0} SELECT tbl.name as [Table], tbl.object_id, SCHEMA_NAME(tbl.schema_id) as [Schema], i.Name AS [Name], "
                                                                               + "CAST(i.index_id AS int) AS [ID], "
+                                                                              + "CAST(CASE i.type_desc WHEN 'NONCLUSTERED COLUMNSTORE' THEN 1 WHEN 'CLUSTERED COLUMNSTORE' THEN 1 ELSE 0 END AS tinyint) AS [IsColumnStore],"
                                                                               + "CAST(CASE i.index_id WHEN 1 THEN 1 ELSE 0 END AS tinyint) AS [IsClustered], CAST(i.fill_factor AS varchar) AS [FillFactor], "
                                                                               + "CAST(i.is_disabled as tinyint) as [IsDisabled], "
                                                                               + "avg_fragmentation_in_percent, "
@@ -66,6 +67,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
 
         private const string GetIndexes2005 = "USE {0} SELECT tbl.name as [Table], tbl.object_id, SCHEMA_NAME(tbl.schema_id) as [Schema], i.Name AS [Name], "
                                                                              + "CAST(i.index_id AS int) AS [ID], "
+                                                                             + "CAST(CASE i.type_desc WHEN 'NONCLUSTERED COLUMNSTORE' THEN 1 WHEN 'CLUSTERED COLUMNSTORE' THEN 1 ELSE 0 END AS tinyint) AS [IsColumnStore],"
                                                                              + "CAST(CASE i.index_id WHEN 1 THEN 1 ELSE 0 END AS tinyint) AS [IsClustered],  CAST(i.fill_factor AS varchar) AS [FillFactor], "
                                                                              + "CAST(i.is_disabled as tinyint) as [IsDisabled], "
                                                                              + "CAST(-10.0 as float) as [avg_fragmentation_in_percent], "
@@ -243,6 +245,7 @@ namespace Idera.SqlAdminToolset.QuickReindex
                                                     string.Format("'{0}.{1}.{2}.{3}'", workingTable.DatabaseName,
                                                   workingTable.SchemaName, workingTable.Name, idx.Name));
                                 idx.Id = SQLHelpers.GetInt32(reader, count++);
+                                idx.IsColumnStore = SQLHelpers.ByteToBool(reader, count++);
                                 idx.IsClustered = SQLHelpers.ByteToBool(reader, count++);
                                 idx.FillFactor = SQLHelpers.GetString(reader, count++);
                                 if (idx.FillFactor == "0")

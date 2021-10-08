@@ -318,10 +318,11 @@ namespace Idera.SqlAdminToolset.MultiQuery
       // SQLur - Break SQL statement into batches
       //-------------------------------------------------------------------------------------
       static public List<StringBuilder> SqlParser(string sql, string batchSeparator)
-      {
-            CountQuotes = 0;
+      {     
+         CountQuotes = 0;
          bool   newBatchNextLine = true;
          bool stringsClosed = true;
+         bool isN = false;
          char[] crlf = new char[] { '\r', '\n' };
          string currentLine = "";
          List<StringBuilder> batches = new List<StringBuilder>();
@@ -350,17 +351,44 @@ namespace Idera.SqlAdminToolset.MultiQuery
                currentLine = sql;
                sql = "";
             }
-                if (currentLine.StartsWith("--"))
+            
+            if(currentLine.Contains("N'") && !isN)
+            {
+                isN = true;
+                if((currentLine.Split('\'').Length - 1) % 2 == 0)
+                    isN = false;
+            }
+            else if (isN)
+            {
+                if((currentLine.Split('\'').Length - 1) % 2 != 0)
+                    isN = false;
+                else
                 {
-                    if (currentLine.Contains("'"))
+                    int CQuotes = 0;
+                    if (currentLine.Contains("/*"))
                     {
-                        int CQuotes = currentLine.Split('\'').Length - 1;
-                        CountQuotes = CountQuotes - CQuotes;
+                        CQuotes = currentLine.Split(new string[] { "/*" }, StringSplitOptions.None)[0].Split('\'').Length - 1;
                     }
-  
+                    else if (currentLine.Contains("--"))
+                    {
+                        CQuotes = currentLine.Split(new string[] { "--" }, StringSplitOptions.None)[0].Split('\'').Length - 1;
+                    }
+                    if(CQuotes % 2 != 0)
+                        isN = false;
                 }
-                //At this point we have the current line.  Process that line. 
-                bool foundGO = false;
+            }
+
+            if (currentLine.StartsWith("--"))
+            {
+                if (currentLine.Contains("'"))
+                {
+                    int CQuotes = currentLine.Split('\'').Length - 1;
+                    CountQuotes = CountQuotes - CQuotes;
+                }
+  
+            }
+            //At this point we have the current line.  Process that line. 
+            bool foundGO = false;
 
             // eat leading white space and comments
             string consumedLine = ConsumeLeadingWhiteSpaceAndComments( currentLine );
@@ -389,6 +417,14 @@ namespace Idera.SqlAdminToolset.MultiQuery
                     if(CountQuotes % 2 == 0)
                     {
                         foundGO = true;
+                    }
+                    if(!isN)
+                    {
+                        isN = false;
+                        foundGO = true;
+                    } else
+                    {
+                        foundGO = false;
                     }
                   
 
